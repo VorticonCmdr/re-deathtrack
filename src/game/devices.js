@@ -17,7 +17,7 @@ export function takeIo(){const c=io.clocks;io.clocks=0;return c;}
 
 // ---- OPL2 ----
 // `events` is the time-stamped register write stream for the audio renderer; timers follow virtual time.
-export const opl={regs:new Uint8Array(256),index:0,events:[],
+export const opl={regs:new Uint8Array(256),index:0,events:[],count:0,
  t1:{on:0,masked:0,over:0,exp:0},t2:{on:0,masked:0,over:0,exp:0}};
 const T1_US=80,T2_US=320;
 const period=(t,r)=>(256-r)*(t?T2_US:T1_US)*PIT_HZ/1e6;
@@ -29,7 +29,7 @@ function oplTimers(){
   while(now>=t.exp){if(!t.masked)t.over=1;t.exp+=p;}
  }
 }
-export function oplReset(){opl.regs.fill(0);opl.index=0;opl.events.length=0;for(const t of [opl.t1,opl.t2])Object.assign(t,{on:0,masked:0,over:0,exp:0});}
+export function oplReset(){opl.regs.fill(0);opl.index=0;opl.count=0;opl.events.length=0;for(const t of [opl.t1,opl.t2])Object.assign(t,{on:0,masked:0,over:0,exp:0});}
 export function oplStatus(){
  oplTimers();
  return (opl.t1.over?0x40:0)|(opl.t2.over?0x20:0)|(opl.t1.over||opl.t2.over?0x80:0);
@@ -48,13 +48,13 @@ function oplWriteReg(reg,v){
    }
   }
  }
- opl.regs[reg]=v;
+ opl.regs[reg]=v;opl.count++;
  if(opl.events.length<200000)opl.events.push({t:now,reg,v});
 }
 
 // ---- MPU-401 (UART mode) ----
-export const mpu={queue:[],uart:0,last:0,events:[]};   // events: {t,b} MIDI bytes written to 330h in UART mode
-export function mpuReset(){mpu.queue.length=0;mpu.uart=0;mpu.last=0;mpu.events.length=0;}
+export const mpu={queue:[],uart:0,last:0,events:[],count:0};   // events: {t,b} MIDI bytes written to 330h in UART mode
+export function mpuReset(){mpu.queue.length=0;mpu.uart=0;mpu.last=0;mpu.count=0;mpu.events.length=0;}
 const mpuCmd=v=>{
  if(v===0x3f)mpu.uart=1;else if(v===0xff)mpu.uart=0;
  mpu.queue.push(0xfe);                    // every command is acknowledged (DOSBox)
@@ -79,7 +79,7 @@ export function portOut(port,v){
  charge();v&=0xff;
  switch(port){
   case 0x331:if(hw.sound==='mt32')mpuCmd(v);return;
-  case 0x330:if(hw.sound==='mt32'&&mpu.uart&&mpu.events.length<500000)mpu.events.push({t:devNow(),b:v});return;
+  case 0x330:if(hw.sound==='mt32'&&mpu.uart){mpu.count++;if(mpu.events.length<500000)mpu.events.push({t:devNow(),b:v});}return;
   case 0x388:if(hw.sound==='adlib')opl.index=v;return;
   case 0x389:if(hw.sound==='adlib')oplWriteReg(opl.index,v);return;
  }

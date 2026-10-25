@@ -7,6 +7,8 @@ import {SCANCODES} from './scancodes.js';
 import {startGame} from '../game/boot.js';
 import {browserStorage} from './storage.js';
 import {createAudio} from './audio.js';
+import {createMidi} from './midi.js';
+import {hw,opl,mpu} from '../game/devices.js';
 import {rw,rb} from '../engine/mem.js';
 
 const $=s=>document.querySelector(s);
@@ -27,9 +29,9 @@ async function folderAssets(files){const m=new Map();for(const f of files)if(!f.
 // vNow: virtual time corresponding to the wall clock. The game never runs ahead of it, so work charged by the
 // cost model (src/game/pacing.js) takes real time, as on the original machine.
 let gen=null,last=0,halted=false,vNow=0;
-const audio=createAudio();
+const audio=createAudio(),midi=createMidi(t=>{notice=t;status.textContent=t;});let notice='';
 // Browsers start audio only after a user gesture.
-for(const ev of ['keydown','mousedown'])addEventListener(ev,()=>audio.start().catch(e=>console.warn('Audio unavailable',e)),{once:false,passive:true});
+for(const ev of ['keydown','mousedown'])addEventListener(ev,()=>{if(hw.sound==='mt32')midi.start();audio.start().catch(e=>console.warn('Audio unavailable',e));},{once:false,passive:true});
 const pixels=new Uint8Array(320*200);
 function present(){
  pageIndices(regs.start,pixels);
@@ -48,7 +50,7 @@ function frame(now){
  const dt=Math.min(now-last,100);last=now;vNow+=dt/1000*PIT_HZ;
  try{if(state.clock<vNow){const r=runUntil(gen,vNow);if(r.done){status.textContent='The game has exited.';halted=true;}}}
  catch(e){halt(e);}
- present();audio.pump(state.clock);
+ present();audio.pump(state.clock);midi.pump(state.clock);
  if(state.diagnostics.length)status.textContent=`Demo mode recovery: ${state.diagnostics.at(-1).what}`;
  requestAnimationFrame(frame);
 }
@@ -57,8 +59,10 @@ function start(assets){
   const strict=params.get('mode')!=='demo';
   const args=params.get('args')?params.get('args').split(' '):[];
   createMachine({assets,storage:browserStorage(),strict,args});
-  gen=startGame();
+  const sound=params.get('sound')||'speaker';
+  gen=startGame({sound});
   status.textContent=strict?'':'Best-effort mode: unsupported paths are reported, not fatal.';
+  if(sound==='mt32')status.textContent='MT-32 selected: click the page to connect a MIDI output.';
   $('#pick').classList.add('hidden');
   last=performance.now();vNow=state.clock;requestAnimationFrame(frame);
  }catch(e){status.textContent=e instanceof SetupError?e.message:`Cannot start: ${e.message}`;status.className='error';$('#pick').classList.remove('hidden');console.error(e);}
@@ -75,7 +79,7 @@ canvas.addEventListener('mousedown',e=>{if(gen){e.preventDefault();queueEvent({t
 canvas.addEventListener('mouseup',e=>{if(gen)queueEvent({t:stamp(),type:'mouse',...mousePos(e),buttons:e.buttons&3});});
 canvas.addEventListener('contextmenu',e=>e.preventDefault());
 // Read-only probe for automated browser acceptance tests (tests/browser/acceptance.mjs).
-window.__deathtrack={rw,rb,audioRunning:()=>audio.running,audioLevel:()=>audio.level(),clock:()=>state.clock,diagnostics:()=>state.diagnostics.slice(),halted:()=>halted,status:()=>status.textContent};
+window.__deathtrack={rw,rb,sound:()=>({device:hw.sound,oplWrites:opl.count,midiBytes:mpu.count}),audioRunning:()=>audio.running,audioLevel:()=>audio.level(),clock:()=>state.clock,diagnostics:()=>state.diagnostics.slice(),halted:()=>halted,status:()=>status.textContent};
 $('#folder').onchange=async e=>start(await folderAssets([...e.target.files]));
 
 const dev=await devAssets().catch(()=>null);
