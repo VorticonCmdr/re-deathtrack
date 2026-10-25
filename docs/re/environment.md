@@ -10,7 +10,9 @@ These are the values that come from outside the translated game logic: where the
 | Files | INT 21h | The user's own game folder (`FileSystem`, 8.3 names). Writes go to `localStorage` in the browser and to memory in tests | – |
 | Timer ticks | IRQ 0 → `1000:c356` | Virtual PIT at the programmed divisor | Virtual time |
 | Vertical retrace | port 3DAh (`1000:aeaa`, `2524:478a`) | Derived from virtual time at 70.086 Hz (VGA mode 0Dh timing, as in DOSBox) | Virtual time |
-| Sound device | detection probes | MPU-401, AdLib and Tandy absent, so the PC speaker is selected | – |
+| Sound device | detection probes (`1000:cb3e` MPU-401, `1000:c8e5` OPL) | Default: MPU-401 and AdLib absent (ports read FFh), so the PC speaker is selected. `?sound=adlib`: OPL2 at 388h/389h, MPU absent. `?sound=mt32`: MPU-401 UART at 330h/331h, OPL absent (`src/game/devices.js`). Tandy stays absent | host option |
+| OPL timers and status | IN 388h in `1000:c8e5` | Timer 1/2 overflow follows virtual time plus the cost of the port accesses themselves (`cost.usPerPort` = 2.4 µs, **APPROX**, chosen so the detection count gives the DOSBox delay constants `[2dba]=2`, `[2dbc]=10`) | OPL write stream (`opl.events`) |
+| MPU-401 | IN/OUT 330h/331h, IRQ 2 (INT 0Ah, `1000:cc2d`) | ACK FEh for every command, status 3Fh/BFh, level-triggered IRQ while data is queued (DOSBox behaviour). MIDI bytes written in UART mode are time-stamped (`mpu.events`) | MIDI byte stream |
 | `9542`'s stale `[BP-4]` | `1000:9778` (`MOV BX,[BP-4]`) | Deterministic carry (`staleStack.bpm4`). **APPROX**, see below | Captured per frame as `stale9542` at the consumption point |
 
 ## Interrupt-dependent stack garbage (`1000:9778`)
@@ -42,3 +44,11 @@ The original runs unthrottled, so its speed is a property of the machine. The po
 - That timing is observable: a key press that ends the title is released before the sign-up menu starts polling, as in DOSBox.
 - RNG state depends on menu iteration counts (`rand` once per `66d2` call), so the RNG sequence of a session follows the timing model. A recorded input timeline replays deterministically in the port.
 - Timeline replays will not match DOSBox, because the counts of polls before a race differ.
+
+## Sound devices
+
+- **Selection** is made only by what the ports answer. The game's own auto-detection order (MT-32, AdLib, Tandy, speaker) then chooses the driver, so the translated detection code runs unchanged.
+- **MT-32:** the browser forwards `mpu.events` to a Web MIDI output (`src/web/midi.js`). The port bundles no synthesizer. Without an output the status line says so and the music is silent.
+- **AdLib:** `src/engine/opl2.js` synthesises the register stream in an AudioWorklet (`src/web/opl-worklet.js`). It is an independent implementation, **APPROX** (not bit-exact). Sound effects stay on the PC speaker.
+- **Re-entrancy:** the music sequencer (`1000:c731`) runs with interrupts enabled in the original (every `cbd0` entry in DOSBox has IF set). When the 256-byte MIDI queue is full, `cbd0` therefore advances virtual time inside the call so the slot-8 tick can drain it.
+- **Verification:** `docs/scenarios/sound-startup.json` (MIDI bytes and OPL register writes against DOSBox). Times are not compared.

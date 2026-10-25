@@ -1,7 +1,7 @@
 // Headless player bot: drives the port through its real input path (scancodes, mouse events) in virtual time.
 // Route: title -> sign-up -> quiz -> dealer -> hub -> FULL CIRCUIT RUN -> GO RACIN' -> race with the throttle held
 // until the race ends -> results and following screens. Prints the page-id timeline; screenshots go to --out.
-// Usage: node scripts/play-headless.mjs [--races 1] [--out .local/play] [--minutes 12]
+// Usage: node scripts/play-headless.mjs [--sound speaker|adlib|mt32] [--races 1] [--out .local/play] [--minutes 12]
 import {writeFile,mkdir} from 'node:fs/promises';
 import {loadAssets} from '../tests/assets.mjs';
 import {createMachine} from '../src/engine/machine.js';
@@ -16,7 +16,7 @@ const out=opt('out','.local/play'),races=+opt('races','1'),limit=+opt('minutes',
 await mkdir(out,{recursive:true});
 const storage=memoryStorage();
 createMachine({assets:await loadAssets(),storage,strict:true});
-const gen=startGame();
+const gen=startGame({sound:opt('sound','speaker')});
 let shotN=0;
 async function shot(tag){const idx=pageIndices(regs.start),rgb=new Uint8Array(320*200*3),pal=regs.palette.map(rgb200);idx.forEach((c,i)=>{rgb[i*3]=pal[c]>>16;rgb[i*3+1]=pal[c]>>8&255;rgb[i*3+2]=pal[c]&255;});await writeFile(`${out}/${String(shotN++).padStart(2,'0')}-${tag}.png`,png(320,200,rgb));}
 const run=s=>{const r=runUntil(gen,state.clock+s*PIT_HZ);if(r.done)throw Error('game exited');if(state.clock>limit)throw Error('time limit');};
