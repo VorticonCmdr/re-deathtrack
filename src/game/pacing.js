@@ -4,6 +4,7 @@
 import {state,PIT_HZ,IDLE} from '../engine/host.js';
 import {work} from '../engine/ega.js';
 import {ioWork} from '../engine/dos.js';
+import {takeIo} from './devices.js';
 // APPROX work-cost model: the translated code runs in zero virtual time, so CPU-heavy work is charged by its
 // dominant operations. Costs are least-squares fits to three DOSBox (default cycles) measurements of emulated
 // time: title->sign-up 3014 ms, race setup 32b8->047c 542 ms, 047c->first frame 687 ms (predicted 3015/531/691).
@@ -16,7 +17,7 @@ export function installWorkMeter(){
  state.workMeter=()=>{
   const us=(work.vram-lastVram)*pacing.usPerVram+(ioWork.decoded-lastDecoded)*pacing.usPerDecoded;
   lastVram=work.vram;lastDecoded=ioWork.decoded;
-  return Math.round(us*PIT_HZ/1e6);
+  return Math.round(us*PIT_HZ/1e6+takeIo());
  };
 }
 // One race-loop iteration: consume the remainder of the frame period, then yield to the host.

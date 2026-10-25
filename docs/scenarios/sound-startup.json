@@ -1,0 +1,23 @@
+{
+ "scenario": "sound-startup",
+ "version": 1,
+ "level": "segment comparison of a device-driver byte/register stream (no audio comparison)",
+ "executable": {"file": "DTRACK.EXE", "sha256": "5b23cafb2542195a7473b532e46a25023cd7bd59351445f6a7cb732807ff2928"},
+ "emulator": {"name": "dosbox-automation", "version": "0.84.0-vc1 (f6d9b)", "config": "bridge default (VGA, MPU-401 and Sound Blaster/OPL present, default cycles)"},
+ "captureTool": "scripts/dosbox/trace-calls.mjs",
+ "storage": ".local/captures/sound-startup/trace.json",
+ "sha256": "1b749e3ab963f215ab1795bfac95799d7a33f41dd24797890a00880229d1a740",
+ "recipe": [
+  "bridge_stop / bridge_start, drive_mount C: -> .local/dosrun",
+  "MT-32 (the game's own auto-detection picks it with the default config): node scripts/dosbox/trace-calls.mjs cbd0 700 --arm main --out .local/dosbox-mpu-trace.json, then type: C: <Enter>, dtrack <Enter>",
+  "AdLib (restart DOSBox; DS:2d2a = 3 is the device-selection word the original never writes): node scripts/dosbox/trace-calls.mjs c8c6,c937 300 --arm main --poke 2d2a:3 --mem 2dba:4,2dbe:1 --out .local/adl.json, then type the same commands",
+  "combine: mt32.queued = AL at every 1000:cbd0 entry (the MIDI byte queued); adlib.writes = (AL, AH) at every 1000:c8c6 entry; adlib.delays = words DS:2dba, DS:2dbc at the return of 1000:c8e5 (1000:c937)"
+ ],
+ "injections": ["none: the port runs from the program start with the sound option set; AdLib selection is made by the port's ports (MPU absent), DOSBox's by DS:2d2a"],
+ "comparison": {
+  "mt32": "the first 692 MIDI bytes the port queues equal the DOSBox bytes (the last bytes of the capture may still be queued in DOSBox)",
+  "adlib": "OPL register writes through 1000:c8c6 equal DOSBox for all 299 captured; the detection calibration words [2dba],[2dbc] equal",
+  "timing": "not compared: byte and register times are APPROX (devices.js cost.usPerPort calibrated from the detection count)"
+ },
+ "expected": {"mt32Bytes": 700, "adlibWrites": 299, "adlibDelays": [2, 10]}
+}

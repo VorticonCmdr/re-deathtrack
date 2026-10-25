@@ -6,7 +6,8 @@
 // arguments as JS parameters: rawOut(AL) -> AX, noteOn(SI=voice, AX=velocity), noteOff(SI=voice), patch(DI, SI).
 import {rb,wb,rw,ww,frb,frw,fwb,fww,gseg,gaddr,pseg,poff} from '../engine/mem.js';
 import {u16,div16,mod16,mul16,div32_16,ldiv} from '../engine/int.js';
-import {register,callFar,unsupported} from '../engine/host.js';
+import {register,callFar,unsupported,getVector,setVector,advanceTo,state} from '../engine/host.js';
+import {HangError} from '../engine/int.js';
 import {outp,inp} from './bios.js';
 import {F,provide} from './link.js';
 
@@ -160,33 +161,170 @@ export function f1000_c8a8(ax){f1000_d1f8(ax);return f1000_c8b9(lodsb());}
 // 1000:c8b9 oneByte (handler): AX only
 export function f1000_c8b9(ax){f1000_d1f8(ax);return f1000_c854();}
 
-// ---- AdLib (2d8a): absent ----
-// 1000:c8e5 oplDetect: APPROX: the OPL register writes (OUT 388h/389h via c8c6) are not performed; with no
-// AdLib, IN 388h reads FFh and the status test at c8f7 fails, so AX = 0 (input-timer-sound.md "Port values").
-export function f1000_c8e5(){return 0;}
-export function f1000_c8c6(){unsupported('1000:c8c6 AdLib register write');}
-export function f1000_c93e(){unsupported('1000:c93e AdLib init');}
-export function f1000_c962(){unsupported('1000:c962 AdLib shutdown');}
-export function f1000_c963(){unsupported('1000:c963 AdLib raw out');return 0;}
-export function f1000_c966(){unsupported('1000:c966 AdLib note on');}
-export function f1000_ca6d(){unsupported('1000:ca6d AdLib note off');}
-export function f1000_ca95(){unsupported('1000:ca95 AdLib voices init');}
-export function f1000_cabc(){unsupported('1000:cabc AdLib patch');}
+// ---- AdLib (2d8a) ----
+// The OPL2 sits behind devices.js (selected by the host). Register arguments become JS parameters: oplWrite(AL=index, AH=value).
+// 1000:c8c6 oplWrite: OUT 388h,AL; [2dba] IN 388h delays; OUT 389h,AH; [2dbc] IN 388h delays. AX and DX are preserved.
+// QUIRK: both delay loops are LOOPNZ with a comparison that never succeeds, so CX is 0 on return (callers read CL afterwards).
+const oplWrite=(al,ah)=>{
+ outp(0x388,al&0xff);for(let n=rw(0x2dba)||0x10000;n;n--)inp(0x388);
+ outp(0x389,ah&0xff);for(let n=rw(0x2dbc)||0x10000;n;n--)inp(0x388);
+};
+export function f1000_c8c6(al,ah){oplWrite(al,ah);}
+// 1000:c8e5 oplDetect: reset timers, check the status is clear, start timer 1 (reg 2 = C0h: 64 x 80 us) and count the status
+// reads until it overflows. The count calibrates the write delays [2dbc] = n/E4h+1 and [2dba] = n/60Fh+1. Returns 1/0.
+export function f1000_c8e5(){
+ oplWrite(4,0x60);oplWrite(4,0x80);
+ if(inp(0x388)&0xe0)return 0;
+ oplWrite(2,0xc0);
+ outp(0x388,4);for(let i=0;i<0x14;i++)inp(0x388);
+ outp(0x389,0x21);
+ let cx=0,hit;
+ do{hit=(inp(0x388)&0xe0)===0xc0;cx=cx-1&0xffff;}while(!hit&&cx);
+ if(!hit)return 0;
+ const n=-cx&0xffff;
+ ww(0x2dbc,div16(n,0xe4)+1&0xffff);ww(0x2dba,div16(n,0x60f)+1&0xffff);
+ return 1;
+}
+// 1000:c93e oplInit: waveform select on, CSM/keyboard split 0, channels 7 and 8 off, rhythm mode on (BDh = E0h, kept in [2dbe]).
+export function f1000_c93e(){
+ oplWrite(0x01,0x20);oplWrite(0x08,0);oplWrite(0xb7,0);oplWrite(0xb8,0);oplWrite(0xbd,0xe0);wb(0x2dbe,0xe0);
+}
+// 1000:c962 oplShutdown: RET
+export function f1000_c962(){}
+// 1000:c963 oplRawOut: AX = 0 (use the built-in parser)
+export function f1000_c963(){return 0;}
+// 1000:c966 oplNoteOn(SI = voice, AX = velocity, DI = channel entry): programs the voice's operators from its patch
+// (DI+6 -> 12-byte instrument at 3328+) and keys it on. Voice [+4] is 20h for a 2-op melodic voice, 10h for the bass drum
+// and 08h/04h/02h/01h for the other rhythm instruments (the BDh key bits); [+0Ah] is the channel offset, [+0Bh] the operator offset.
+// QUIRK: oplWrite leaves CX = 0, so the velocity in CL is 0 for every register after the first: total level never reflects velocity.
+export function f1000_c966(si,ax,di){
+ const key=rb(si+9);
+ if(key>0x72)return f1000_ca6d(si);
+ let bx=rw(0x2dc0+(key<<1));
+ ww(si+0xe,bx);
+ di=rw(di+6);ww(si+0xc,di);
+ let cl=ax&0xff,al=rb(si+0xb),ah;
+ const w=()=>{oplWrite(al,ah);cl=0;};
+ const add=n=>{al=al+n&0xff;};
+ const m=rb(si+4);
+ if(m===0x20||m===0x10){
+  ah=rb(di);add(0x20);w();
+  ah=rb(di+1);add(0x20);w();
+  bx=rw(di+2);ah=bx>>8;add(0x20);w();
+  ah=bx&0xff;add(0x20);w();
+  ah=rb(di+4);add(0x60);w();
+  ah=rb(di+6);add(0x43);w();
+  if(cl>=0x40)cl=0x3f;
+  ah=rb(di+7)&0xc0|cl;wb(si+0x10,ah);add(0x20);w();
+  bx=rw(di+8);ah=bx>>8;add(0x20);w();
+  ah=bx&0xff;add(0x20);w();
+  ah=rb(di+0xa);add(0x60);w();
+  al=0xb0+rb(si+0xa)&0xff;ah=0;w();
+  ah=rb(di+5);add(0x10);w();
+  bx=rw(si+0xe)|0x2000;ah=bx&0xff;add(0xe0);w();
+  if(m===0x10)return rhythmKey(si);
+  ah=bx>>8;add(0x10);w();
+  return;
+ }
+ ah=rb(di);add(0x20);w();
+ if(cl>=0x40)cl=0x3f;
+ ah=cl;add(0x20);w();
+ bx=rw(di+2);ah=bx>>8;add(0x20);w();
+ ah=bx&0xff;add(0x20);w();
+ ah=rb(di+4);add(0x60);w();
+ rhythmKey(si);
+}
+// 1000:ca54 (shared tail): BDh = [2dbe] & ~mask, then | mask (retrigger), [2dbe] = value.
+function rhythmKey(si){
+ const m=rb(si+4);let ah=~m&rb(0x2dbe)&0xff;
+ oplWrite(0xbd,ah);ah|=m;oplWrite(0xbd,ah);wb(0x2dbe,ah);
+}
+// 1000:ca6d oplNoteOff(SI = voice): melodic voices write B0h+ch with the key bit clear; rhythm voices clear their BDh bit.
+export function f1000_ca6d(si){
+ if(rb(si+4)===0x20){oplWrite(0xb0+rb(si+0xa),rw(si+0xe)>>8);return;}
+ const ah=~rb(si+4)&rb(0x2dbe)&0xff;oplWrite(0xbd,ah);wb(0x2dbe,ah);
+}
+// 1000:ca95 oplVoicesInit: each voice of the array [2da2], [2da1] of them, takes three bytes from DS:2ea6 -> [+0Ah], [+0Bh], [+4].
+export function f1000_ca95(){
+ let si=rw(0x2da2),bx=0x2ea6;
+ for(let cx=rb(0x2da1);cx;cx--,si+=0x12){wb(si+0xa,rb(bx));wb(si+0xb,rb(bx+1));wb(si+4,rb(bx+2));bx+=3;}
+}
+// 1000:cabc oplPatch(DI = 12-byte destination, SI = 11 source bytes): repacks an instrument into the driver's register layout.
+export function f1000_cabc(di,si){
+ const lb=()=>{const v=rb(si);si=si+1&0xffff;return v;};
+ let al,ah,ch,cl;
+ wb(di,lb());
+ al=lb();ch=(al&0x78)<<1;wb(di+4,al&3);
+ al=lb();ah=al&0xf;ch|=ah;wb(di+1,(al&0x60)<<1&0xff);
+ al=lb();cl=(al&0x78)<<1;wb(di+5,(al&7)<<1);
+ al=lb();ah=al&0xf;cl|=ah;wb(di,rb(di)|(al&0x40)<<1&0xff);
+ ww(di+2,ch<<8|cl);
+ wb(di+1,rb(di+1)|lb()&0x3f);
+ wb(di+6,lb());
+ al=lb();ch=(al&0x78)<<1;wb(di+0xa,al&3);
+ al=lb();ah=al&0xf;ch|=ah;wb(di+7,(al&0x60)<<1&0xff);
+ al=lb();cl=(al&0x78)<<1;
+ al=lb();ah=al&0xf;cl|=ah;wb(di+6,rb(di+6)|(al&0x40)<<1&0xff);
+ ww(di+8,ch<<8|cl);
+}
 
-// ---- MT-32 / MPU-401 (2ec8): absent ----
-// 1000:cb3e mpuDetect: bounded polls of port 331h (status) and 330h (data). With no MPU, 331h reads FFh.
+// ---- MT-32 / MPU-401 (2ec8) ----
+// The MPU-401 (devices.js) runs in UART mode: the driver queues MIDI bytes in a 256-byte ring at 2efe and the slot-8 tick
+// (cbfc) sends one byte per call to port 330h.
+// 1000:cb3e mpuDetect: reset (FFh), a no-op command (00h), then the ACK byte FEh must be readable. Each wait is a
+// 65536-poll LOOPNZ; a timeout (CX = 0, including a success on the last poll) fails. Returns 1/0.
 export function f1000_cb3e(){
  const wait=mask=>{let cx=0;do{cx=cx-1&0xffff;if(!(inp(0x331)&mask))break;}while(cx);return cx;};
  if(!wait(0x40))return 0;
- unsupported('1000:cb4b MPU-401 command write');return 0;
+ outp(0x331,0xff);
+ if(!wait(0x40))return 0;
+ outp(0x331,0);
+ if(!wait(0x80))return 0;
+ return inp(0x330)===0xfe?1:0;
 }
-export function f1000_cb72(){unsupported('1000:cb72 MT-32 init');}
-export function f1000_cbb6(){unsupported('1000:cbb6 MT-32 shutdown');}
-export function f1000_cbd0(){unsupported('1000:cbd0 MT-32 raw out');return 0;}
-export function f1000_cbf7(){unsupported('1000:cbf7 MT-32 raw out');return 0;}
-export function f1000_cbfb(){unsupported('1000:cbfb MT-32 voice op');}
-export function f1000_cbfc(){unsupported('1000:cbfc MT-32 tick');}
-export function f1000_cc2d(){unsupported('1000:cc2d MT-32 IRQ');}
+// 1000:cb72 mt32Init: UART mode (3Fh), empty queue, INT 0Ah (IRQ 2) -> cc2d (the old vector in [2efa]/[2efc]), flush the data port, EOI, unmask.
+export function f1000_cb72(){
+ outp(0x331,0x3f);
+ ww(0x2ffe,0);ww(0x3000,0);ww(0x3002,0);
+ const v=getVector(0x0a);ww(0x2efa,v&0xffff);ww(0x2efc,v>>>16);
+ setVector(0x0a,gaddr(0x1000,0xcc2d));
+ for(let i=0;i<10;i++)inp(0x330);
+ outp(0x20,0x20);outp(0x21,0);
+}
+// Waits for the slot-8 tick to drain the queue. The original spins with IF=1 even when called from the sequencer (observed:
+// every cbd0 entry in DOSBox has IF set, and c731 guards itself against re-entry with [2d59]), so the tick preempts it.
+function waitQueue(full){
+ for(let i=0;full();i++){
+  if(i>200000)throw new HangError('1000:cbd0/cbb6 MPU queue wait never ends');
+  advanceTo(state.clock+state.pitDivisor);
+ }
+}
+// 1000:cbb6 mt32Shutdown: waits for the queue to drain, then restores INT 0Ah.
+export function f1000_cbb6(){
+ waitQueue(()=>rw(0x3002)!==0);
+ setVector(0x0a,rw(0x2efc)<<16|rw(0x2efa));
+}
+// 1000:cbd0 mt32RawOut(AL = byte): waits while the queue holds 100h bytes, appends, returns AX = 1 (the byte is consumed).
+export function f1000_cbd0(al){
+ waitQueue(()=>rw(0x3002)>=0x100);
+ let bx=rw(0x2ffe);wb(0x2efe+bx,al&0xff);bx++;if(bx>=0x100)bx=0;
+ ww(0x2ffe,bx);ww(0x3002,rw(0x3002)+1);
+ return 1;
+}
+// 1000:cbf7 thunk: raw out of FFh
+export function f1000_cbf7(){return f1000_cbd0(0xff);}
+// 1000:cbfb mt32VoiceOp: RET
+export function f1000_cbfb(){}
+// 1000:cbfc mt32Tick (timer slot 8, far): sends the next queued byte when the data port accepts it (331h bit 6 clear).
+export function f1000_cbfc(){
+ if(rw(0x3002)===0)return;
+ if(inp(0x331)&0x40)return;
+ let bx=rw(0x3000);
+ outp(0x330,rb(0x2efe+bx));bx++;if(bx>=0x100)bx=0;
+ ww(0x3000,bx);ww(0x3002,rw(0x3002)-1);
+}
+// 1000:cc2d mpuIrq (INT 0Ah): reads the data port, EOI
+export function f1000_cc2d(){inp(0x330);outp(0x20,0x20);}
 
 // ---- Tandy (3004): absent ----
 // 1000:cc3a tandyDetect: F000:FFFE == FFh and F000:C000 == 21h. The port's ROM area is not a Tandy BIOS.
@@ -268,7 +406,7 @@ export function f1000_ce63(ch,note,vel){
  ww(s,di);ww(s+2,b);ww(b,s);ww(di+2,s);
  const ent=bx,key=n.v&0xff;
  wb(s+8,key);wb(s+9,key+rb(ent+4));
- near(rw(desc()+0xc),s,u16(vel));
+ near(rw(desc()+0xc),s,u16(vel),bx);
  return 1;
 }
 // 1000:cf19 aftertouch (no-op)

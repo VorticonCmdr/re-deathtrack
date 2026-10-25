@@ -4,6 +4,8 @@ import {B,fp,pseg,poff,fww,frw,gaddr} from './mem.js';
 
 export const PIT_HZ=1193182;
 export const IDLE=Symbol('idle'), RETRACE=Symbol('retrace');
+// Level-triggered device IRQ sources (e.g. the MPU-401): called after every time step, they raise their interrupt while pending.
+export const irqSources=[];
 // A busy-wait poll point: the host advances virtual time before resuming.
 export function* idle(){yield IDLE;}
 // Wait for the start of the next vertical retrace.
@@ -70,8 +72,10 @@ export function advanceTo(t){
   state.clock=state.nextTick;deliverEvents(state.clock);
   interrupt(8);
   state.nextTick+=state.pitDivisor;
+  for(const f of irqSources)f();
  }
  state.clock=Math.max(state.clock,t);deliverEvents(state.clock);
+ for(const f of irqSources)f();
 }
 const inputHandlers={};
 export function onInput(type,fn){inputHandlers[type]=fn;}

@@ -1,5 +1,5 @@
 // Runs the port headlessly from boot with the real environment providers (virtual time, no input unless given).
-// Usage: node scripts/run-headless.mjs [--args "demo"] [--seconds 30] [--shots 5] [--out dir] [--events file.json]
+// Usage: node scripts/run-headless.mjs [--sound speaker|adlib|mt32] [--args "demo"] [--seconds 30] [--shots 5] [--out dir] [--events file.json]
 import {writeFile,mkdir,readFile} from 'node:fs/promises';
 import {loadAssets} from '../tests/assets.mjs';
 import {createMachine} from '../src/engine/machine.js';
@@ -16,7 +16,7 @@ const seconds=+opt('seconds','30'),shots=+opt('shots','6'),out=opt('out','.local
 await mkdir(out,{recursive:true});
 createMachine({assets:await loadAssets(),storage:memoryStorage(),strict:true,args});
 if(opt('events',null))for(const e of JSON.parse(await readFile(opt('events'),'utf8')))queueEvent({...e,t:Math.round(e.s*PIT_HZ)});
-const gen=startGame();
+const gen=startGame({sound:opt('sound','speaker')});
 function shot(name){
  const idx=pageIndices(regs.start),rgb=new Uint8Array(320*200*3),pal=regs.palette.map(rgb200);
  idx.forEach((c,i)=>{rgb[i*3]=pal[c]>>16;rgb[i*3+1]=pal[c]>>8&255;rgb[i*3+2]=pal[c]&255;});

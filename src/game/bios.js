@@ -5,6 +5,7 @@ import {dosAlloc,dosFree,dosResize} from '../engine/dos.js';
 import {machine} from '../engine/machine.js';
 import {state,getVector,setVector,unsupported,inRetrace,onInput,interrupt,record,setPitDivisor,biosVector} from '../engine/host.js';
 import * as ega from '../engine/ega.js';
+import {hasPort,portIn,portOut} from './devices.js';
 
 const lo=x=>x&0xff, hi=x=>x>>8&0xff;
 const setAX=(r,v)=>{r.ax=v&0xffff;};
@@ -97,6 +98,7 @@ const spk=()=>{if(speaker.events.length<20000)speaker.events.push({t:state.clock
 export function outp(port,v){
  v&=0xff;
  if(port>=0x3c0&&port<=0x3df){ega.out(port,v);return;}
+ if(hasPort(port)){portOut(port,v);return;}
  switch(port){
   case 0x20:case 0x21:return; // PIC: EOI and mask writes have no effect in the virtual machine
   case 0x43:{const ch=v>>6;if(ch===3)return;if((v&0x30)===0){pit.latch[ch]=0;return;}pit.mode[ch]=v;pit.write[ch]=[];return;}
@@ -112,7 +114,7 @@ export function inp(port){
  if(port===0x60)return state.port60;
  if(port===0x61)return speaker.gate;
  if(port===0x201)return 0xff;   // no joystick
- if(port===0x331||port===0x388)return 0xff; // no MPU-401, no AdLib
+ if(hasPort(port))return portIn(port); // MPU-401 / AdLib: absent (FFh) unless selected by the host (devices.js)
  unsupported(`IN ${port.toString(16)}`);return 0xff;
 }
 
