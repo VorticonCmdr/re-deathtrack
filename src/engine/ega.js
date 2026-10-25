@@ -11,9 +11,11 @@ const latch=new Uint8Array(4);
 const ror=(v,n)=>((v>>n)|(v<<(8-n)))&0xff;
 function alu(v,l){switch(regs.func){case 1:return v&l;case 2:return v|l;case 3:return v^l;default:return v;}}
 
+// Counts video memory accesses for the work-cost model (src/game/pacing.js).
+export const work={vram:0};
 // CPU write to A000:off.
 export function wr(off,v){
- off&=0xffff;
+ work.vram++;off&=0xffff;
  const mm=regs.mapMask,bm=regs.bitMask;
  if(regs.writeMode===1){for(let p=0;p<4;p++)if(mm&1<<p)planes[p][off]=latch[p];return;}
  const d=regs.writeMode===0?ror(v&0xff,regs.rotate):0;
@@ -28,7 +30,7 @@ export function wr(off,v){
 }
 // CPU read from A000:off (loads latches).
 export function rd(off){
- off&=0xffff;
+ work.vram++;off&=0xffff;
  for(let p=0;p<4;p++)latch[p]=planes[p][off];
  if(regs.readMode===0)return latch[regs.readMap&3];
  let r=0xff;

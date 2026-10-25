@@ -8,7 +8,7 @@ import {idle,register,callFar,callFarG,unsupported} from '../engine/host.js';
 import * as ega from '../engine/ega.js';
 import {int10,int21,int33,vstatus,outp,inp} from './bios.js';
 import {F,provide} from './link.js';
-import {frameCost} from './pacing.js';
+import {frameCost,probe} from './pacing.js';
 // Near code pointer in segment 1000 -> packed far address for the host registry.
 const near=off=>gaddr(0x1000,off&0xffff);
 // Cross-module calling convention (as in seg2524.js/timer.js/sfx.js): one JS argument per 16-bit word the
@@ -171,7 +171,7 @@ export function f1000_0466(){return fp(gseg(0x29f6),0);}
 export function f1000_046c(str){const r={ax:0x0900,bx:0,cx:0,dx:str&0xffff,si:0,di:0,ds:DGROUP,es:DGROUP};int21(r);}
 
 // 1000:047c raceLoop: per-race setup, then one iteration per frame until [0x924c] (exit code) is set or the wreck countdown ends (race.md).
-export function* f1000_047c(){
+export function* f1000_047c(){probe('047c');
  ww(0x8956,1);ww(0x9252,1);ww(0x5c9a,1);ww(0x9656,1);ww(0xa8ec,1);
  let laps=s16(F.f1000_def2(rw(0xb4e)));   // atoi(laps string)
  if(laps>1)laps=s16(F.f1000_def2(rw(0xb4e)));else laps=1;
@@ -195,7 +195,7 @@ export const raceFrame={bp:0};
 // exit-side calls of the 05fd/0632 exits (the original 047c returns void; 0 is the port's 'loop ended' marker).
 // Generator although not in blocking.json (it is the split-out body of 047c).
 export function* f1000_04ed(){
- yield* frameCost();
+ yield* frameCost();probe('04ed');
  ww(0x59f4,rw(0x8926));
  f1000_06dc();
  yield* F.f1000_6dbc();
@@ -1549,7 +1549,7 @@ export function* f1000_318c(){
 }
 
 // 1000:32b8 loadAndRunRace: <city>.MAP and <city>.TRK, then the race loop 047c.
-export function* f1000_32b8(){
+export function* f1000_32b8(){probe('32b8');
  ww(0x9250,0);ww(0x924e,0);
  F.f1000_c2ce(0xa8d8,rw(0x1cb4+(rw(0x9808)<<1)));
  _Cstrcat(0xa8d8,0x1112); // ".MAP"

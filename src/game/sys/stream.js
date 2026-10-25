@@ -4,6 +4,7 @@
 // c264 fclose, c280 free, c308 calloc, c31a fgetc. Longs are passed as (lo, hi) and returned packed (DX<<16|AX).
 // The write side (encoders 066d/1f14/1a12, 19ba/1c40/1df8/1ed4, streamWrite 123f, write mode of 0d47/100d),
 // the memory-source open 0edf with its RLE decoder 18c6, and seek/rewind 1346-14f9 have no game caller: not translated.
+import {ioWork} from '../../engine/dos.js';
 import {rb,rw,rd,wb,ww,wd,frb,fwb,frw,fww,gaddr} from '../../engine/mem.js';
 import {u16} from '../../engine/int.js';
 import {callFar,register,unsupported} from '../../engine/host.js';
@@ -127,6 +128,7 @@ export function f1ff8_1191(h,n){
   if(rw(G.want))f1ff8_10fa();
  }
  n=u16(n-rw(G.want));add32(cur()+0x16,n);
+ ioWork.decoded+=n; // work-cost model input (src/game/pacing.js)
  return n;
 }
 // 1ff8:11f0 streamRead(h, dstOff, dstSeg, n): decodes up to n bytes to the far destination. Returns the count, or -1.

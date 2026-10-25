@@ -17,6 +17,7 @@ export const state={
  retraceHz:70.086,   // DOSBox default machine (VGA) shows mode 0Dh at 70 Hz; EGA hardware is 60 Hz
  quantum:512,        // clocks consumed per idle() poll
  strict:true,
+ workMeter:null,     // returns PIT clocks of CPU work done since the last call (game-provided cost model)
  diagnostics:[],
  events:[],          // pending input events {t,type,...} sorted by t
  log:null,           // when an array, consumed environment values are appended here
@@ -85,8 +86,9 @@ export function runUntil(gen,until){
   if(state.clock>=until)return {done:false};
   const r=gen.next();
   if(r.done)return {done:true,value:r.value};
-  if(r.value===IDLE)advanceTo(state.clock+state.quantum);
-  else if(r.value===RETRACE)advanceTo(nextRetrace(state.clock));
+  const debt=state.workMeter?state.workMeter():0;
+  if(r.value===IDLE)advanceTo(state.clock+state.quantum+debt);
+  else if(r.value===RETRACE)advanceTo(nextRetrace(state.clock+debt));
   else throw Error(`Unknown yield ${String(r.value)}`);
  }
 }
