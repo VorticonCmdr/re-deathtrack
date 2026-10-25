@@ -23,7 +23,7 @@ export function createAudio(){
  function pump(vNow){
   if(analyser){const b=new Float32Array(analyser.fftSize);analyser.getFloatTimeDomainData(b);for(const x of b)peak=Math.max(peak,Math.abs(x));}
   const evs=speaker.events.splice(0),oev=opl.events.splice(0);
-  if(!node||muted)return;
+  if(!node||!ctx||muted)return;
   // Anchor: virtual time vNow corresponds to audio time (now + latency); re-anchor if drift exceeds 50 ms.
   const now=ctx.currentTime+LATENCY,anchor=base??(base={v:vNow,a:now});
   if(Math.abs(anchor.a+(vNow-anchor.v)/PIT_HZ-now)>0.05)base={v:vNow,a:now};

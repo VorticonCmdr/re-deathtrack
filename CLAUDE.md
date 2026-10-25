@@ -32,7 +32,7 @@ node scripts/replay-race.mjs .local/captures/demo-race-start 0 399 --stop   # ra
   - `checkpoint.js`: loads and diffs DOSBox checkpoints.
 - **Game** (`src/game/`): one module per original code region. Ownership is in `docs/TRANSLATION_BRIEF.md`.
   - Modules: `flow.js` (`1000:0000–6dbb`), `race.js`, `raceview.js`, `render3d.js` (`2c46`/`2f73`), `egadrv.js` (`29f6`), `sys/` (`1ff8`), `seg2524.js`, `crt.js`/`timer.js`/`music.js`/`sfx.js` (MSC runtime and drivers).
-  - `bios.js` provides INT 10h/21h/33h and ports at register level.
+  - `bios.js` provides INT 10h/21h/33h and ports at register level. `devices.js` models the OPL2 and MPU-401 behind ports 388h/389h and 330h/331h; `cgadrv.js` (`2fd2`) with `src/engine/cga.js` is the CGA path. The hardware is chosen by host options (`?video=cga`, `?sound=adlib|mt32`), never in game code (`docs/re/hardware-paths.md`).
   - Cross-module calls go through the late-bound `F.fSEG_OFF` table in `link.js`; every module ends with `provide({...})`.
 - **Generators:** functions listed in `src/game/blocking.json` (poll points, waits, race loop) are `function*` and are called with `yield*`. Input readers `yield* idle()`.
 - **Pacing:** `src/game/pacing.js` holds the race frame period, the work-cost model and the menu quantum, all calibrated against DOSBox (`docs/re/environment.md`). The browser host (`src/web/main.js`) never lets virtual time run ahead of the wall clock.

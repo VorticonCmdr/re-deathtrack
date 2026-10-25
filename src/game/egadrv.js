@@ -45,6 +45,7 @@ import * as ega from '../engine/ega.js';
 import {register,unsupported} from '../engine/host.js';
 import {int10,int21,inp} from './bios.js';
 import {F,provide} from './link.js';
+import {cgaDissolveSetup,cgaDissolvePlot} from './cgadrv.js';
 
 // ---- machine helpers ----
 const lin=(s,o)=>((s&0xffff)<<4)+(o&0xffff);
@@ -961,7 +962,27 @@ export function f1ff8_44b4(x,y,w,h,unit){
     if(BL>=colsP)continue;
     plot(BL,BH);
    }
-  }else if(id===1)unsupported('1ff8:457d dissolve CGA path');
+  }else if(id===1){
+   // 1ff8:457d CGA: handler DS:4d5c[shift], index mask 3>>shift, pixel mask table DS:4d7b+4*shift (cgadrv.js)
+   const cs=cgaDissolveSetup(shift);
+   let guard=0;
+   for(;;){
+    if(++guard>0x30000)throw Error('1ff8:44b4 dissolve LFSR did not cycle');
+    const lsb=S&1;S>>>=1;if(lsb)S^=T;S&=0xffff;
+    const BH=S>>>8,BL=S&0xff;
+    if(BH>hP)continue;
+    if(BH===hP){
+     if(BL!==colsP)continue;
+     S=0;
+     if(colsP===0)break;
+     colsP=0;hP=0;
+     cgaDissolvePlot(0,0,y,xs,cs);
+     continue;
+    }
+    if(BL>=colsP)continue;
+    cgaDissolvePlot(BL,BH,y,xs,cs);
+   }
+  }
   else unsupported('1ff8:459f dissolve non-EGA path');
  }
  // 1ff8:461e

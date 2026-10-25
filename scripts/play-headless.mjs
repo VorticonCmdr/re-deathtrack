@@ -11,14 +11,15 @@ import {memoryStorage} from '../src/web/storage.js';
 import {startGame} from '../src/game/boot.js';
 import {rw,rsw,rb} from '../src/engine/mem.js';
 import {png} from './tools/png.mjs';
+import {cga,cgaFrame,RGBI} from '../src/engine/cga.js';
 const opt=(n,d)=>{const i=process.argv.indexOf('--'+n);return i>0?process.argv[i+1]:d;};
 const out=opt('out','.local/play'),races=+opt('races','1'),limit=+opt('minutes','12')*60*PIT_HZ;
 await mkdir(out,{recursive:true});
 const storage=memoryStorage();
-createMachine({assets:await loadAssets(),storage,strict:true});
+createMachine({assets:await loadAssets(),storage,strict:true,args:opt('args','')?opt('args','').split(' '):[]});
 const gen=startGame({sound:opt('sound','speaker')});
 let shotN=0;
-async function shot(tag){const idx=pageIndices(regs.start),rgb=new Uint8Array(320*200*3),pal=regs.palette.map(rgb200);idx.forEach((c,i)=>{rgb[i*3]=pal[c]>>16;rgb[i*3+1]=pal[c]>>8&255;rgb[i*3+2]=pal[c]&255;});await writeFile(`${out}/${String(shotN++).padStart(2,'0')}-${tag}.png`,png(320,200,rgb));}
+async function shot(tag){if(cga.active){const f=cgaFrame(),rgb=new Uint8Array(f.w*f.h*3);f.idx.forEach((c,i)=>{rgb[i*3]=RGBI[c]>>16;rgb[i*3+1]=RGBI[c]>>8;rgb[i*3+2]=RGBI[c];});return writeFile(`${out}/${String(shotN++).padStart(2,'0')}-${tag}.png`,png(f.w,f.h,rgb));}const idx=pageIndices(regs.start),rgb=new Uint8Array(320*200*3),pal=regs.palette.map(rgb200);idx.forEach((c,i)=>{rgb[i*3]=pal[c]>>16;rgb[i*3+1]=pal[c]>>8&255;rgb[i*3+2]=pal[c]&255;});await writeFile(`${out}/${String(shotN++).padStart(2,'0')}-${tag}.png`,png(320,200,rgb));}
 const run=s=>{const r=runUntil(gen,state.clock+s*PIT_HZ);if(r.done)throw Error('game exited');if(state.clock>limit)throw Error('time limit');};
 const key=(code,down)=>queueEvent({t:state.clock,type:'key',code,down});
 function tap(code,s=0.1){key(code,true);run(s);key(code,false);run(0.1);}

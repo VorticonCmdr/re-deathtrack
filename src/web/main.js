@@ -3,6 +3,7 @@ import './game.css';
 import {createMachine,SetupError} from '../engine/machine.js';
 import {runUntil,state,PIT_HZ,queueEvent,UnsupportedError} from '../engine/host.js';
 import {pageIndices,regs,rgb200} from '../engine/ega.js';
+import {cga,hw as cgaHw,cgaFrame,RGBI} from '../engine/cga.js';
 import {SCANCODES} from './scancodes.js';
 import {startGame} from '../game/boot.js';
 import {browserStorage} from './storage.js';
@@ -33,7 +34,19 @@ const audio=createAudio(),midi=createMidi(t=>{notice=t;status.textContent=t;});l
 // Browsers start audio only after a user gesture.
 for(const ev of ['keydown','mousedown'])addEventListener(ev,()=>{if(hw.sound==='mt32')midi.start();audio.start().catch(e=>console.warn('Audio unavailable',e));},{once:false,passive:true});
 const pixels=new Uint8Array(320*200);
+// CGA modes (BIOS mode 4/5: 320x200, mode 6: 640x200): the canvas takes the mode's width, the CSS keeps the aspect.
+let cgaImage=null;
+function presentCga(){
+ const {w,idx}=cgaFrame();
+ if(canvas.width!==w){canvas.width=w;cgaImage=null;}
+ if(!cgaImage)cgaImage=ctx.createImageData(w,200);
+ const d=cgaImage.data;
+ for(let i=0;i<idx.length;i++){const c=RGBI[idx[i]];d[i*4]=c>>16;d[i*4+1]=c>>8&255;d[i*4+2]=c&255;d[i*4+3]=255;}
+ ctx.putImageData(cgaImage,0,0);
+}
 function present(){
+ if(cga.active){presentCga();return;}
+ if(canvas.width!==320)canvas.width=320;
  pageIndices(regs.start,pixels);
  const pal=regs.palette.map(rgb200),d=image.data;
  for(let i=0;i<pixels.length;i++){const c=pal[pixels[i]];d[i*4]=c>>16;d[i*4+1]=c>>8&255;d[i*4+2]=c&255;d[i*4+3]=255;}
@@ -58,6 +71,8 @@ function start(assets){
  try{
   const strict=params.get('mode')!=='demo';
   const args=params.get('args')?params.get('args').split(' '):[];
+  // ?video=cga: CGA-only machine (no EGA BIOS) and the game's own argument GC forces adapter 1
+  if(params.get('video')==='cga'){cgaHw.noEga=true;if(!args.some(a=>a.toUpperCase()==='GC'))args.push('GC');}
   createMachine({assets,storage:browserStorage(),strict,args});
   const sound=params.get('sound')||'speaker';
   gen=startGame({sound});

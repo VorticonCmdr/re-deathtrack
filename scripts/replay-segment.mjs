@@ -13,7 +13,7 @@ import {loadCheckpoint,diffMemory,diffPlanes,diffCga,raceReplayExclusions,descri
 import {F} from '../src/game/link.js';
 import '../src/game/modules.js';
 async function loadCp(dir,cp){const b=new Uint8Array(gunzipSync(await readFile(`${dir}/${cp.file}`)));const h=createHash('sha256').update(b).digest('hex');if(h!==cp.sha256)throw Error(`${cp.file} corrupt`);return b;}
-export async function replaySegment({dir,fname,nargs=0,log=console.log,cmdArgs=[]}){
+export async function replaySegment({dir,fname,nargs=0,log=console.log,cmdArgs=[],extraExclusions=[]}){
  const m=JSON.parse(await readFile(`${dir}/manifest.json`,'utf8'));
  const [entry,exit]=m.checkpoints;
  createMachine({assets:await loadAssets(),strict:true,args:cmdArgs});
@@ -24,7 +24,7 @@ export async function replaySegment({dir,fname,nargs=0,log=console.log,cmdArgs=[
  const fn=F[fname],args=m.stackWords.slice(0,nargs);
  let r;if(fn.constructor.name==='GeneratorFunction'){const g=fn(...args);for(let s=g.next();!s.done;s=g.next())state.clock+=state.quantum;}else r=fn(...args);
  const exp=await loadCp(dir,exit);
- const mem=diffMemory(exp,raceReplayExclusions(exit.cpu.esp&0xffff)),vram=diffPlanes(exp),cga=diffCga(exp);
+ const mem=diffMemory(exp,raceReplayExclusions(exit.cpu.esp&0xffff).concat(extraExclusions)),vram=diffPlanes(exp),cga=diffCga(exp);
  log(`${m.name}: ${mem.count} memory bytes differ in ${mem.total} ranges, ${vram.count} VRAM bytes differ${cga.present?`, ${cga.count} B800 bytes differ`:''}`);
  const hx=(a,n,src)=>[...Array(n)].map((_,k)=>src[a+k].toString(16).padStart(2,'0')).join(' ');
  for(const q of mem.ranges.slice(0,15))log(`  ${describe(q.from)} +${q.to-q.from} expected ${hx(q.from,Math.min(12,q.to-q.from),exp)} port ${hx(q.from,Math.min(12,q.to-q.from),B)}`);

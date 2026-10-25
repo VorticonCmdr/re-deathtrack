@@ -5,8 +5,9 @@ Updated 2026-10-25.
 ## Supported build
 
 - `DTRACK.EXE`, SHA-256 `5b23cafb…ff2928`: Deathtrack 1.0 (1989) PC, with the one-byte copy-protection patch. Asset set: `src/data/manifest.json` (92 files).
-- Display: EGA mode 0Dh (the adapter DOSBox detects).
-- Sound: PC-speaker path (music and effects), rendered in the browser by an AudioWorklet from time-stamped PIT/port 61h changes. The browser test asserts non-silent output. Audio fidelity (speaker response) is APPROX and has not been compared with hardware or DOSBox output.
+- Display: EGA mode 0Dh (default, the adapter DOSBox detects), or CGA with `?video=cga` (argument `GC`: the game sets BIOS mode 6, 640x200 two colours, dithered; the driver programs mode 4 first).
+- Sound: PC-speaker path by default (music and effects), rendered in the browser by an AudioWorklet from time-stamped PIT/port 61h changes. The browser test asserts non-silent output. Audio fidelity (speaker response) is APPROX and has not been compared with hardware or DOSBox output.
+- Optional music hardware: `?sound=adlib` (OPL2 register stream rendered by `src/engine/opl2.js`, an independent APPROX synth; effects stay on the speaker) and `?sound=mt32` (MPU-401 UART, MIDI bytes sent to a Web MIDI output; the port has no MT-32 synth, ROMs or fallback).
 - Input: keyboard and mouse. Joystick is reported absent.
 
 ## Working playable route (browser, verified by `npm run verify:browser`)
@@ -26,8 +27,8 @@ Demo mode (`?args=demo`) autoplays the shop screens and a full race, then return
 
 | Command | What it checks | Level |
 | --- | --- | --- |
-| `npm run verify` | asset identity (92 hashes); 100 unit/module tests; closed-loop race replay | routine/segment + closed-loop |
-| `npm run verify:browser` | real Chrome: boot → menus → race with real keyboard/mouse; fails on errors, diagnostics or missed milestones | browser acceptance |
+| `npm run verify` | asset identity (92 hashes); 166 unit/module/scenario tests; closed-loop race replays (EGA and CGA) and segment comparisons | routine/segment + closed-loop |
+| `npm run verify:browser` | real Chrome: boot → menus → race with real keyboard/mouse on EGA and on CGA (`?video=cga`); AdLib and MT-32 options (non-silent OPL output, MIDI bytes sent); fails on errors, diagnostics or missed milestones | browser acceptance |
 | `node scripts/replay-race.mjs <dir> 0 399 --strict` | the replay alone, with per-range diffs | closed-loop |
 | `node scripts/run-headless.mjs --args demo --seconds 120` | independent runtime scenario with the port's own environment providers, plus screenshots | independent scenario (no reference comparison) |
 
@@ -42,6 +43,10 @@ Demo mode (`?args=demo`) autoplays the shop screens and a full race, then return
 
 - **segment-race-setup**: `1000:32b8` (race setup: `.TRK`/`.MAP`/shape/bitmap loading and every DOS allocation) from a DOSBox entry checkpoint to its return. Memory and all four VRAM planes match exactly, including the MCB chain and its owner-name stamping rule, observed with `scripts/dosbox/trace-arena.mjs`. Segment-level evidence, conditional on the injected entry state.
 
+- **sound-startup**: the MIDI bytes the MT-32 driver queues (first 692 equal DOSBox's 700 captured) and the AdLib register writes (299 of 299, plus the detection delay constants) from the program start. Times are not compared; audio is not compared.
+- **cga-race-start**: 150 DOSBox checkpoints of a CGA demo race (`dtrack GC demo`). All 149 following frames match exactly: conventional memory, B800 RAM and the EGA planes. Same conditional-start caveat as demo-race-start.
+- **cga-segments**: CGA driver init (`2fd2:0252`), hardware init (`2524:0260`, with five documented sound/joystick exclusions), ground fill (`2f73:035f`) and sky strip (`2f73:000f`) match DOSBox from injected entry states, memory and B800.
+
 ## Known limitations
 
 - Speaker audio is approximate (inaudible rates above 15 kHz are silenced, one-pole low-pass).
@@ -49,7 +54,10 @@ Demo mode (`?args=demo`) autoplays the shop screens and a full race, then return
   - Timing model: race at 15 fps minimum, calibrated work costs.
   - `9542`'s interrupt-dependent stale stack word.
 - Menu screens, shops, saves and results have **no reference comparison yet** (their RNG depends on timing). They are exercised by the demo and browser runs only.
-- MT-32, AdLib, Tandy, CGA, Hercules and joystick paths are unsupported. Reaching one stops the game with a diagnostic (default strict mode) or is reported (`?mode=demo`).
+- Tandy, Hercules/mode-4 and joystick paths are unsupported. Reaching one stops the game with a diagnostic (default strict mode) or is reported (`?mode=demo`).
+- **CGA:** the title, menus and races are verified only as far as the captures above (race loop, sky, ground, driver init). The other driver slots (sprites, glyphs, lines, dissolve) are translated and checked against the original instructions by `tests/x86mini.mjs`, but not against DOSBox. Colour handling of mode 4 and the work-cost of B800 accesses (`work.vram` per byte) are APPROX; the menu timing on CGA is not calibrated.
+- **AdLib:** synthesis is approximate (not bit-exact, no comparison with an OPL reference); the OPL port-access cost (2.4 µs) is fitted to one DOSBox count.
+- **MT-32:** needs a connected MIDI output (real MT-32 or Munt) and a browser with Web MIDI permission; nothing is audible otherwise. Byte times are not compared.
 - No production deployment has been configured.
 
 ## Next milestone

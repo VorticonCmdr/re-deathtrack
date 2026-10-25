@@ -6,6 +6,7 @@ import {resetHost,state,getVector} from './host.js';
 import {divide} from './int.js';
 import {gaddr} from './mem.js';
 import {resetEga} from './ega.js';
+import {resetCga} from './cga.js';
 import {sha256} from './sha256.js';
 
 export const REFERENCE_EXE_SHA256='5b23cafb2542195a7473b532e46a25023cd7bd59351445f6a7cb732807ff2928';
@@ -19,7 +20,7 @@ export function createMachine({assets,storage=null,strict=true,args=[]}){
  if(!exe)throw new SetupError('DTRACK.EXE is missing from the game folder');
  const hash=sha256(exe);
  if(hash!==REFERENCE_EXE_SHA256)throw new SetupError(`DTRACK.EXE does not match the supported build (sha256 ${hash})`);
- resetHost();state.strict=strict;B.fill(0);resetEga();resetStack();
+ resetHost();state.strict=strict;B.fill(0);resetEga();resetCga();resetStack();
  const unpacked=unexepack(exe);
  loadImage(B,unpacked,LOAD_SEG);
  initPsp(args);initBiosData();initArena();

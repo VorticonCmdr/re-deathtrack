@@ -5,6 +5,7 @@ import './race.js';
 import './render3d.js';
 import './raceview.js';
 import './egadrv.js';
+import './cgadrv.js';
 import './timer.js';
 import './sfx.js';
 import './music.js';

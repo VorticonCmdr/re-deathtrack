@@ -1,5 +1,6 @@
 // Captures a function-level segment: a checkpoint at the entry of a near or far function and one at its return.
-// Usage: node scripts/dosbox/capture-segment.mjs <name> <entryOff hex> <near|far> [--demo] [--args "GC"] [--skip n] [--cga]
+// Usage: node scripts/dosbox/capture-segment.mjs <name> <entryOff hex> <near|far> [--demo] [--args "GC"] [--skip n] [--cga] [--seg 2f73]
+// --seg names the Ghidra code segment of the function (default 1000); the live segment is seg - 0x1000 + 0x01f5.
 // --cga appends the 16 KiB CGA RAM at B800:0000 to each checkpoint; --args passes the command tail (the type-in is `dtrack <args>`).
 // Entry segment is the game's code segment 01f5 for segment-1000 functions. Output: .local/captures/seg-<name>/.
 import {mkdir,writeFile} from 'node:fs/promises';
@@ -8,7 +9,7 @@ import {createHash} from 'node:crypto';
 import {api,readPlanes,readVgaRegs} from './client.mjs';
 const [name,offS,kind='near']=process.argv.slice(2).filter(a=>!a.startsWith('--'));
 const skipI=process.argv.indexOf('--skip'),skip=skipI>0?+process.argv[skipI+1]:0;
-const LOAD=0x01f5,entry=parseInt(offS,16),out=`.local/captures/seg-${name}`;
+const si=process.argv.indexOf('--seg'),LOAD=0x01f5+(si>0?parseInt(process.argv[si+1],16)-0x1000:0),entry=parseInt(offS,16),out=`.local/captures/seg-${name}`;
 await mkdir(out,{recursive:true});
 const post=(path,body)=>fetch('http://127.0.0.1:8386/api/v1'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(r=>r.json());
 const paused=await api.pause();let stop=paused.stop?.stop_id??0;await api.clearBreaks();

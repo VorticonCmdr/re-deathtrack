@@ -9,6 +9,7 @@ import {memoryStorage} from '../src/web/storage.js';
 import {startGame} from '../src/game/boot.js';
 import {rw} from '../src/engine/mem.js';
 import {png} from './tools/png.mjs';
+import {cga,cgaFrame,RGBI} from '../src/engine/cga.js';
 
 const opt=(n,d)=>{const i=process.argv.indexOf('--'+n);return i>0?process.argv[i+1]:d;};
 const args=opt('args','')?opt('args','').split(' '):[];
@@ -18,6 +19,7 @@ createMachine({assets:await loadAssets(),storage:memoryStorage(),strict:true,arg
 if(opt('events',null))for(const e of JSON.parse(await readFile(opt('events'),'utf8')))queueEvent({...e,t:Math.round(e.s*PIT_HZ)});
 const gen=startGame({sound:opt('sound','speaker')});
 function shot(name){
+ if(cga.active){const f=cgaFrame(),rgb=new Uint8Array(f.w*f.h*3);f.idx.forEach((c,i)=>{rgb[i*3]=RGBI[c]>>16;rgb[i*3+1]=RGBI[c]>>8;rgb[i*3+2]=RGBI[c];});return writeFile(`${out}/${name}.png`,png(f.w,f.h,rgb));}
  const idx=pageIndices(regs.start),rgb=new Uint8Array(320*200*3),pal=regs.palette.map(rgb200);
  idx.forEach((c,i)=>{rgb[i*3]=pal[c]>>16;rgb[i*3+1]=pal[c]>>8&255;rgb[i*3+2]=pal[c]&255;});
  return writeFile(`${out}/${name}.png`,png(320,200,rgb));

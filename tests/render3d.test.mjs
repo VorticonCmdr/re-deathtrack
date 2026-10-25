@@ -174,5 +174,5 @@ test('2f73 ground quirks: a==b draws no middle, a>b paints right colour, r0>=99 
  assert.deepEqual(rowPx(0x63),runs([320,2]));
  groundSetup(0x63);rec(0x63,3,20,50,1,2);R.f2f73_02a4();
  assert.deepEqual(rowPx(0x63),runs([320,0]));
- ww(0x95d6,1);assert.throws(()=>R.f2f73_02a4(),UnsupportedError);
+ ww(0x95d6,4);assert.throws(()=>R.f2f73_02a4(),UnsupportedError); // id 4 (mode 4) stays unsupported; id 1 is CGA (tests/cga-game.test.mjs)
 });

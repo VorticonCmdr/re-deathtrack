@@ -13,7 +13,7 @@
 // - 2c46:32d3.. is 2f73:0003 (shared sky epilogue).
 //
 // Register conventions of the near helpers are documented per function. Nothing here blocks.
-import {rb,rw,rsw,wb,ww,frb,frw,frsw,fww,gseg,pseg,poff} from '../engine/mem.js';
+import {rb,rw,rsw,wb,ww,frb,fwb,frw,frsw,fww,gseg,pseg,poff} from '../engine/mem.js';
 import {s16,u16,s8,idiv32_16,div32_16,imul16} from '../engine/int.js';
 import {unsupported,register} from '../engine/host.js';
 import * as ega from '../engine/ega.js';
@@ -418,7 +418,8 @@ function outw(port,v){ega.out(port,v&0xff);ega.out(port+1,v>>8&0xff);}
 export function f2f73_000f(top,start,xoff,pan){
  const id=rw(0x95d6);
  if(id===3)return unsupported('2f73:01c5 Tandy sky panorama');
- if(id!==2)return unsupported('2f73:00f0 CGA/MCGA sky panorama');
+ if(id===1)return cgaSky(top,start,xoff,pan);
+ if(id!==2)return unsupported('2f73:00f0 MCGA/mode-4 sky panorama');
  const es=rw(0x3852);
  outw(0x3ce,0x0105);outw(0x3c4,0x0f02);                    // write mode 1, map mask F
  let cx=0;const d=u16(top-start);if(!(d&0x8000))cx=d;      // JS on the 16-bit difference
@@ -445,10 +446,48 @@ export function f2f73_000f(top,start,xoff,pan){
  outw(0x3ce,0x0205);
 }
 
-// 2f73:02a4 drawGroundByAdapter: JMP [DS:2afc + 2*DS:95d6]. Only the EGA target 2f73:02ae is translated.
+// 2f73:00f0 CGA sky (adapter 1), the branch of 2f73:000f taken for id 1: plain RAM copy of 80-byte panorama rows
+// (strip k = pan div 320 at [9bce+4k], +80 per skipped row) to the 80-byte-wide back page [3852]; no latches.
+// APPROX: CGA VRAM cost (the destination is B800 RAM; no work counter is charged).
+function cgaSky(top,start,xoff,pan){
+ const es=rw(0x3852);
+ let cx=0;const d=u16(top-start);if(!(d&0x8000))cx=d;     // SUB AX,BX / JS: skip = top-start when >= 0
+ const row0=u16(u16(start+cx)<<1);                        // ADD BX,CX / SHL BX,1
+ const dx=u16(rw(0x9642)-cx);
+ // QUIRK: JLE 2f73:00eb leads to POP..POP + near RET in a far-called function (stack mismatch). The original
+ // would run off; this throws instead. Only reachable when [9642] <= top-start (UNKNOWN: never seen).
+ if(rsw(0x9642)<=s16(cx))throw Error('2f73:00f0: [9642] <= skip (the original returns with a near RET from a far call)');
+ let ax=u16(pan),k=0;
+ for(;;){ax=u16(ax-0x140);if(ax&0x8000)break;k++;}
+ const kb=u16(k<<2),dh=kb&0xff;
+ const cx16=u16(cx<<4),cx64=u16(cx16<<2);                  // SHL CX x4, ADD; SHL CX x2, ADD -> 80*skip
+ const si0=u16(rw(0x9bce+kb)+cx16+cx64),ds=rw(0x9bd0+kb);
+ const c=u16(xoff)>>>2,bp=u16(0x50-c);                     // xoff bytes, destination run length
+ // QUIRK: the row counter is DEC DL (a count with a zero low byte runs 256 rows), as in the EGA branch.
+ const rows=(dx&0xff)||256;
+ {let s=si0,bx=row0;
+  for(let r=0;r<rows;r++){
+   let di=rw(0x3d3e+bx);s=u16(s+c);
+   for(let i=0;i<bp;i++){fwb(es,di,frb(ds,s));s=u16(s+1);di=u16(di+1);}
+   bx=u16(bx+2);
+  }}
+ if(c){
+  let b2=u16(dh+4);if(b2>=0x18)b2=0;                       // CMP BX,18h / JC: segment (k+1) mod 6
+  let s=u16(rw(0x9bce+b2)+cx64+(cx64>>>2));const ds2=rw(0x9bd0+b2); // CX still holds skip*64 here
+  let bx=row0;
+  for(let r=0;r<rows;r++){
+   let di=u16(rw(0x3d3e+bx)+bp);
+   for(let i=0;i<c;i++){fwb(es,di,frb(ds2,s));s=u16(s+1);di=u16(di+1);}
+   s=u16(s+bp);bx=u16(bx+2);
+  }
+ }
+}
+
+// 2f73:02a4 drawGroundByAdapter: JMP [DS:2afc + 2*DS:95d6]. EGA (02ae) and CGA (035f, id 1) are translated.
 export function f2f73_02a4(){
  const id=rw(0x95d6),t=rw(0x2afc+u16(id<<1));
  if(t===0x02ae)return f2f73_02ae();
+ if(t===0x035f&&id===1)return f2f73_035f();
  return unsupported(`2f73:02a4 ground fill, adapter ${id} -> 2f73:${t.toString(16).padStart(4,'0')}`);
 }
 // 2f73:02ae egaDrawGround: rows [8db2]-1 .. 99 of page DS:3858 from the 8-byte records DS:9252+8*row
@@ -502,17 +541,61 @@ export function f2f73_0469(a,b,row,colour){
  if(s16(cx)>0){ega.out(0x3cf,0xff);for(let i=0;i<cx;i++){ega.wr(voff(es,di),al);di=u16(di+1);}}
  if(rm){ega.out(0x3cf,rm);ega.rd(voff(es,di));ega.wr(voff(es,di),al);}
 }
+// 2f73:035f cgaDrawGround: rows [8db2]-1 .. 99 of page DS:3858 (B800, 80 bytes per row, 4 pixels per byte) from the
+// 8-byte records DS:9252+8*row (+0 middle colour word, +2 b, +4 a, +6 left colour byte, +7 right colour byte).
+// Entry: nothing assumed (no EGA state). The left verge is bytes 0..((a+3)>>2)-1, the right verge bytes
+// (b>>2)..79; then the middle 2f73:0513 unless a == b. Unlike the EGA version there is no a > b clamp.
+// APPROX: CGA VRAM cost (B800 RAM; no work counter is charged).
+export function f2f73_035f(){
+ const es=rw(0x3858);
+ let si=0x9252,ax=rw(0x8db2);
+ ax=u16(ax-1);let di=ax;si=u16(si+u16(ax<<3));
+ if(rsw(0x8db2)>=0x64)return;                              // CMP AX,BP / JGE
+ const fill=(off,n,v)=>{for(let i=0;i<n;i++)fwb(es,u16(off+i),v);};
+ do{
+  const col=rw(si),b=rw(si+2),a=rw(si+4);si=u16(si+6);
+  let d=rw(0x3d3e+u16(di<<1));
+  fill(d,u16(a+3)>>>2,rb(si));si=u16(si+1);                // CX=(a+3)>>2, AX=0 so DI keeps the row start
+  d=rw(0x3d3e+u16(di<<1));
+  const bq=b>>>2;                                          // AX = b>>2; CX = 0x142>>2
+  fill(u16(d+bq),u16(0x50-bq),rb(si));si=u16(si+1);
+  if(a!==b)f2f73_0513(es,a,b,col,di);
+  di=u16(di+1);
+ }while(di!==0x64);
+}
+// 2f73:0513 cgaGroundSpan (near, register arguments: ES = page segment, AX = a, BX = b, CX = colour word, DI = row):
+// left partial byte (mask DS:2ad6[a&3] keeps the left pixels), then (b-a+(a&3))>>2 bytes from DI+1 as colour
+// word pairs (STOSB when bit 2 of the count is set, then (count>>3) STOSW), then the right partial byte
+// (mask DS:2ada[count&3] keeps the right pixels). QUIRK (static, unverified against DOSBox): the byte count is
+// taken after the left byte was already written, so the middle reaches up to 4 pixels past b.
+export function f2f73_0513(es,ax,bx,cx,di){
+ let d=rw(0x3d3e+u16(di<<1));
+ let len=u16(bx-ax);const bp=ax&3;len=u16(len+bp);
+ d=u16(d+(u16(ax)>>>2));
+ const lo=cx&0xff,hi=cx>>>8&0xff;
+ let al=rb(0x2ad6+bp);
+ fwb(es,d,frb(es,d)&al);fwb(es,d,frb(es,d)|(~al&lo&0xff));
+ d=u16(d+1);
+ const bp2=len&3;
+ let n=len>>>3;
+ if(len&4){fwb(es,d,lo);d=u16(d+1);}
+ for(let i=0;i<n;i++){fwb(es,d,lo);d=u16(d+1);fwb(es,d,hi);d=u16(d+1);}
+ al=rb(0x2ada+bp2);
+ fwb(es,d,frb(es,d)&al);fwb(es,d,frb(es,d)|(~al&lo&0xff));
+}
+
 // 2f73:05d8 setGroundSpanRoutine(AX = adapter id): stores the near span routine for the adapter in DS:2b06
 // (2 -> 0469, 3 -> 0564, else 0513). DS:2b06 has no reader in the program (static).
 export function f2f73_05d8(ax){ww(0x2b06,ax===2?0x0469:ax===3?0x0564:0x0513);}
 
 // Code addresses stored in data: DS:2afc (02a4 jump table) and DS:2b06 (05d8).
 register(0x2f73,0x02ae,f2f73_02ae);
+register(0x2f73,0x035f,f2f73_035f);
 register(0x2f73,0x0469,f2f73_0469);
 
 provide({f2c46_000a,f2c46_004e,f2c46_005e,f2c46_006e,f2c46_00b4,f2c46_00fa,f2c46_0114,f2c46_01a4,f2c46_026c,
  f2c46_03d8,f2c46_0468,f2c46_0534,f2c46_06a0,f2c46_0a63,f2c46_0a8a,f2c46_0fa5,f2c46_10d2,f2c46_11ea,f2c46_1317,
  f2c46_13ad,f2c46_1434,f2c46_14b3,f2c46_1504,f2c46_311a,f2c46_3140,f2c46_3163,f2c46_31b6,f2c46_31eb,f2c46_3220,
- f2c46_32c6,f2f73_000f,f2f73_02a4,f2f73_02ae,f2f73_0469,f2f73_05d8});
+ f2c46_32c6,f2f73_000f,f2f73_02a4,f2f73_02ae,f2f73_035f,f2f73_0469,f2f73_05d8});
 export {f2c46_06a0 as matFromAngles,f2c46_0a8a as matMul,f2c46_11ea as drawShape,f2c46_3220 as atan2_16,
  f2c46_311a as sin16,f2c46_3140 as cos16,f2f73_02a4 as drawGroundByAdapter,f2f73_000f as drawSky};

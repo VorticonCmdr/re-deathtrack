@@ -102,7 +102,15 @@ export function f2524_0260(){
  f2524_4956(0xd);
  f2524_4942(0xa3be,gseg(0x1000),0xd);
  if(rb(0x385d)===1||rb(0x385d)===4){
-  unsupported('2524:030a CGA/Tandy dither tables'); // [896c]=1, DS:1cf0/1cdc/9252.. tables
+  // 2524:030a CGA/Tandy: [896c]=1, DS:1cf0[10]=0, DS:1cdc[10]=3, then the 100 ground records DS:9252+8r:
+  // +6 = aaaah/5555h alternating by row, +0 = 0 on even rows and the running word (after the XOR) on odd rows.
+  ww(0x896c,1);
+  for(let i=0;i<10;i++){ww(0x1cf0+2*i,0);ww(0x1cdc+2*i,3);}
+  let si=0xaaaa;
+  for(let cx=0;cx<0x64;cx++){
+   ww(0x9258+8*cx,si);si^=0xffff;
+   ww(0x9252+8*cx,(cx&1)?si:0);
+  }
   return;
  }
  ww(0x896c,0);

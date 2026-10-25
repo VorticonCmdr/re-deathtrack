@@ -11,17 +11,17 @@ import {loadAssets} from '../tests/assets.mjs';
 import {createMachine} from '../src/engine/machine.js';
 import {state} from '../src/engine/host.js';
 import {setStack,ww,B} from '../src/engine/mem.js';
-import {loadCheckpoint,diffMemory,diffPlanes,raceReplayExclusions,describe} from '../src/engine/checkpoint.js';
+import {loadCheckpoint,diffMemory,diffPlanes,diffCga,raceReplayExclusions,describe} from '../src/engine/checkpoint.js';
 import {F} from '../src/game/link.js';
 import '../src/game/modules.js';
 import {raceFrame} from '../src/game/flow.js';
 import {staleStack} from '../src/game/race.js';
 
-export async function replay({dir='.local/captures/demo-race',start=0,count=1,log=console.log,stopOnDiff=false,beforeFrame=null,expectedHook=null}={}){
+export async function replay({dir='.local/captures/demo-race',start=0,count=1,log=console.log,stopOnDiff=false,beforeFrame=null,expectedHook=null,cmdArgs=[]}={}){
  const manifest=JSON.parse(await readFile(`${dir}/manifest.json`,'utf8'));
  const cps=manifest.checkpoints;
  if(start+count>=cps.length)throw Error(`Need checkpoints ${start}..${start+count}, capture has ${cps.length}`);
- createMachine({assets:await loadAssets(),strict:true});
+ createMachine({assets:await loadAssets(),strict:true,args:cmdArgs});
  const first=await loadCp(dir,cps[start]);
  loadCheckpoint(first,cps[start].vga);
  setStack(cps[start].cpu.esp&0xffff); // emulated stack continues below the original's live frames
@@ -41,17 +41,17 @@ export async function replay({dir='.local/captures/demo-race',start=0,count=1,lo
   if(r.value!==undefined){log(`race loop exited after checkpoint ${i}`);results.exited=i;break;}
   const exp=await loadCp(dir,cps[i+1]);expectedHook?.(i+1,exp);
   const sp=cps[i+1].cpu.esp&0xffff;
-  const mem=diffMemory(exp,raceReplayExclusions(sp)),vram=diffPlanes(exp);
-  results.push({index:i+1,frame:cps[i+1].frame,mem,vram});
-  log(`checkpoint ${i+1} (race frame ${cps[i+1].frame}): ${mem.count} memory bytes differ in ${mem.total} ranges, ${vram.count} VRAM bytes differ`);
+  const mem=diffMemory(exp,raceReplayExclusions(sp)),vram=diffPlanes(exp),cga=diffCga(exp);
+  results.push({index:i+1,frame:cps[i+1].frame,mem,vram,cga});
+  log(`checkpoint ${i+1} (race frame ${cps[i+1].frame}): ${mem.count} memory bytes differ in ${mem.total} ranges, ${vram.count} VRAM bytes differ${cga.present?`, ${cga.count} B800 bytes differ`:''}`);
   const hexs=(a,n,src)=>[...Array(n)].map((_,k)=>src[a+k].toString(16).padStart(2,'0')).join(' ');
   for(const r of mem.ranges.slice(0,12))log(`  ${describe(r.from)} .. +${r.to-r.from}  expected ${hexs(r.from,Math.min(16,r.to-r.from),exp)}  port ${hexs(r.from,Math.min(16,r.to-r.from),B)}`);
-  if(stopOnDiff&&(mem.count||vram.count))break;
+  if(stopOnDiff&&(mem.count||vram.count||cga.count))break;
  }
  return results;
 }
 if(import.meta.url===`file://${process.argv[1]}`){
  const [dir,start='0',count='1']=process.argv.slice(2).filter(a=>!a.startsWith('--'));
- const res=await replay({dir:dir||undefined,start:+start,count:+count,stopOnDiff:process.argv.includes('--stop')});
- if(process.argv.includes('--strict')&&res.some(r=>r.mem.count||r.vram.count))process.exitCode=1;
+ const ai=process.argv.indexOf('--args'),res=await replay({dir:dir||undefined,start:+start,count:+count,stopOnDiff:process.argv.includes('--stop'),cmdArgs:ai>0?process.argv[ai+1].split(' '):[]});
+ if(process.argv.includes('--strict')&&res.some(r=>r.mem.count||r.vram.count||r.cga.count))process.exitCode=1;
 }

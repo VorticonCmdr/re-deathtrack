@@ -34,7 +34,7 @@ export function* f1000_0010(argc,argv){
  F.f2524_043c(argc,argv);                 // command line, adapter detection -> [0x95d6]
  wb(0x3842,1);
  if(rw(0x95d6)===0)f1000_0344(0x76);      // "Hardware not compatible."
- else if(rw(0x95d6)===1)unsupported('1000:00a7 CGA mode 6 (1000:a536)');
+ else if(rw(0x95d6)===1)F.f1000_a536();   // CGA: INT 10h AX=0006h
  f1000_045a();
  F.f1000_a403();                          // RNG index reset
  F.f2524_0260();                          // input/system init
@@ -623,8 +623,28 @@ export function f1000_1208(name){
   start=(0xa734<<16)>>>0;
   F.f1000_ae8e(2);
  }else{
-  unsupported('1000:140c .MAP load for CGA/Tandy');
-  F.f1ff8_100d(h);F.f1000_c264(file);return;
+  // 1000:140c CGA (id 1; id 4 never gets here, 2524:0285 is unsupported): the strips are converted into a DOS
+  // block of total/2 bytes (80-byte rows) by the CGA driver's 2fd2:014e, chunk by chunk.
+  rowBytes=0x50;
+  let ptr;                                       // [bp-4]:[bp-2] running destination, [bp-0xe]:[bp-0xc] block start
+  if((rw(0x9bce)|rw(0x9bd0))===0)ptr=F.f1ff8_3a88(...lw(total>>1),0)>>>0; // SAR DX:AX,1
+  else ptr=(rw(0x9bce)|rw(0x9bd0)<<16)>>>0;
+  dst=ptr;start=ptr;
+  let buf;                                       // [bp-0x16]:[bp-0x14]
+  for(;;){
+   buf=F.f1ff8_3a88(...lw(chunk),0)>>>0;
+   if(buf)break;
+   chunk=chunk>>1;
+  }
+  while(total!==0){
+   if(total<chunk)chunk=total;
+   F.f1ff8_11f0(h,...lw(buf),u16(chunk));
+   const rows=F.f1000_e80c(...lw(chunk),0xa0,0)&0xffff; // _aNldiv(chunk, 160) -> SI
+   F.f2fd2_014e(dst&0xffff,dst>>>16,buf&0xffff,buf>>>16,0x140,rows,0);
+   dst=dst+(chunk>>1)>>>0;                       // SAR/RCR; ADD/ADC into the segment word
+   total=total-chunk|0;
+  }
+  F.f1ff8_3ae2(buf&0xffff,buf>>>16);
  }
  // 1000:1515: strip pointers, each strip advances by height*rowBytes.
  if(n>0){

@@ -5,6 +5,7 @@ import {dosAlloc,dosFree,dosResize} from '../engine/dos.js';
 import {machine} from '../engine/machine.js';
 import {state,getVector,setVector,unsupported,inRetrace,onInput,interrupt,record,setPitDivisor,biosVector} from '../engine/host.js';
 import * as ega from '../engine/ega.js';
+import * as cga from '../engine/cga.js';
 import {hasPort,portIn,portOut} from './devices.js';
 
 const lo=x=>x&0xff, hi=x=>x>>8&0xff;
@@ -16,14 +17,15 @@ const ok=r=>{r.cf=0;return r;};
 export function int10(r){
  const ah=hi(r.ax),al=lo(r.ax);
  switch(ah){
-  case 0x00:ega.setMode(al&0x7f);fwb(0x40,0x49,al&0x7f);return r;
+  case 0x00:{const m=al&0x7f;if(m<4||m>6)ega.setMode(m);fwb(0x40,0x49,m);cga.setMode(m,!(al&0x80));return r;} // modes 4-6: CGA frame buffer at B800
+  case 0x0b:cga.setPalette(hi(r.bx),lo(r.bx));return r; // CGA palette / background colour
   case 0x0f:r.ax=frw(0x40,0x4a)<<8|frb(0x40,0x49);r.bx=r.bx&0xff;return r;
   case 0x10:
    if(al===0x00){if(lo(r.bx)<16)ega.regs.palette[lo(r.bx)]=hi(r.bx)&0x3f;else if(lo(r.bx)===0x11)ega.regs.overscan=hi(r.bx)&0x3f;return r;}
    if(al===0x01){ega.regs.overscan=hi(r.bx)&0x3f;return r;}
    if(al===0x02){for(let i=0;i<16;i++)ega.regs.palette[i]=frb(r.es,r.dx+i)&0x3f;ega.regs.overscan=frb(r.es,r.dx+16)&0x3f;return r;}
    return unsupported(`INT 10h AX=${r.ax.toString(16)}`),r;
-  case 0x12:if(lo(r.bx)===0x10){r.bx=0x0003;r.cx=0x0009;return r;}return r; // EGA, 256K, colour monitor
+  case 0x12:if(lo(r.bx)===0x10){if(cga.hw.noEga)return r;r.bx=0x0003;r.cx=0x0009;return r;}return r; // EGA, 256K, colour monitor
   case 0x1a:return r; // EGA BIOS has no display combination call: AL unchanged
   default:unsupported(`INT 10h AH=${ah.toString(16)}`);return r;
  }
@@ -97,7 +99,7 @@ export const speaker={gate:0,divisor:0x14,events:[]};
 const spk=()=>{if(speaker.events.length<20000)speaker.events.push({t:state.clock,divisor:speaker.divisor,gate:speaker.gate});};
 export function outp(port,v){
  v&=0xff;
- if(port>=0x3c0&&port<=0x3df){ega.out(port,v);return;}
+ if(port>=0x3c0&&port<=0x3df){if(port===0x3d8||port===0x3d9){cga.out(port,v);return;}if(port===0x3d4||port===0x3d5)cga.out(port,v);ega.out(port,v);return;}
  if(hasPort(port)){portOut(port,v);return;}
  switch(port){
   case 0x20:case 0x21:return; // PIC: EOI and mask writes have no effect in the virtual machine
@@ -111,6 +113,7 @@ export function outp(port,v){
 export function outpw(port,v){outp(port,v&0xff);outp(port+1,v>>8&0xff);}
 export function inp(port){
  if(port===0x3da)return vstatus();
+ if(port===0x3d4||port===0x3d5||port===0x3d8||port===0x3d9)return cga.inp(port);
  if(port===0x60)return state.port60;
  if(port===0x61)return speaker.gate;
  if(port===0x201)return 0xff;   // no joystick

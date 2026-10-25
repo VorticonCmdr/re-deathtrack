@@ -1,12 +1,12 @@
 // Browser acceptance: real Chrome, real input adapters (CDP keyboard/mouse), original assets via the dev server.
 // Route: boot -> title -> Enter -> sign-up (type name) -> GO FOR IT -> quiz answer -> take car -> FULL CIRCUIT RUN
 // -> GO RACIN' -> race: accelerate, steer, fire. Fails on any error status, unsupported-path diagnostic,
-// console error, or a missed milestone. Usage: node tests/browser/acceptance.mjs
+// console error, or a missed milestone. Usage: [ACCEPT_QUERY='?video=cga'] node tests/browser/acceptance.mjs
 import {createServer} from 'vite';
 import puppeteer from 'puppeteer-core';
 import {mkdir} from 'node:fs/promises';
 const CHROME=process.env.CHROME||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-const out='.local/browser';await mkdir(out,{recursive:true});
+const out=process.env.ACCEPT_QUERY?'.local/browser-'+process.env.ACCEPT_QUERY.replace(/\W/g,''):'.local/browser';await mkdir(out,{recursive:true});
 const server=await createServer({server:{port:0,host:'127.0.0.1'},logLevel:'error'});await server.listen();
 const url=`http://127.0.0.1:${server.config.server.port||server.httpServer.address().port}/`;
 let browser,failures=[];
@@ -16,7 +16,7 @@ try{
  const page=await browser.newPage();await page.setViewport({width:1100,height:900});
  page.on('console',m=>{if(m.type()==='error')fail(`console error: ${m.text()}`);});
  page.on('pageerror',e=>fail(`page error: ${e.message}`));
- await page.goto(url);
+ await page.goto(url+(process.env.ACCEPT_QUERY||''));
  const pages=[];const tracer=setInterval(async()=>{try{const p=await page.evaluate('window.__deathtrack&&window.__deathtrack.rw(0x9018)');if(p!==pages.at(-1))pages.push(p);}catch{}},50);
  const g=(expr)=>page.evaluate(expr);
  const mem=o=>g(`window.__deathtrack.rw(${o})`);

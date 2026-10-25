@@ -2,7 +2,7 @@
 // Static, from the raw-byte disassembly.
 import {rb,rw,wb,ww,frb,fwb,fww,gseg,DGROUP} from '../../engine/mem.js';
 import {register,unsupported} from '../../engine/host.js';
-import {int10} from '../bios.js';
+import {int10,inp,outp} from '../bios.js';
 import {F,provide} from '../link.js';
 import {f1ff8_418c,f1ff8_4014} from './input.js';
 
@@ -18,7 +18,8 @@ export function f1ff8_20ff(req,mask){
  wb(0x49b4,f1ff8_23a2());
  const id=f1ff8_21f5();wb(0x385d,id);
  if(id===2){f1ff8_21bc(0x4d9c);F.f29f6_13b5(0);} // slot 0 relies on CX = 0 left by 21bc's REP MOVSW
- else if(id===1||id===3||id===4||id===5||id===8)unsupported(`1ff8:20ff adapter ${id}`);
+ else if(id===1){f1ff8_21bc(0x4e3c);F.f2fd2_0252();} // CGA: table DS:4e3c, init 2fd2:0252 (sets [385d] itself)
+ else if(id===3||id===4||id===5||id===8)unsupported(`1ff8:20ff adapter ${id}`);
  else wb(0x385d,0);
  fww(0,0x4f0,DGROUP);
  ww(0x3856,rw(0x3854));ww(0x3858,rw(0x3852));
@@ -27,18 +28,39 @@ export function f1ff8_20ff(req,mask){
 // 1ff8:21bc copyDriverTable(si) (near, SI = source): 0x23 far pointers from DS:si to DS:4924.
 export function f1ff8_21bc(si){for(let i=0;i<0x46;i++)ww(0x4924+2*i,rw(si+2*i));}
 // 1ff8:21f5 gfxDetect (near): adapter id from the request mask DS:49b5. Translated: the EGA test (mask bit 1) through
-// INT 10h AH=12h BL=10h and 0040:0087 bit 3. VGA/MCGA (mask FF or bit 7, bit 4), CGA, Hercules and Tandy probing are not.
+// INT 10h AH=12h BL=10h and 0040:0087 bit 3, and the CGA probe (f1ff8_22d8). VGA/MCGA (mask FF or bit 7, bit 4), Hercules and Tandy are not.
 export function f1ff8_21f5(){
  const m=rb(0x49b5);
  if(m===0xff||(m&0x80)||(m&0x10)){unsupported('1ff8:21f5 VGA/MCGA detection (INT 10h 1A00h)');return 0;}
- if(!(m&2)){unsupported('1ff8:21f5 CGA/Hercules/Tandy detection');return 0;}
+ if(!(m&2))return f1ff8_22d8();
  const r={ax:0x1200,bx:0x10};int10(r);
- if(r.bx===0x10){unsupported('1ff8:21f5 no EGA BIOS: CGA/Hercules/Tandy detection');return 0;}
+ if(r.bx===0x10)return f1ff8_22d8();
  if(frb(0x40,0x87)&8){
   // EGA present but not the active display: switch the equipment bits to 80x25 colour and set mode 3.
   fwb(0x40,0x10,frb(0x40,0x10)&0xcf|0x20);int10({ax:3,bx:3});
  }
  return 2;
+}
+// 1ff8:22d8 (inside 21f5, translated as a function) CGA / Tandy / Hercules probe, reached when the request mask has no EGA bit or INT 10h
+// AH=12h found no EGA. When the mask is FFh or has bit 0 or 2, a 6845 CRTC is looked for at 3D4/3D5 (register 0Fh, write 66h, read back).
+// QUIRK: the register is "restored" with 0Fh (AH was loaded from AL = 0Fh, not from a read of the old value).
+// Found: equipment bits = 80x25 colour, INT 10h AX=0003h, then the Tandy test (1ff8:528a): mask bit 2 and Tandy -> 3, mask bit 0 -> 1 (CGA),
+// else 0. Not found, or no such mask bit: mask bit 3 asks for the Hercules probe (3B4, unsupported), otherwise 0.
+export function f1ff8_22d8(){
+ const m=rb(0x49b5);
+ if(m===0xff||(m&5)){
+  outp(0x3d4,0x0f);outp(0x3d5,0x66);
+  const v=inp(0x3d5);outp(0x3d5,0x0f);
+  if(v===0x66){
+   fwb(0x40,0x10,frb(0x40,0x10)&0xcf|0x20);int10({ax:3,bx:3});
+   const t=F.f1ff8_528a()&0xff,ah=rb(0x49b5);
+   if((ah&4)&&t)return 3;
+   if(ah&1)return 1;
+   return 0;
+  }
+ }
+ if(!(m&8))return 0;
+ unsupported('1ff8:2338 Hercules detection (3B4/3BA)');return 0;
 }
 // 1ff8:21cd shutdown: kbdRestore, mouseShutdown, sound/timer shutdown (2524:4a94), divide-handler restore (3b56).
 export function f1ff8_21cd(){f1ff8_418c();f1ff8_4014();F.f2524_4a94();f1ff8_3b56();}
@@ -64,6 +86,6 @@ export function f1ff8_3b1c(){unsupported('1ff8:3b1c divide-overflow handler must
 // bytes 26 a1 00 00), so INT 0 stays pointed at 3b1c after exit.
 export function f1ff8_3b56(){if(rb(0x4b32))wb(0x4b32,0);}
 export {f1ff8_20ff as gfxSelectAdapter,f1ff8_21cd as sysShutdown,f1ff8_21e2 as gfxRestoreMode};
-provide({f1ff8_20fe,f1ff8_20ff,f1ff8_21bc,f1ff8_21f5,f1ff8_21cd,f1ff8_21e2,f1ff8_237f,f1ff8_23a2,f1ff8_3af2,f1ff8_3b1c,f1ff8_3b56});
+provide({f1ff8_20fe,f1ff8_20ff,f1ff8_21bc,f1ff8_21f5,f1ff8_22d8,f1ff8_21cd,f1ff8_21e2,f1ff8_237f,f1ff8_23a2,f1ff8_3af2,f1ff8_3b1c,f1ff8_3b56});
 register(0x1ff8,0x20fe,f1ff8_20fe);
 register(0x1ff8,0x3b1c,f1ff8_3b1c);

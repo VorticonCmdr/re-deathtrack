@@ -1,5 +1,6 @@
 // Captures consecutive race-loop checkpoints from a running DOSBox (scenario: docs/scenarios/demo-race.json).
-// Usage: node scripts/dosbox/capture-race.mjs <outDir> <frames> [--from-start]
+// Usage: node scripts/dosbox/capture-race.mjs <outDir> <frames> [--from-start] [--cga]
+// --cga appends the 16 KiB of B800 RAM to each checkpoint (run the game with the GC argument).
 // --from-start waits for the race loop to be entered (047c) before capturing, so checkpoint 0 is race frame 0.
 // Each checkpoint: conventional memory 0..A0000, four EGA planes, register state; gzip-compressed, local only.
 import {mkdir,writeFile} from 'node:fs/promises';
@@ -49,7 +50,9 @@ async function nextLoopHead(prev){
 for(let i=0;i<+frames;i++){
  await nextLoopHead(manifest.checkpoints[i-1]);
  const cpu=await api.cpu(),mem=await api.read(0,0xa0000),regs=await readVgaRegs(),vga=await readPlanes();
- const blob=new Uint8Array(0xa0000+0x40000);blob.set(mem);vga.planes.forEach((p,k)=>blob.set(p,0xa0000+k*0x10000));
+ const cga=process.argv.includes('--cga');
+ const blob=new Uint8Array(0xa0000+0x40000+(cga?0x4000:0));blob.set(mem);vga.planes.forEach((p,k)=>blob.set(p,0xa0000+k*0x10000));
+ if(cga)blob.set(await api.read(0xb8000,0x4000),0xa0000+0x40000);
  const regsNow=cpu.registers??cpu;
  if(regsNow.cs!==LOAD||(regsNow.eip&0xffff)!==LOOP_HEAD)throw Error(`Checkpoint ${i} not at the loop head: ${JSON.stringify(regsNow)}`);
  const name=`cp${String(i).padStart(4,'0')}.bin.gz`;await writeFile(`${out}/${name}`,gzipSync(blob,{level:6}));

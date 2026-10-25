@@ -1,0 +1,30 @@
+{
+ "scenario": "cga-segments",
+ "version": 1,
+ "level": "segment comparison from injected entry checkpoints (conditional on the entry state)",
+ "executable": {"file": "DTRACK.EXE", "sha256": "5b23cafb2542195a7473b532e46a25023cd7bd59351445f6a7cb732807ff2928"},
+ "emulator": {"name": "dosbox-automation", "version": "0.84.0-vc1 (f6d9b)", "config": "bridge default; the game is started with the argument GC (CGA adapter, BIOS mode 6)"},
+ "captureTool": "scripts/dosbox/capture-segment.mjs <name> <entry> far --seg <ghidra segment> --cga --args \"GC [demo]\"",
+ "recipe": [
+  "bridge_stop / bridge_start, drive_mount C: -> .local/dosrun (a fresh DOSBox for boot-time functions)",
+  "node scripts/dosbox/capture-segment.mjs cga-init 0252 far --seg 2fd2 --cga --args \"GC\"",
+  "node scripts/dosbox/capture-segment.mjs cga-hwinit 0260 far --seg 2524 --cga --args \"GC\"",
+  "node scripts/dosbox/capture-segment.mjs cga-ground 035f far --seg 2f73 --cga --args \"GC demo\"",
+  "node scripts/dosbox/capture-segment.mjs cga-sky 000f far --seg 2f73 --cga --args \"GC demo\""
+ ],
+ "segments": [
+  {"name": "cga-init", "function": "f2fd2_0252", "args": 0, "what": "CGA driver init: mode 4 set-up, font/page tables, B800 cleared", "sha256": ["fe15fd56910499a6712df91af78f283d0865a814ca96f4d715d1a93abf81e855", "46e11af98d47e20cb0fa4e2ab2c79a50482fe2c10eb604745d3f5dcb2a836e67"]},
+  {"name": "cga-hwinit", "function": "f2524_0260", "args": 0, "what": "hardware init incl. the CGA dither/ground tables (branch 030a)", "sha256": ["70ebae4de47d6f38df354664f357d9193261cb79bd02b70d26ff634bd735b3cd", "a84323c9534a0fa1229d5a4656448fb18d4c92a49c1d454a850c6b893d1ca320"],
+   "exclusions": [
+    {"lin": "0xe29c", "len": 2, "why": "CS:c34c timer slot 8 callback: DOSBox ran the MT-32 tick (cbfc), the port the speaker tick"},
+    {"lin": "0xe2a4", "len": 1, "why": "CS:c354 timer phase step set by the sound device install"},
+    {"lin": "0x28ef0+0x2ec8", "len": 54, "why": "MT-32 descriptor and queue pointers (device not selected in the port)"},
+    {"lin": "0x28ef0+0x34ed", "len": 3, "why": "speaker driver voice count and voices (device state)"},
+    {"lin": "0x28ef0+0x4b9c", "len": 16, "why": "joystick calibration: DOSBox emulates a joystick, the port reports none (out of scope)"}
+   ]},
+  {"name": "cga-ground", "function": "f2f73_035f", "args": 0, "what": "CGA ground fill, first race frame", "sha256": ["fd0bde65df472f22801312800e4c70f5f68b284dc27140df422ceade900000b4", "d4ecf6ef3d6709b835d7f1197965b7c5a906888eb19da22321489ce8755677af"]},
+  {"name": "cga-sky", "function": "f2f73_000f", "args": 4, "what": "CGA sky panorama strip copy", "sha256": ["93aa054b7805bf67d25f5904b5749baea0ecfa7605611c9897d5c3d14b1d2567", "a2d68a868d0159e838c1bb6608aa14ee5e42c64a7ed3c2d9adf5890b57911485"]}
+ ],
+ "comparison": {"memory": "0..A0000 minus raceReplayExclusions and the per-segment exclusions above", "cga": "B800:0000-3FFF exact", "vram": "four EGA planes exact"},
+ "storage": ".local/captures/seg-<name> (local only, proprietary content)"
+}
