@@ -6,7 +6,7 @@ Updated 2026-10-25.
 
 - `DTRACK.EXE`, SHA-256 `5b23cafb…ff2928`: Deathtrack 1.0 (1989) PC, with the one-byte copy-protection patch. Asset set: `src/data/manifest.json` (92 files).
 - Display: EGA mode 0Dh (the adapter DOSBox detects).
-- Sound: PC-speaker path. Music and effects are translated, but the **browser audio output is not implemented yet**.
+- Sound: PC-speaker path (music and effects), rendered in the browser by an AudioWorklet from time-stamped PIT/port 61h changes. The browser test asserts non-silent output. Audio fidelity (speaker response) is APPROX and has not been compared with hardware or DOSBox output.
 - Input: keyboard and mouse. Joystick is reported absent.
 
 ## Working playable route (browser, verified by `npm run verify:browser`)
@@ -40,9 +40,11 @@ Demo mode (`?args=demo`) autoplays the shop screens and a full race, then return
   - Negative controls (one skipped RNG step, one altered byte) are detected.
   - Evidence is conditional on the injected start state; the race contained no interrupt-dependent stale read.
 
+- **segment-race-setup**: `1000:32b8` (race setup: `.TRK`/`.MAP`/shape/bitmap loading and every DOS allocation) from a DOSBox entry checkpoint to its return. Memory and all four VRAM planes match exactly, including the MCB chain and its owner-name stamping rule, observed with `scripts/dosbox/trace-arena.mjs`. Segment-level evidence, conditional on the injected entry state.
+
 ## Known limitations
 
-- **No audio output in the browser.** The PIT ch2 speaker state is emulated (`src/game/bios.js` `speaker`), but nothing plays it.
+- Speaker audio is approximate (inaudible rates above 15 kHz are silenced, one-pole low-pass).
 - **Approximations** (all in `docs/re/environment.md`):
   - Timing model: race at 15 fps minimum, calibrated work costs.
   - `9542`'s interrupt-dependent stale stack word.
@@ -52,7 +54,7 @@ Demo mode (`?args=demo`) autoplays the shop screens and a full race, then return
 
 ## Next milestone
 
-1. Speaker audio output (PIT ch2 square wave, gated by port 61h) from the translated music and effect drivers.
-2. Reference checkpoints for a menu/shop transaction and the race-results screen (segment comparisons injected at screen entry).
-3. A capture with type-5 entities, to exercise the stale-slot input path.
-4. A save/load round trip in the browser.
+1. Reference checkpoints for a menu/shop transaction and the race-results screen (segment comparisons injected at screen entry).
+2. A capture with type-5 entities, to exercise the stale-slot input path.
+3. A save/load round trip in the browser.
+4. Segment captures for `34b0` (results), the shop purchases and `2230` (quiz), using `scripts/dosbox/capture-segment.mjs`.

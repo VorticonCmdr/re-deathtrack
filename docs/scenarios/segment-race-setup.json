@@ -1,0 +1,39 @@
+{
+ "scenario": "segment-race-setup",
+ "version": 1,
+ "executable": {
+  "file": "DTRACK.EXE",
+  "sha256": "5b23cafb2542195a7473b532e46a25023cd7bd59351445f6a7cb732807ff2928"
+ },
+ "emulator": {
+  "name": "dosbox-automation",
+  "version": "0.84.0-vc1 (f6d9b)",
+  "config": "bridge default"
+ },
+ "recipe": [
+  "mount .local/dosrun as C:",
+  "start DOSBox fresh (bridge_stop/bridge_start)",
+  "node scripts/dosbox/capture-segment.mjs race-setup 32b8 near --demo"
+ ],
+ "function": "1000:32b8 (live 01f5:32b8) f1000_32b8, no arguments",
+ "checkpoints": [
+  {
+   "file": "entry.bin.gz",
+   "sha256": "f0c3e1eac5516f4394e513834bf245e736e1bcf560f09e145e4d19da31395d5e"
+  },
+  {
+   "file": "exit.bin.gz",
+   "sha256": "102475da79968f6a576bbc014b72bb395aa518f6f87ef5c9f776fdee9d20b91c"
+  }
+ ],
+ "injections": [
+  "start state = entry checkpoint (conditional evidence)",
+  "sound device descriptors set to PC speaker (excluded from comparison)"
+ ],
+ "comparison": {
+  "memory": "0..A0000 minus raceReplayExclusions(sp)",
+  "vram": "all planes exact"
+ },
+ "storage": ".local/captures/seg-race-setup",
+ "verify": "node --test tests/scenario-segment-race-setup.test.mjs"
+}
