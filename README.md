@@ -1,41 +1,39 @@
 # Deathtrack browser port
 
-First milestone: an original-resource inspector in HTML, CSS and vanilla JavaScript. The game itself is not ported yet.
+A faithful port of Dynamix/Activision's *Deathtrack* (1989, DOS) to HTML, CSS and vanilla JavaScript. The game logic is translated function by function from the original executable and runs against an emulated real-mode memory image and EGA hardware model. Original files are required and never bundled.
+
+Status, verified scenarios and limitations: [docs/STATUS.md](docs/STATUS.md).
 
 ## Run
 
-Use Node 20.19+ or 22.12+ and npm:
+Requires Node 20.19+ or 22.12+ and your own copy of the game in `game/` (the supported build is listed in `src/data/manifest.json`).
 
 ```sh
 npm install
-npm run dev
+npm run dev        # open the printed URL; viewer.html is the asset inspector
 ```
 
-Open the local URL printed by Vite, then `viewer.html`. During development the viewer discovers files in `game/`. Alternatively, use **Open game folder**. Folder selection reads files locally in the browser; nothing is uploaded.
+- **Controls:** mouse for menus. In a race: Up/Down to accelerate and brake, Left/Right to steer, Space to fire, number keys for weapons, Esc for the in-race menu, P to pause.
+- **Demo mode:** `?args=demo`.
+- **Best-effort mode:** `?mode=demo` reports unsupported paths instead of stopping.
+- **Production:** `npm run build` writes `dist/` without any game files. Visitors select their own game folder, and nothing is uploaded.
 
-- Search/filter all 92 original files.
-- View 179 decoded bitmap/screen frames and three font atlases; export PNGs.
-- Inspect palette words, chunk trees, text and binary data.
-- Play both music tracks using a basic Web Audio synthesizer; export their decompressed MIDI.
-- Inspect decompressed maps and title commands.
-
-PC-speaker effects, 3D models, track geometry and title animation execution are not implemented. MIDI playback is a note audition, not authentic Roland MT-32 emulation. See [asset format notes](docs/asset-formats.md) for exact coverage and unknowns.
-
-## Build / GitHub Pages
+## Verify
 
 ```sh
-npm run build
-npm run preview
+npm run verify           # asset identity, unit tests, closed-loop race replay against DOSBox checkpoints
+npm run verify:browser   # real Chrome: boot -> menus -> race with keyboard and mouse
+npm run audit:assets     # structural audit of the original resource files
 ```
 
-Publish the contents of `dist/` when ready. Relative asset URLs support a GitHub Pages repository subpath. The production bundle contains no original game files and no asset server. Visitors select their own local `game/` folder. No deployment has been configured or performed yet.
+The race replay needs a local DOSBox capture, recreated with the recipe in `docs/scenarios/demo-race-start.json`.
 
-`game/`, `node_modules/` and `dist/` are ignored by Git. Do not force-add original resources. No decoded game assets are checked in either.
+## Documentation
 
-## Validate formats
+- `docs/re/identity.md`: executable identity, the patched byte, the address mapping, and the hardware boundary.
+- `docs/porting-conventions.md` and `docs/TRANSLATION_BRIEF.md`: how translated code is written.
+- `docs/re/environment.md`: external inputs, the timing model, and the documented approximations.
+- `docs/re/{graphics,input-timer-sound,resources,gameflow,race}.md`: analysis notes.
+- `docs/asset-formats.md`: resource formats used by the asset inspector.
 
-```sh
-npm run audit:assets
-```
-
-This reads local originals, validates chunk bounds/decompression/image dimensions, parses music and reports coverage. It needs `game/`; it is not an emulator or a gameplay test.
+`game/`, `ghidra/`, `.local/` (unpacked executables, exports, captures) and `dist/` are git-ignored. Never commit original or derived game data.

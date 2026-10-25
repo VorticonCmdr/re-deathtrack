@@ -11,9 +11,11 @@
   "verify:assets": "node scripts/verify-assets.mjs",
   "unpack:exe": "node scripts/unexepack.mjs game/DTRACK.EXE .local/re/DTRACK_U.EXE",
   "test": "node --test tests/",
-  "verify": "node scripts/verify.mjs"
+  "verify": "node scripts/verify.mjs",
+  "verify:browser": "node tests/browser/acceptance.mjs"
  },
  "devDependencies": {
+  "puppeteer-core": "^23.11.1",
   "vite": "^7.1.0"
  }
 }

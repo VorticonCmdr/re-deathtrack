@@ -6,6 +6,7 @@ import {pageIndices,regs,rgb200} from '../engine/ega.js';
 import {SCANCODES} from './scancodes.js';
 import {startGame} from '../game/boot.js';
 import {browserStorage} from './storage.js';
+import {rw,rb} from '../engine/mem.js';
 
 const $=s=>document.querySelector(s);
 $('#app').innerHTML=`<main class="shell"><canvas id="screen" width="320" height="200" aria-label="Deathtrack"></canvas>
@@ -22,7 +23,9 @@ async function devAssets(){
 }
 async function folderAssets(files){const m=new Map();for(const f of files)if(!f.name.startsWith('.'))m.set(f.name.toUpperCase(),new Uint8Array(await f.arrayBuffer()));return m;}
 
-let gen=null,last=0,halted=false;
+// vNow: virtual time corresponding to the wall clock. The game never runs ahead of it, so work charged by the
+// cost model (src/game/pacing.js) takes real time, as on the original machine.
+let gen=null,last=0,halted=false,vNow=0;
 const pixels=new Uint8Array(320*200);
 function present(){
  pageIndices(regs.start,pixels);
@@ -38,8 +41,8 @@ function halt(e){
 function frame(now){
  if(halted)return;
  // Advance virtual time by real elapsed time, capped so a background tab does not run minutes at once.
- const dt=Math.min(now-last,100);last=now;
- try{const r=runUntil(gen,state.clock+dt/1000*PIT_HZ);if(r.done){status.textContent='The game has exited.';halted=true;}}
+ const dt=Math.min(now-last,100);last=now;vNow+=dt/1000*PIT_HZ;
+ try{if(state.clock<vNow){const r=runUntil(gen,vNow);if(r.done){status.textContent='The game has exited.';halted=true;}}}
  catch(e){halt(e);}
  present();
  if(state.diagnostics.length)status.textContent=`Demo mode recovery: ${state.diagnostics.at(-1).what}`;
@@ -53,18 +56,22 @@ function start(assets){
   gen=startGame();
   status.textContent=strict?'':'Best-effort mode: unsupported paths are reported, not fatal.';
   $('#pick').classList.add('hidden');
-  last=performance.now();requestAnimationFrame(frame);
+  last=performance.now();vNow=state.clock;requestAnimationFrame(frame);
  }catch(e){status.textContent=e instanceof SetupError?e.message:`Cannot start: ${e.message}`;status.className='error';$('#pick').classList.remove('hidden');console.error(e);}
 }
 
-// Input arrives as events stamped with the current virtual time; the host delivers them at the next PIT tick.
-addEventListener('keydown',e=>{const c=SCANCODES[e.code];if(c===undefined||!gen)return;e.preventDefault();queueEvent({t:state.clock,type:'key',code:c,down:true});});
-addEventListener('keyup',e=>{const c=SCANCODES[e.code];if(c===undefined||!gen)return;e.preventDefault();queueEvent({t:state.clock,type:'key',code:c,down:false});});
+// Input events are stamped with the virtual time at which they physically happened (wall-mapped), never earlier
+// than the machine's clock; the host delivers them at the next PIT tick at or after that time.
+const stamp=()=>Math.max(state.clock,vNow+(performance.now()-last)/1000*PIT_HZ);
+addEventListener('keydown',e=>{const c=SCANCODES[e.code];if(c===undefined||!gen)return;e.preventDefault();queueEvent({t:stamp(),type:'key',code:c,down:true});});
+addEventListener('keyup',e=>{const c=SCANCODES[e.code];if(c===undefined||!gen)return;e.preventDefault();queueEvent({t:stamp(),type:'key',code:c,down:false});});
 const mousePos=e=>{const r=canvas.getBoundingClientRect();return {x:Math.max(0,Math.min(319,Math.floor((e.clientX-r.left)/r.width*320))),y:Math.max(0,Math.min(199,Math.floor((e.clientY-r.top)/r.height*200)))};};
-canvas.addEventListener('mousemove',e=>{if(gen)queueEvent({t:state.clock,type:'mouse',...mousePos(e),buttons:e.buttons&3});});
-canvas.addEventListener('mousedown',e=>{if(gen){e.preventDefault();queueEvent({t:state.clock,type:'mouse',...mousePos(e),buttons:e.buttons&3});}});
-canvas.addEventListener('mouseup',e=>{if(gen)queueEvent({t:state.clock,type:'mouse',...mousePos(e),buttons:e.buttons&3});});
+canvas.addEventListener('mousemove',e=>{if(gen)queueEvent({t:stamp(),type:'mouse',...mousePos(e),buttons:e.buttons&3});});
+canvas.addEventListener('mousedown',e=>{if(gen){e.preventDefault();queueEvent({t:stamp(),type:'mouse',...mousePos(e),buttons:e.buttons&3});}});
+canvas.addEventListener('mouseup',e=>{if(gen)queueEvent({t:stamp(),type:'mouse',...mousePos(e),buttons:e.buttons&3});});
 canvas.addEventListener('contextmenu',e=>e.preventDefault());
+// Read-only probe for automated browser acceptance tests (tests/browser/acceptance.mjs).
+window.__deathtrack={rw,rb,clock:()=>state.clock,diagnostics:()=>state.diagnostics.slice(),halted:()=>halted,status:()=>status.textContent};
 $('#folder').onchange=async e=>start(await folderAssets([...e.target.files]));
 
 const dev=await devAssets().catch(()=>null);
