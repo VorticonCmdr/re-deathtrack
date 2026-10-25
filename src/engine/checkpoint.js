@@ -4,9 +4,13 @@ import {B,DGROUP,LOAD_SEG} from './mem.js';
 import {planes,regs} from './ega.js';
 
 export const MEM_SIZE=0xa0000, PLANE_BASE=0xa0000;
+// CGA checkpoints (capture-segment.mjs --cga) append the 16 KiB of B800 RAM after the four planes.
+export const CGA_BASE=0xb8000,CGA_SIZE=0x4000;
 export function loadCheckpoint(blob,vga){
- if(blob.length!==MEM_SIZE+0x40000)throw Error(`Checkpoint has ${blob.length} bytes, expected ${MEM_SIZE+0x40000}`);
+ const cga=blob.length===MEM_SIZE+0x40000+CGA_SIZE;
+ if(blob.length!==MEM_SIZE+0x40000&&!cga)throw Error(`Checkpoint has ${blob.length} bytes, expected ${MEM_SIZE+0x40000} (+${CGA_SIZE} with CGA RAM)`);
  B.fill(0);B.set(blob.subarray(0,MEM_SIZE));
+ if(cga)B.set(blob.subarray(MEM_SIZE+0x40000),CGA_BASE);
  for(let p=0;p<4;p++)planes[p].set(blob.subarray(PLANE_BASE+p*0x10000,PLANE_BASE+(p+1)*0x10000));
  if(vga){
   const g=vga.gc;
@@ -50,6 +54,13 @@ export function diffPlanes(blob){
  let count=0;const first=[];
  for(let p=0;p<4;p++)for(let o=0;o<0x10000;o++)if(planes[p][o]!==blob[PLANE_BASE+p*0x10000+o]){count++;if(first.length<10)first.push({plane:p,off:o});}
  return {count,first};
+}
+// B800 RAM against a CGA checkpoint's tail (empty result when the checkpoint has none).
+export function diffCga(blob){
+ if(blob.length!==MEM_SIZE+0x40000+CGA_SIZE)return {count:0,first:[],present:false};
+ let count=0;const first=[];const base=MEM_SIZE+0x40000;
+ for(let o=0;o<CGA_SIZE;o++)if(B[CGA_BASE+o]!==blob[base+o]){count++;if(first.length<10)first.push({off:o});}
+ return {count,first,present:true};
 }
 export function describe(addr){
  const ds=addr-DS;if(ds>=0&&ds<0x10000)return `DS:${ds.toString(16).padStart(4,'0')}`;

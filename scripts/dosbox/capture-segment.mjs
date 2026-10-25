@@ -1,5 +1,6 @@
 // Captures a function-level segment: a checkpoint at the entry of a near or far function and one at its return.
-// Usage: node scripts/dosbox/capture-segment.mjs <name> <entryOff hex> <near|far> [--demo] [--skip n]
+// Usage: node scripts/dosbox/capture-segment.mjs <name> <entryOff hex> <near|far> [--demo] [--args "GC"] [--skip n] [--cga]
+// --cga appends the 16 KiB CGA RAM at B800:0000 to each checkpoint; --args passes the command tail (the type-in is `dtrack <args>`).
 // Entry segment is the game's code segment 01f5 for segment-1000 functions. Output: .local/captures/seg-<name>/.
 import {mkdir,writeFile} from 'node:fs/promises';
 import {gzipSync} from 'node:zlib';
@@ -14,12 +15,15 @@ const paused=await api.pause();let stop=paused.stop?.stop_id??0;await api.clearB
 async function nextStop(){for(;;){const w=await api.wait(stop,15000);if(w.debugging&&w.stop_id>stop){stop=w.stop_id;return w;}}}
 async function dump(file){
  const cpu=await api.cpu(),mem=await api.read(0,0xa0000),regs=await readVgaRegs(),vga=await readPlanes();
- const blob=new Uint8Array(0xa0000+0x40000);blob.set(mem);vga.planes.forEach((p,k)=>blob.set(p,0xa0000+k*0x10000));
+ const cga=process.argv.includes('--cga');
+ const blob=new Uint8Array(0xa0000+0x40000+(cga?0x4000:0));blob.set(mem);vga.planes.forEach((p,k)=>blob.set(p,0xa0000+k*0x10000));
+ if(cga)blob.set(await api.read(0xb8000,0x4000),0xa0000+0x40000);
  await writeFile(`${out}/${file}`,gzipSync(blob,{level:6}));
  return {file,sha256:createHash('sha256').update(blob).digest('hex'),cpu:cpu.registers??cpu,vga:regs};
 }
 await api.addBreak({type:'execute',segment:LOAD,offset:entry});await api.cont();
-if(process.argv.includes('--demo'))await post('/input/type',{text:'C:\ndtrack demo\n'});
+const ai=process.argv.indexOf('--args'),tail=ai>0?process.argv[ai+1]:process.argv.includes('--demo')?'demo':'';
+if(tail||process.argv.includes('--demo'))await post('/input/type',{text:`C:\ndtrack ${tail}\n`});
 let w;for(let n=0;;){w=await nextStop();const r=w.registers;if(r.cs===LOAD&&(r.eip&0xffff)===entry){if(n++>=skip)break;}await api.cont();}
 const r=w.registers,ss=r.ss,sp=r.esp&0xffff;
 const st=await api.read(ss*16+sp,8);const retIp=st[0]|st[1]<<8,retCs=kind==='far'?st[2]|st[3]<<8:r.cs;
