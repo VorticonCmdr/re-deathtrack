@@ -85,5 +85,14 @@ At the end, report in under 400 words:
 - Every module ends with `provide({...all its fXXXX_YYYY functions})`.
 - Within your own module, call functions directly.
 - Calling a function nobody has provided throws `Untranslated function fXXXX_YYYY`, which is how integration finds gaps.
-- In tests, stub the functions you need from other areas by calling `provide({...})` before your code runs.
+- In tests, stub functions from other areas with `override({...})` from link.js. `provide` refuses duplicates, and other modules may already provide the real function.
 - List the cross-module functions you call in your report.
+
+## Calling convention for translated functions (binding, all modules)
+
+- **Parameters mirror the pushed stack words exactly**, one JS parameter per 16-bit word, in the original's left-to-right C order:
+  - a far pointer is two parameters `(off, seg)`
+  - a long is `(lo, hi)`
+  - a near pointer or int is one parameter
+- **Return values:** 16-bit results as numbers. `DX:AX` results (far pointers, longs) as one packed number: `(DX<<16|AX)>>>0`, the same as `fp(seg,off)`.
+- Register-argument helpers document their register mapping as before.

@@ -35,14 +35,17 @@ export function rd(off){
  for(let p=0;p<4;p++){if(!(regs.colorDontCare&1<<p))continue;const want=regs.colorCompare&1<<p?0xff:0;r&=~(latch[p]^want);}
  return r&0xff;
 }
-// Port writes used by the drivers (byte or word OUT; a word OUT writes index then data).
+// Word OUT DX,AX: index from AL, data from AH (the data write happens even when AH is 0).
+export function outw(port,v){out(port,v&0xff);out(port+1,v>>8&0xff);}
+// Byte OUT. For backward compatibility a value above 0xFF is treated as a word OUT.
 export function out(port,v){
+ if(v>0xff){outw(port,v);return;}
  switch(port){
-  case 0x3c4:regs.seqIndex=v&0xff;if(v>0xff)seq(v&0xff,v>>8);break;
+  case 0x3c4:regs.seqIndex=v&0xff;break;
   case 0x3c5:seq(regs.seqIndex,v);break;
-  case 0x3ce:regs.gcIndex=v&0xff;if(v>0xff)gc(v&0xff,v>>8);break;
+  case 0x3ce:regs.gcIndex=v&0xff;break;
   case 0x3cf:gc(regs.gcIndex,v);break;
-  case 0x3d4:regs.crtcIndex=v&0xff;if(v>0xff)crtc(v&0xff,v>>8);break;
+  case 0x3d4:regs.crtcIndex=v&0xff;break;
   case 0x3d5:crtc(regs.crtcIndex,v);break;
   case 0x3c0:if(!regs.attrFlip)regs.attrIndex=v&0x3f;else{if(regs.attrIndex<16)regs.palette[regs.attrIndex]=v&0x3f;else if(regs.attrIndex===0x11)regs.overscan=v&0x3f;}regs.attrFlip=!regs.attrFlip;break;
   default:break;

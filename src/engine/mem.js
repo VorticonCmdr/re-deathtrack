@@ -29,7 +29,8 @@ export const pseg=p=>p>>>16, poff=p=>p&0xffff;
 // Far pointer arithmetic on the offset only, as MSC far (not huge) pointers do.
 export const padd=(p,n)=>fp(p>>>16,(p&0xffff)+n);
 // Stack memory for address-taken locals; SS=DS, top from the EXE header.
-export const STACK_TOP=0xba40;
+// SP after the MSC start-up aligns the stack (1000:d39c); the near heap begins here too.
+export const STACK_TOP=0xba3e;
 let SP=STACK_TOP;
 export const salloc=n=>{SP-=n+1&~1;if(SP<0x9000)throw Error('Emulated stack overflow');return SP;};
 export const sfree=n=>{SP+=n+1&~1;if(SP>STACK_TOP)throw Error('Emulated stack underflow');};

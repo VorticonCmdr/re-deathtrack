@@ -41,6 +41,7 @@ export class FileSystem{
  write(h,seg,off,n){const f=this.handles.get(h);if(!f)return -6;if(f.pos+n>f.data.length){const d=new Uint8Array(f.pos+n);d.set(f.data);f.data=d;}for(let i=0;i<n;i++)f.data[f.pos+i]=frb(seg,off+i);f.pos+=n;f.dirty=true;return n;}
  seek(h,pos,whence){const f=this.handles.get(h);if(!f)return -6;const p=whence===0?pos:whence===1?f.pos+pos:f.data.length+pos;if(p<0)return -25;f.pos=p;return p;}
  close(h){const f=this.handles.get(h);if(!f)return -6;if(f.dirty)this.storage?.write(f.name,f.data);this.handles.delete(h);return 0;}
+ truncate(h){const f=this.handles.get(h);if(!f)return -6;f.data=f.data.slice(0,f.pos);f.dirty=true;return 0;}
  size(h){return this.handles.get(h)?.data.length??-6;}
  exists(name){return !!this.lookup(name);}
  list(){const names=new Set(this.assets.keys());for(const k of this.storage?.keys?.()||[])names.add(k);return [...names].sort();}

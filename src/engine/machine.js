@@ -25,8 +25,19 @@ export function createMachine({assets,storage=null,strict=true,args=[]}){
  return machine;
 }
 
+// Environment block as DOSBox builds it (observed at segment 01DA, MCB 01D9 of 10 paragraphs).
+export const ENV_SEG=0x01da;
+const ENV=['COMSPEC=Z:\\COMMAND.COM','BLASTER=A220 I7 D1 H5 T6','PATH=Z:\\;y:\\dos'];
+function initEnv(){
+ fwb(ENV_SEG-1,0,0x4d);fww(ENV_SEG-1,1,PSP_SEG);fww(ENV_SEG-1,3,10);
+ let o=0;const put=s=>{for(const c of s)fwb(ENV_SEG,o++,c.charCodeAt(0));fwb(ENV_SEG,o++,0);};
+ for(const e of ENV)put(e);fwb(ENV_SEG,o++,0);fww(ENV_SEG,o,1);o+=2;put('C:\\DTRACK.EXE');
+ // Program MCB: the PSP's block, resized by the MSC start-up to end at DGROUP+64K.
+ fwb(PSP_SEG-1,0,0x4d);fww(PSP_SEG-1,1,PSP_SEG);fww(PSP_SEG-1,3,DGROUP+0x1000-PSP_SEG);
+}
 function initPsp(args){
- fwb(PSP_SEG,0,0xcd);fwb(PSP_SEG,1,0x20);
+ initEnv();
+ fwb(PSP_SEG,0,0xcd);fwb(PSP_SEG,1,0x20);fww(PSP_SEG,0x2c,ENV_SEG);
  // MSC startup resizes the program to DGROUP+64K; PSP:2 holds the top of that block (observed MCB layout).
  fww(PSP_SEG,2,DGROUP+0x1000);
  const tail=args.length?' '+args.join(' '):'';

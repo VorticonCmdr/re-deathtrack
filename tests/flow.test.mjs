@@ -7,7 +7,7 @@ import {loadAssets} from './assets.mjs';
 import {createMachine} from '../src/engine/machine.js';
 import {rb,rw,rsw,rd,wb,ww,wd,strAt,gseg,gaddr,frw,resetStack} from '../src/engine/mem.js';
 import {callFar,register,lookup} from '../src/engine/host.js';
-import {F,provide} from '../src/game/link.js';
+import {F,override} from '../src/game/link.js';
 import * as crt from '../src/game/crt.js';
 
 const SRC=readFileSync(new URL('../src/game/flow.js',import.meta.url),'utf8');
@@ -25,7 +25,7 @@ for(const n of ext){
  const run=(...a)=>{calls.push([n,...a]);const f=impl[n]??defaults[n];return f?f(...a):0;};
  stubs[n]=GEN.has(n)?function*(...a){const r=run(...a);if(r&&typeof r.next==='function')return yield* r;return r;}:run;
 }
-provide(stubs);
+override(stubs);
 
 // Near heap: bump allocator in the unused top of DGROUP (zero in a fresh image).
 let heap=0xc000;
@@ -74,6 +74,8 @@ test('070a builds 56 pages with the documented structure',()=>{
  fresh();buildPages();
  const p=pages();
  assert.equal(p.length,56);
+ // QUIRK 1000:3a1e stores the count of pages that existed before the new one (static, no INC for the new node).
+ assert.equal(rw(0x8db8),55);
  // Page 5 main menu: 9 buttons, no lines counted as choices.
  const main=buttons(p[4]).map(b=>b.text.trim());
  assert.deepEqual(main,['FULL CIRCUIT RUN','RUN A TRACK','RUN OLD CIRCUIT','THE SHOPS','SCOPE THE STATS','SET YOUR LIMITS','SOUNDS','RESTART','BAIL OUT']);

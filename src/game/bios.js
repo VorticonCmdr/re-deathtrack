@@ -48,10 +48,10 @@ export function int21(r){
   case 0x3d:{const h=fs.open(fstrAt(r.ds,r.dx),al&3);if(h<0)return fail(r,-h);r.ax=h;return ok(r);}
   case 0x3e:{const e=fs.close(r.bx);return e<0?fail(r,-e):ok(r);}
   case 0x3f:{const n=fs.read(r.bx,r.ds,r.dx,r.cx);if(n<0)return fail(r,-n);r.ax=n;return ok(r);}
-  case 0x40:{if(r.bx<=4){r.ax=r.cx;return ok(r);}const n=fs.write(r.bx,r.ds,r.dx,r.cx);if(n<0)return fail(r,-n);r.ax=n;return ok(r);}
+  case 0x40:{if(r.bx<=4){r.ax=r.cx;return ok(r);}if(r.cx===0){const e=fs.truncate(r.bx);if(e<0)return fail(r,-e);r.ax=0;return ok(r);}const n=fs.write(r.bx,r.ds,r.dx,r.cx);if(n<0)return fail(r,-n);r.ax=n;return ok(r);}
   case 0x41:return fail(r,5); // the port never deletes original files
   case 0x42:{const off=(r.cx<<16|r.dx)|0,p=fs.seek(r.bx,off,al);if(p<0)return fail(r,-p);r.dx=p>>>16;r.ax=p&0xffff;return ok(r);}
-  case 0x43:{if(!fs.exists(fstrAt(r.ds,r.dx)))return fail(r,2);r.cx=0x20;return ok(r);}
+  case 0x43:{if(!fs.exists(fstrAt(r.ds,r.dx)))return fail(r,2);if(al===0)r.cx=0x20;return ok(r);} // AL=1 set attributes: accepted, attributes are not modelled
   case 0x44:if(al===0){r.dx=r.bx<=2?0x80d3:0x0002;return ok(r);}return fail(r,1);
   case 0x48:{const a=dosAlloc(r.bx);if(a.error){r.bx=a.largest;return fail(r,8);}r.ax=a.seg;return ok(r);}
   case 0x49:{const e=dosFree(r.es);return e.error?fail(r,e.error):ok(r);}
@@ -101,6 +101,8 @@ export function outp(port,v){
   default:unsupported(`OUT ${port.toString(16)}`);
  }
 }
+// Word OUT DX,AX: low byte to port, high byte to port+1 (how the 8086 bus splits it for 8-bit devices).
+export function outpw(port,v){outp(port,v&0xff);outp(port+1,v>>8&0xff);}
 export function inp(port){
  if(port===0x3da)return vstatus();
  if(port===0x60)return state.port60;

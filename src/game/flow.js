@@ -11,6 +11,10 @@ import {F,provide} from './link.js';
 import {frameCost} from './pacing.js';
 // Near code pointer in segment 1000 -> packed far address for the host registry.
 const near=off=>gaddr(0x1000,off&0xffff);
+// Cross-module calling convention (as in seg2524.js/timer.js/sfx.js): one JS argument per 16-bit word the
+// original pushes, in C order. A far pointer argument is (off, seg) and a long argument (lo, hi). Returned
+// far pointers and DX:AX longs are one packed 32-bit number. lw() splits a 32-bit value into (lo, hi).
+const lw=v=>[v&0xffff,v>>>16&0xffff];
 
 // ===== A =====
 
@@ -57,7 +61,7 @@ export function* f1000_0010(argc,argv){
  F.f2524_009e();                          // fonts.blk
  if(rw(0x1fa8)===0){
   // APPROX: far pointer arguments (pushed seg:off) are passed packed, as fp(seg,off).
-  F.f2524_03f2(fp(rw(0x8f08),rw(0x8f06)));
+  F.f2524_03f2(rw(0x8f06),rw(0x8f08));
   for(;;){
    let r=yield* F.f2524_0584();            // TITLE.TTM
    if(r!==0||rw(0x8eba)!==0)break;
@@ -75,7 +79,7 @@ export function* f1000_0010(argc,argv){
  F.f2524_2be8(0x107);                     // "SHAPE"
  F.f1000_a53c(0x99ec);
  F.f2524_01da();                          // trax.mus
- F.f2524_03f2(fp(rw(0x8f08),rw(0x8f06)));
+ F.f2524_03f2(rw(0x8f06),rw(0x8f08));
  if(rw(0x1fa8)!==0){
   if(rw(0x9b84)!==0){ww(0x9b22,0xb);yield* f1000_6d76(0xd,0);}
   else{ww(0x1fa6,rw(0x1fa6)+1);yield* f1000_2eb8();}
@@ -178,7 +182,7 @@ export function* f1000_047c(){
  ww(0x59f6,0xffff);
  F.f2524_18f4();
  f1000_1692();
- if(rw(0x8f02)|rw(0x8f04))F.f2524_03f2(fp(rw(0x8f04),rw(0x8f02)));
+ if(rw(0x8f02)|rw(0x8f04))F.f2524_03f2(rw(0x8f02),rw(0x8f04));
  // The loop body is f1000_04ed so a checkpoint replay can enter at the loop head (no JS locals cross iterations).
  for(;;){const r=yield* f1000_04ed();if(r!==undefined)return r;}
 }
@@ -225,23 +229,23 @@ export function* f1000_04ed(){
  F.f1ff8_2555(0);
  F.f1ff8_2559(0,0,0x140,0x64);
  if(rw(0xa672)===0){
-  F.f2524_03f2(fp(rw(0x8f08),rw(0x8f06)));
+  F.f2524_03f2(rw(0x8f06),rw(0x8f08));
   F.f1ff8_3cf1(0);
   return 0;
  }
  if(rsw(0xa672)>0)ww(0xa672,rw(0xa672)-1);
  if(rw(0x924c)!==0){
   F.f1ff8_3cf1(0);
-  F.f2524_03f2(fp(rw(0x8f08),rw(0x8f06)));
+  F.f2524_03f2(rw(0x8f06),rw(0x8f08));
   F.f1000_85f0();
   return 0;
  }
- if((rw(0x8f02)|rw(0x8f04))&&F.f2524_4cd4()===0)F.f2524_03f2(fp(rw(0x8f04),rw(0x8f02)));
+ if((rw(0x8f02)|rw(0x8f04))&&F.f2524_4cd4()===0)F.f2524_03f2(rw(0x8f02),rw(0x8f04));
  const pos=rsw(0x96f2),lo2=rsw(0x1d04+rw(0x9808)*2),hi2=s16(lo2+0x3c);
  if(pos>lo2&&pos<hi2){
   ww(0x1fb4,1);
   if(rw(0x59f4)!==0&&rw(0x8926)===0&&rsw(0xa97a)>0x37&&rb(0x8a54)===1){
-   F.f2524_03f2(fp(rw(0x8f08),rw(0x8f06)));
+   F.f2524_03f2(rw(0x8f06),rw(0x8f08));
    yield* f1000_23e2();                  // pit menu
    yield* f1000_68dc();                  // modal loop
   }
@@ -569,19 +573,19 @@ export function f1000_1208(name){
  let h;                                          // [bp-0x22] stream handle
  {
   const len=s16(F.f1000_e3d0(rsb(file+7)));      // length of the open file (FILE._file at +7); CWD -> long
-  h=F.f1ff8_0d47(0,file,0xb53,len);
+  h=F.f1ff8_0d47(0,file,0xb53,...lw(len));
   if(u16(h)===0xffff){F.f1ff8_100d(h);F.f1000_c264(file);return;}
  }
  const pn=salloc(2);
  let n;
  try{
-  F.f1ff8_11f0(h,fp(DGROUP,pn),2);
+  F.f1ff8_11f0(h,pn,DGROUP,2);
   n=rsw(pn);
  }finally{sfree(2);}
  const nb=u16(n<<1);
- F.f1ff8_11f0(h,fp(DGROUP,0x9642),nb);
+ F.f1ff8_11f0(h,0x9642,DGROUP,nb);
  // QUIRK: the heights are read over the widths at the same address DS:9642 (race.md 1208).
- F.f1ff8_11f0(h,fp(DGROUP,0x9642),nb);
+ F.f1ff8_11f0(h,0x9642,DGROUP,nb);
  let total=0;                                    // [bp-8]:[bp-6], signed long
  if(n>0)for(let i=0;i<n;i++)total=total+s16(imul16(0xa0,rw(0x9642+2*i)))|0; // IMUL then CWD: low word sign-extended
  let chunk=0xfa0;                                // [bp-0x1e]:[bp-0x1c]
@@ -595,7 +599,7 @@ export function f1000_1208(name){
   dst=(0xa734<<16)>>>0;
   let buf;
   for(;;){
-   buf=F.f1ff8_3a88(chunk,0)>>>0;
+   buf=F.f1ff8_3a88(...lw(chunk),0)>>>0;
    ww(0x9bce,buf&0xffff);ww(0x9bd0,buf>>>16);
    if(buf)break;
    chunk=chunk>>1;                               // SAR/RCR: signed 32-bit halve
@@ -603,13 +607,13 @@ export function f1000_1208(name){
   buf=(rw(0x9bce)|rw(0x9bd0)<<16)>>>0;
   while(total!==0){
    if(total<chunk)chunk=total;                   // signed long compare
-   F.f1ff8_11f0(h,buf,u16(chunk));
+   F.f1ff8_11f0(h,...lw(buf),u16(chunk));
    const q=chunk>>2;                             // signed 32-bit shift by 2
-   F.f1000_ad8e(buf,dst,q);
+   F.f1000_ad8e(...lw(buf),...lw(dst),...lw(q));
    dst=dst+q>>>0;                                // ADD/ADC on the 32-bit far pointer value (carry into the segment)
    total=total-chunk|0;
   }
-  F.f1ff8_3ae2(rd(0x9bce));
+  F.f1ff8_3ae2(rw(0x9bce),rw(0x9bd0));
   start=(0xa734<<16)>>>0;
   F.f1000_ae8e(2);
  }else{
@@ -911,7 +915,7 @@ export function* f1000_1e64(){
    F.f2524_2be8(0xa8d8);
    F.f2c46_00b4(0x99ec);
    F.f1000_c2ce(s,0xc12);                        // "YOUR WINNINGS: $"
-   F.f1000_c298(s,F.f1000_df12(rd(0xa22a),num,0xa));
+   F.f1000_c298(s,F.f1000_df12(rw(0xa22a),rw(0xa22c),num,0xa));
    const w=u16(F.f1000_c058(s)<<2);
    f1000_4d06(s,s16(0xa0-w),0xa);
    F.f2524_1f64(1);
@@ -1003,7 +1007,7 @@ export function* f1000_2230(){
  // QUIRK: 1000:2245 pushes DX:AX after rand as a long; rand leaves DX untouched, which still holds 0 from
  // the CWD of the constant 9 at 1000:2242, so the signed long mod is effectively unsigned 16-bit (gameflow.md §5).
  const r=F.f1000_a3ca()&0xffff;
- const d=u16(F.f1000_e8dc(r,9)+1);
+ const d=u16(F.f1000_e8dc(r,0,9,0)+1);
  f1000_1780(0x34);
  F.f2524_21d2(d);
  for(let i=0;i<=4;i++){
@@ -1078,7 +1082,7 @@ export {f1000_23e2 as pitMenu};
 // 1000:24c4 pumpFuel: +0xc fuel per poll up to 0x1000 and grow the gauge; when already full, page 0x2c.
 export function* f1000_24c4(){
  // level = fuel*300/0x1000 through the MSC long helpers (both callee-pop).
- const lv=F.f1000_e80c(F.f1000_e8a8(rsw(0x96a0),0x12c),0x1000);
+ const lv=F.f1000_e80c(...lw(F.f1000_e8a8(...lw(rsw(0x96a0)),...lw(0x12c))),...lw(0x1000));
  const h=idiv16(s16(mul16(0x72,lv&0xffff)),0x12c); // MUL then CWD drops DX, IDIV 300
  if(rsw(0x96a0)<0x1000){
   ww(0x96a0,rw(0x96a0)+0xc);
@@ -1377,7 +1381,7 @@ export function* f1000_2c9c(screen,choice){
    f1000_1692();
    F.f2524_426c(0xffff);
    f1000_0708();
-   F.f2524_03f2(fp(rw(0x8f04),rw(0x8f02))); // far pointer to trax.mus, packed
+   F.f2524_03f2(rw(0x8f02),rw(0x8f04)); // far pointer to trax.mus, packed
   }
   // falls through into the 0x0e code (1000:2d28)
   case 0x2d28: // 0x0e paused
@@ -1662,11 +1666,11 @@ export function f1000_3760(value,x,y,align){
  const b14=salloc(0x14),b30=salloc(0x14);
  try{
   F.f1000_c2ce(b14,0x1151); // "$"
-  const q=F.f1000_e9c0(value,1000)>>>0;  // unsigned long divide
-  F.f1000_df12(q,b30,10);                // ultoa
+  const q=F.f1000_e9c0(...lw(value),...lw(1000))>>>0;  // unsigned long divide
+  F.f1000_df12(...lw(q),b30,10);                // ultoa
   if(q){F.f1000_c298(b14,b30);F.f1000_c298(b14,0x1153);} // ","
-  const r=F.f1000_ea22(value,1000)>>>0;  // unsigned long remainder
-  F.f1000_df12(r,b30,10);
+  const r=F.f1000_ea22(...lw(value),...lw(1000))>>>0;  // unsigned long remainder
+  F.f1000_df12(...lw(r),b30,10);
   if(q){
    if(F.f1000_c058(b30)===1)_Cstrcat(b14,0x1155);      // "00"
    else if(F.f1000_c058(b30)===2)_Cstrcat(b14,0x1158); // "0"
@@ -2064,8 +2068,8 @@ export function f1000_46da(){
  if(rw(0x98d6)&0x800){
   if((rw(0x9af0)|rw(0x9af2))===0)return;
   // Far pointer [0x9af0] (offset) : [0x9af2] (segment) passed packed.
-  F.f1ff8_2551(rd(0x9af0),rw(0x8a96)-5&0xffff,rb(0x8db0)-5&0xffff,rw(0x8a52)+0xa&0xffff,rb(0xa8a4)+0xb);
-  F.f1ff8_3ae2(rd(0x9af0));
+  F.f1ff8_2551(rw(0x9af0),rw(0x9af2),rw(0x8a96)-5&0xffff,rb(0x8db0)-5&0xffff,rw(0x8a52)+0xa&0xffff,rb(0xa8a4)+0xb);
+  F.f1ff8_3ae2(rw(0x9af0),rw(0x9af2));
   ww(0x9af2,0);ww(0x9af0,0);
   return;
  }
@@ -2487,20 +2491,20 @@ export function f1000_598c(part,level){
  part=s16(part);
  if(rw(0x1fc8+2*part)!==u16(level))return 0;
  let r;
- const pct=v=>F.f1000_e80c(F.f1000_e8a8(rsw(v),100),1000); // damage*100/1000
+ const pct=v=>F.f1000_e80c(...lw(F.f1000_e8a8(...lw(rsw(v)),...lw(100))),...lw(1000)); // damage*100/1000
  switch(part){
   case 0:{
    if(rw(0x1c48)===rw(0x9b6c))return 0;
    // QUIRK: IMUL result is truncated by CWD before the long divide (static, 1000:59e2-59e4).
    const num=s16(imul16(s16(rw(0x1c48)-rw(0x9b6c)),100));
-   r=F.f1000_e80c(num,rsw(0x1c48));
+   r=F.f1000_e80c(...lw(num),...lw(rsw(0x1c48)));
    break;
   }
   case 1:if(rw(0xaa9e)===0)return 0;r=pct(0xaa9e);break;
   case 2:if(rw(0x8eb6)===0)return 0;r=pct(0x8eb6);break;
   case 3:if(rw(0xa670)===0)return 0;r=pct(0xa670);break;
   case 4:if(rw(0x8dac)===0)return 0;r=pct(0x8dac);break;
-  case 5:if(rw(0x9aa6)===0)return 0;r=F.f1000_e9c0(F.f1000_e8a8(rsw(0x9aa6),100),rsw(0x1c5c));break;
+  case 5:if(rw(0x9aa6)===0)return 0;r=F.f1000_e9c0(...lw(F.f1000_e8a8(...lw(rsw(0x9aa6)),...lw(100))),...lw(rsw(0x1c5c)));break;
   default:return 0;
  }
  ww(0xa9a2,r);
@@ -2533,7 +2537,7 @@ export function f1000_5a88(type,level){
   const idx=u16(s16(t3+level)<<1);
   if(f1000_598c(type,level)){
    // repair price = price * damage / 100 (MSC long helpers)
-   const q=F.f1000_e80c(F.f1000_e8a8(rsw(0x1dda+idx),rsw(0xa9a2)),100);
+   const q=F.f1000_e80c(...lw(F.f1000_e8a8(...lw(rsw(0x1dda+idx)),...lw(rsw(0xa9a2)))),...lw(100));
    F.f1000_def6(s16(q),num,10);
   }else F.f1000_def6(rsw(0x1dda+idx),num,10);
   F.f1000_c298(buf,num);
@@ -2563,7 +2567,7 @@ export function* f1000_5c7c(){
  if(rw(0x1fb8))f1000_0344(0x1e8b);
  const type=idiv16(rw(0x115e),3),level=imod16(rw(0x115e),3);
  f1000_598c(type,level);
- ww(0xa9a2,F.f1000_e80c(F.f1000_e8a8(rsw(0x1dda+u16(rw(0x115e)<<1)),rsw(0xa9a2)),100));
+ ww(0xa9a2,F.f1000_e80c(...lw(F.f1000_e8a8(...lw(rsw(0x1dda+u16(rw(0x115e)<<1))),...lw(rsw(0xa9a2)))),...lw(100)));
  const own=rsw(0x1fc8+u16(type<<1));
  if(rw(0x1fae)&&own!==level){yield* f1000_6d76(0x29,0x424);return;}
  // Cash compares are unsigned 32-bit against the sign-extended price.
@@ -2909,15 +2913,15 @@ export function f1000_69d8(){f1000_69e6(rw(rw(0x9bf6)));}
 // 1000:69e6 setPointerShape: install pointer bitmap, reallocate both background save buffers, redraw
 export function f1000_69e6(bmp){
  if(rw(0x8a4e)|rw(0x8a50)){
-  F.f1ff8_3ae2(fp(rw(0x8a50),rw(0x8a4e)));
-  F.f1ff8_3ae2(fp(rw(0xa8c2),rw(0xa8c0)));
+  F.f1ff8_3ae2(rw(0x8a4e),rw(0x8a50));
+  F.f1ff8_3ae2(rw(0xa8c0),rw(0xa8c2));
  }
  ww(0x5a0e,bmp);
  const size=u16(F.f1ff8_254d(rw(bmp+6),u16(rw(bmp+8)+1))); // [bp-0x4], high word [bp-0x2]=0
- let p=F.f1ff8_3a88(size,1);
+ let p=F.f1ff8_3a88(size,0,1);
  ww(0x8a4e,p&0xffff);ww(0x8a50,p>>>16);
  if(!((p&0xffff)|(p>>>16)))f1000_0344(0x1f32);          // "No memory for sprite data"
- p=F.f1ff8_3a88(size,1);
+ p=F.f1ff8_3a88(size,0,1);
  ww(0xa8c0,p&0xffff);ww(0xa8c2,p>>>16);
  // QUIRK: the second check tests the first buffer [0x8a4e] again, not [0xa8c0] (static, 1000:6a75).
  if(!(rw(0x8a4e)|rw(0x8a50)))f1000_0344(0x1f5a);
@@ -2961,13 +2965,13 @@ export function* f1000_6a90(){
  if(s16(hOld+rw(0x1f24))>0xc8)hOld=u16(0xc9-rw(0x1f24));
  if(s16(hNew+rw(0x5a12))>0xc8)hNew=u16(0xc9-rw(0x5a12));
  ww(0x3858,rw(0x3852));ww(0x3856,rw(0x3852));
- F.f1ff8_2549(fp(rw(0x8a50),rw(0x8a4e)),rw(0x5a10),rw(0x5a12),w,hNew);
+ F.f1ff8_2549(rw(0x8a4e),rw(0x8a50),rw(0x5a10),rw(0x5a12),w,hNew);
  F.f1ff8_2541(rw(0x5a0e),rw(0x5a10),rw(0x5a12));
  ww(0x3858,rw(0x3854));
  F.f1ff8_2545(rw(0x1f22),rw(0x1f24),w,hOld);
  F.f1ff8_2545(rw(0x5a10),rw(0x5a12),w,hNew);
  ww(0x3858,rw(0x3852));
- F.f1ff8_2551(fp(rw(0x8a50),rw(0x8a4e)),rw(0x5a10),rw(0x5a12),w,hNew);
+ F.f1ff8_2551(rw(0x8a4e),rw(0x8a50),rw(0x5a10),rw(0x5a12),w,hNew);
  ww(0x99bc,0);
  ww(0x5a0c,rw(0x9aee));
  ww(0x1f22,rw(0x5a10));
@@ -2978,13 +2982,13 @@ export function* f1000_6a90(){
 export function f1000_6cea(){
  ww(0x3858,rw(0x3852));
  let bmp=rw(0x5a0e);
- F.f1ff8_2549(fp(rw(0xa8c2),rw(0xa8c0)),rw(0x5a10),rw(0x5a12),rw(bmp+6),rw(bmp+8));
+ F.f1ff8_2549(rw(0xa8c0),rw(0xa8c2),rw(0x5a10),rw(0x5a12),rw(bmp+6),rw(bmp+8));
  F.f1ff8_2541(rw(0x5a0e),rw(0x5a10),rw(0x5a12));
  f1000_026a();
  f1000_0304();
  ww(0x3858,rw(0x3852));
  bmp=rw(0x5a0e);
- F.f1ff8_2551(fp(rw(0xa8c2),rw(0xa8c0)),rw(0x5a10),rw(0x5a12),rw(bmp+6),rw(bmp+8));
+ F.f1ff8_2551(rw(0xa8c0),rw(0xa8c2),rw(0x5a10),rw(0x5a12),rw(bmp+6),rw(bmp+8));
  ww(0x99bc,1);
  ww(0x963c,0);
 }

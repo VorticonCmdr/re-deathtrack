@@ -50,7 +50,7 @@ function start(assets){
   const strict=params.get('mode')!=='demo';
   const args=params.get('args')?params.get('args').split(' '):[];
   createMachine({assets,storage:browserStorage(),strict,args});
-  gen=startGame({args});
+  gen=startGame();
   status.textContent=strict?'':'Best-effort mode: unsupported paths are reported, not fatal.';
   $('#pick').classList.add('hidden');
   last=performance.now();requestAnimationFrame(frame);

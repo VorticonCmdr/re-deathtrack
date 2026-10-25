@@ -30,8 +30,8 @@ export function f1000_c556(){wb(0x2d58,1);}
 // 1000:c55c musicUnlock: [2d58] = 0
 export function f1000_c55c(){wb(0x2d58,0);}
 // 1000:c562 musicGetPosition(far dst): copies the 3 words at DS:2d52 under the lock. dst is a packed far pointer.
-export function f1000_c562(dst){
- wb(0x2d58,1);for(let i=0;i<3;i++)fww(pseg(dst),poff(dst)+2*i,rw(0x2d52+2*i));wb(0x2d58,0);
+export function f1000_c562(off,seg){
+ wb(0x2d58,1);for(let i=0;i<3;i++)fww(seg,off+2*i,rw(0x2d52+2*i));wb(0x2d58,0);
 }
 // 1000:c581 musicSetCallbackRate(n): if n != 0: [2d40] = n, [2d44] = 0
 export function f1000_c581(n){n=u16(n);if(n){ww(0x2d40,n);ww(0x2d44,0);}}
@@ -50,9 +50,9 @@ export function f1000_c5f3(){
 }
 // 1000:c60a musicPlay(far ptr, flags): validates an SMF (format 0, 1 track, 96 PPQN) and starts it. Returns flags or 0.
 // ptr is a packed far pointer. The MThd length is taken from its low 16 bits only (byte-swapped word at +6).
-export function f1000_c60a(ptr,flags){
+export function f1000_c60a(off,seg,flags){
  if(!(flags&1))return 0;
- const s=pseg(ptr);let o=poff(ptr);
+ const s=seg&0xffff;let o=off&0xffff;
  const lw=()=>{const v=frw(s,o);o=o+2&0xffff;return v;};
  if(lw()!==0x544d)return 0;if(lw()!==0x6468)return 0;
  o=o+2&0xffff;
@@ -461,7 +461,7 @@ export function f1000_d31e(lo,hi,dlo,dhi){
  return q;
 }
 // 1000:d384 ldivFar(a, b): far wrapper of the MSC long divide 1000:e80c. a and b are 32-bit longs.
-export function f1000_d384(a,b){return ldiv(a,b);}
+export function f1000_d384(alo,ahi,blo,bhi){return ldiv(alo&0xffff|ahi<<16,blo&0xffff|bhi<<16)>>>0;}
 
 export {f1000_c60a as musicPlay,f1000_c715 as musicStop,f1000_c731 as musicTick,f1000_d1f8 as midiOut,f1000_cd72 as deviceInstall,f1000_d19f as spkTick};
 

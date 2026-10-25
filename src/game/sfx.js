@@ -72,7 +72,7 @@ export function f32e3_026a(rec,file,tag){
  dst=blk;
  while(!err&&size!==0){
   const chunk=size>0x4e20?0x4e20:size;
-  const n=F.f1ff8_11f0(h,dst,chunk)&0xffff;
+  const n=F.f1ff8_11f0(h,poff(dst),pseg(dst),chunk)&0xffff;
   err=n!==chunk?1:0;
   size=size-chunk>>>0;
   // Huge-pointer advance: offset += chunk, carry adds 0x1000 to the segment.
