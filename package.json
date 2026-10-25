@@ -9,7 +9,9 @@
   "preview": "vite preview --host 127.0.0.1",
   "audit:assets": "node scripts/audit-assets.mjs",
   "verify:assets": "node scripts/verify-assets.mjs",
-  "unpack:exe": "node scripts/unexepack.mjs game/DTRACK.EXE .local/re/DTRACK_U.EXE"
+  "unpack:exe": "node scripts/unexepack.mjs game/DTRACK.EXE .local/re/DTRACK_U.EXE",
+  "test": "node --test tests/",
+  "verify": "node scripts/verify.mjs"
  },
  "devDependencies": {
   "vite": "^7.1.0"
