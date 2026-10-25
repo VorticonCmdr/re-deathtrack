@@ -1,6 +1,6 @@
 // Segment 1ff8 graphics library, part 2: text, rectangle, ellipse, clipped pixels, dissolve,
 // the JMPF slot stubs and the EGA state helpers. Driver slots are reached through the table at DS:4924.
-// Register-argument slots (1, 10, 11) receive one register object {ax,bx,cx,dx,si,di,bp,es}.
+// Register-argument slots take positional registers per src/game/egadrv.js: slot 1 (ax,dx,bp,es), 10/11 (ax,bx,cx,dx,di,es).
 import {rb,rw,rd,wb,ww,wd,frb} from '../../engine/mem.js';
 import {s8,s16,u8,u16,shr16} from '../../engine/int.js';
 import {callFar,register,unsupported} from '../../engine/host.js';
@@ -9,8 +9,7 @@ import {provide} from '../link.js';
 import {f1ff8_2454} from './poly.js';
 
 const slot=n=>rd(0x4924+4*n);
-// Word OUT: index to `port`, data to `port+1` (ega.out cannot tell a word OUT with data 0 from a byte OUT).
-const outw=(port,v)=>{ega.out(port,v&0xff);ega.out(port+1,v>>8&0xff);};
+const outw=ega.outw; // OUT DX,AX to EGA ports
 // Video offset of seg:off relative to A000.
 const vo=(seg,off)=>(seg-0xa000)*16+(off&0xffff);
 // ES for the drawing routines: [3858], or the Tandy mapping call when [4d8c] is set (not supported).
@@ -70,7 +69,7 @@ export function f1ff8_23ba(str,x,y){
    if(s16(dx)<rsw(0x3843)){dx=u16(dx+rb(0x3874));continue;} // left of the box: skip the glyph
    if(s16(dx+rb(0x3874)-1)>rsw(0x3845))return;             // crosses xmax: stop the string
   }
-  callFar(slot(1),{ax:ch,dx,bp,es}); // slot 1 preserves DX, SI, BP
+  callFar(slot(1),ch,dx,bp,es); // slot 1 preserves DX, SI, BP
   dx=u16(dx+rb(0x3874));
  }
 }
@@ -97,7 +96,7 @@ export function f1ff8_3810(x,y,w,h){
   t=s16(rsw(0x3849)+1)-s16(bp+si);
   if(t<0){di|=8;t=bp+s16(t);if(t<=0)return;bp=s16(t);}
  }
- const span10=(row)=>callFar(slot(10),{ax:rw(0x3862),bx:u16(bx),cx:u16(cx),di:rw(0x3d3e+(row<<1&0xffff)),es});
+ const span10=(row)=>callFar(slot(10),rw(0x3862),u16(bx),u16(cx),0,rw(0x3d3e+(row<<1&0xffff)),es);
  if(!(rb(0x384c)&&rb(0x384e)===rb(0x384d))){
   const saved=rb(0x384b);wb(0x384b,0);
   if(!(di&1)){
@@ -125,7 +124,7 @@ export function f1ff8_3810(x,y,w,h){
  // rows the 41a4 word, the opposite of polygons and ellipses (graphics.md, drawRect).
  ww(0x386a,si&1);
  for(;;){
-  callFar(rd(0x3870),{ax:rw(0x3864),dx:rw(0x3866),bx:u16(bx),cx:u16(cx),di:rw(0x3d3e+(si<<1&0xffff)),es});
+  callFar(rd(0x3870),rw(0x3864),u16(bx),u16(cx),rw(0x3866),rw(0x3d3e+(si<<1&0xffff)),es);
   si=s16(si+1);bp=s16(bp-1);if(!bp)return;
  }
 }
@@ -176,8 +175,8 @@ export function f1ff8_3194(r,cx,cy){
  // One row k at row offset `ro`: left outline, fill, right outline, each clipped to [lo,hi).
  const row=(k,ro)=>{
   const draw=(al,n,fill)=>fill
-   ?callFar(rd(0x3870),{ax:rw(0x3866),dx:rw(0x3864),bx:u16(L+al),cx:n,di:ro,es})
-   :callFar(slot(10),{ax:rw(0x3862),bx:u16(L+al),cx:n,di:ro,es});
+   ?callFar(rd(0x3870),rw(0x3866),u16(L+al),n,rw(0x3864),ro,es)
+   :callFar(slot(10),rw(0x3862),u16(L+al),n,0,ro,es);
   // Common clip tail: returns the position after the run (or after the clipped-away run).
   const run=(al,cl,fill)=>{
    if(s8(al)<s8(lo)){al=u8(al-lo);cl=u8(cl+al);if(s8(cl)<=0)return {al:u8(cl+lo),gone:true};al=lo;}
@@ -234,81 +233,10 @@ export function f1ff8_3cf9(x,y){if(rb(0x384b)&&outside(x,y))return 0xffff;return
 // 1ff8:3d2b putPixelClipped(x,y,c): same test, else slot 22
 export function f1ff8_3d2b(x,y,c){if(rb(0x384b)&&outside(x,y))return 0xffff;return callFar(slot(22),x,y,c);}
 
-// Dissolve unit handlers, keyed by the near offsets stored in the EGA handler table DS:4d54.
-// u = unit column in page units, si = row offset, m = DGROUP address of the unit mask, src/dst = segments.
-function planarUnit(n){
- return (u,si,m,src,dst)=>{
-  si=u16(si+(u>>>n));
-  outw(0x3ce,rb(m)<<8|8);outw(0x3ce,0x0004);
-  const p0=ega.rd(vo(src,si));ega.out(0x3cf,1);const p1=ega.rd(vo(src,si));
-  ega.out(0x3cf,2);const p2=ega.rd(vo(src,si));ega.out(0x3cf,3);const p3=ega.rd(vo(src,si));
-  ega.rd(vo(dst,si)); // latch load from the displayed page
-  ega.out(0x3c5,8);ega.wr(vo(dst,si),p3);ega.out(0x3c5,4);ega.wr(vo(dst,si),p2);
-  ega.out(0x3c5,2);ega.wr(vo(dst,si),p1);ega.out(0x3c5,1);ega.wr(vo(dst,si),p0);
- };
-}
-const DISSOLVE={
- 0x466b:planarUnit(3), // 1-pixel units
- 0x466d:planarUnit(2), // 2-pixel units
- 0x466f:planarUnit(1), // 4-pixel units
- 0x464b:(u,si,m,src,dst)=>{si=u16(si+u);ega.wr(vo(dst,si),ega.rd(vo(src,si)));}, // 8 px: MOVSB latch copy (write mode 1)
-};
-
-// 1ff8:44b4 dissolveRect(x,y,w,h,unit): EGA slot 23. Copies the rectangle from [3856] to the displayed page
-// [3854] one unit at a time in LFSR order. The self-modified immediates (CS:45cf/45d7/45dd/45e4/45e8/45fb/
-// 4601/4605/4608) are the locals below. No waits.
-// APPROX (host): on hardware the dissolve is CPU-paced on the visible page; showing it needs frame spreading.
-export function f1ff8_44b4(x,y,w,h,unit){
- let cl=-1,ax=u16(unit);do{cl++;ax>>>=1;}while(ax);
- ax=u16(w);
- if(!(cl&0xff))cl=u8(cl+(ax>>8)); // unit 1 (shift 0): shift = high byte of w
- const shift=cl&0xff;
- ax=shr16(ax,shift&31);             // SHR AX,CL (count masked to 5 bits on 286+)
- const cols=ax&0xff,h8=h&0xff;
- try{
-  if(!h8)return;
-  let b=0,al=h8;do{b+=2;al>>=1;}while(al);
-  const T=rw(0x4d42+b);
-  let bx=h8<<8|cols;
-  const xs=shr16(u16(x),shift&31),yv=u16(y);
-  const ad=rb(0x385d);
-  if(ad===4||rw(0x4d8c)){ // copy without dissolve onto the displayed page
-   const s=rw(0x3858);ww(0x3858,rw(0x3854));f1ff8_2545(x,y,w,h);ww(0x3858,s);return;
-  }
-  if(ad!==2){unsupported(`1ff8:44b4 dissolve on adapter ${ad}`);return;}
-  outw(0x3ce,0x0005);if(shift===3)outw(0x3ce,0x0105);outw(0x3ce,0x0000);outw(0x3ce,0x0001);ega.out(0x3c4,2);
-  const mm=shr16(7,shift&31),mbase=u16(0x4d6c+mm);
-  const hoff=rw(0x4d54+(shift<<1)),handler=DISSOLVE[hoff];
-  if(!handler){unsupported(`1ff8:44b4 dissolve handler ${hoff.toString(16)}`);return;}
-  const dst=rw(0x3854),src=rw(0x3856);
-  const plot=(col,row)=>{
-   const r=yv&0xff00|yv+row&0xff; // 8-bit row add
-   const u=u16(col+xs);
-   handler(u,rw(0x3d3e+(r<<1&0xffff)),u16((u&mm)+mbase),src,dst);
-  };
-  let colsImm=cols,hImm=h8;
-  for(let guard=0;;guard++){
-   if(guard>0x20000){unsupported('1ff8:44b4 dissolve LFSR never returns to its start state (original hangs)');return;}
-   const c=bx&1;bx>>>=1;if(c)bx^=T;
-   const bh=bx>>8,bl=bx&0xff;
-   if(bh>hImm)continue;
-   if(bh===hImm){
-    if(bl!==colsImm)continue;
-    // End state reached: plot unit (0,0), which the LFSR never produces, then stop.
-    bx=0;if(!colsImm)break;colsImm=0;hImm=0;plot(0,0);continue;
-   }
-   if(bl>=cols)continue;
-   plot(bl,bh);
-  }
- }finally{
-  if(rb(0x385d)===2){ega.out(0x3c5,0xf);outw(0x3ce,0x0205);}
- }
-}
+// 1ff8:44b4 dissolveRect (EGA slot 23) is translated in src/game/egadrv.js (main session decision).
 
 export {f1ff8_23ba as drawText,f1ff8_3810 as drawRect,f1ff8_3194 as drawEllipse,f1ff8_3cf9 as getPixelClipped,
- f1ff8_3d2b as putPixelClipped,f1ff8_44b4 as dissolveRect,f1ff8_52b1 as egaResetState,f1ff8_528a as tandyCheck};
+ f1ff8_3d2b as putPixelClipped,f1ff8_52b1 as egaResetState,f1ff8_528a as tandyCheck};
 
 provide({f1ff8_2541,f1ff8_2545,f1ff8_2549,f1ff8_254d,f1ff8_2551,f1ff8_2555,f1ff8_2559,f1ff8_3cf1,f1ff8_3cf5,
- f1ff8_5282,f1ff8_5286,f1ff8_52b1,f1ff8_528a,f1ff8_23ba,f1ff8_3810,f1ff8_3194,f1ff8_3cf9,f1ff8_3d2b,f1ff8_44b4});
-// 44b4 is stored in the EGA driver table (DS:4d9c slot 23).
-register(0x1ff8,0x44b4,f1ff8_44b4);
+ f1ff8_5282,f1ff8_5286,f1ff8_52b1,f1ff8_528a,f1ff8_23ba,f1ff8_3810,f1ff8_3194,f1ff8_3cf9,f1ff8_3d2b});

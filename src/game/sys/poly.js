@@ -1,7 +1,7 @@
 // Segment 1ff8 polygon/line library: clipped line, convex polygon fill (span list + driver slot 27),
 // Sutherland-Hodgman polygon clipper. Translated from the disassembly (docs/re/graphics.md).
 // Driver slots are called through the active table DS:4924 (slot n at 4924+4n).
-// Register-argument slots get one register object {ax,bx,cx,dx,si,di,bp,es} (agreed sys convention).
+// Register-argument slots take positional registers per src/game/egadrv.js: slot 2 (bx,cx,dx,si,es), slot 27 (si).
 import {rb,rw,rsw,ww,fww,DGROUP} from '../../engine/mem.js';
 import {s16,u16,u8,s8,imul16,idiv32_16,div32_16,mod32_16} from '../../engine/int.js';
 import {callFar,unsupported} from '../../engine/host.js';
@@ -45,11 +45,11 @@ export function f1ff8_2454(x1,y1,x2,y2){
  // 252c: DX=x2, SI=y2; order so that x1 <= x2 (unsigned compare).
  let dx=si;si=di;
  if(bx>dx){t=dx;dx=bx;bx=t;t=si;si=cx;cx=t;}
- return callFar(slot(2),{bx,cx,dx,si,es:rw(0x3858)});
+ return callFar(slot(2),bx,cx,dx,si,rw(0x3858));
 }
 
 // 1ff8:255d fillSpans(list): driver slot 27 with SI = list (near span list {y,count,(x1,x2)*count}).
-export function f1ff8_255d(list){return callFar(slot(27),{si:u16(list)});}
+export function f1ff8_255d(list){return callFar(slot(27),u16(list));}
 
 // 1ff8:2926 polyLines (near; SI = xs, DI = ys, BP = count): drawLine(xs[i+1],ys[i+1],xs[i],ys[i]) for i<count.
 // QUIRK: BP=0 would loop 65536 times (DEC BP; JNZ); callers always pass >= 1.
@@ -225,7 +225,7 @@ export function f1ff8_256d(n,xs,ys){
  const top=rw(PY+rw(0x49c0));
  const hdr=u16(((top-1)<<2)+0x39f0);
  ww(0x49d2,hdr);ww(hdr,top);ww(hdr+2,u16(rw(PY+rw(0x49c2))-top+1));
- callFar(slot(27),{si:hdr});
+ callFar(slot(27),hdr);
  if(rb(LINEC)!==rb(FILLC))f1ff8_2926(OX,OY,rw(0x49d4));
  return rw(0x49d2);
 }

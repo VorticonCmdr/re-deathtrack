@@ -67,6 +67,7 @@ function findNext(r){
  const name=find.shift(),size=machine.fs.lookup(name).length,{seg,off}=dta;
  fwb(seg,off+0x15,0x20);fww(seg,off+0x16,0);fww(seg,off+0x18,0x21);fww(seg,off+0x1a,size&0xffff);fww(seg,off+0x1c,size>>>16);
  for(let i=0;i<13;i++)fwb(seg,off+0x1e+i,i<name.length?name.charCodeAt(i):0);
+ r.ax=0; // DOSBox clears AX on success
  return ok(r);
 }
 export class GameExit extends Error{constructor(code){super(`Game exited with code ${code}`);this.code=code;}}

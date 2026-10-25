@@ -8,3 +8,5 @@ import './egadrv.js';
 import './timer.js';
 import './sfx.js';
 import './music.js';
+import './seg2524.js';
+import './sys.js';

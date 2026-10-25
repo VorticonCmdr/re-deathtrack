@@ -2,7 +2,9 @@
 import {B,fwb,fww,LOAD_SEG,PSP_SEG,DGROUP,resetStack,wb} from './mem.js';
 import {unexepack,loadImage} from './exepack.js';
 import {initArena,FileSystem} from './dos.js';
-import {resetHost,state} from './host.js';
+import {resetHost,state,getVector} from './host.js';
+import {divide} from './int.js';
+import {gaddr} from './mem.js';
 import {resetEga} from './ega.js';
 import {sha256} from './sha256.js';
 
@@ -21,6 +23,8 @@ export function createMachine({assets,storage=null,strict=true,args=[]}){
  const unpacked=unexepack(exe);
  loadImage(B,unpacked,LOAD_SEG);
  initPsp(args);initBiosData();initArena();
+ // Divide faults follow whichever INT 0 handler is installed: the game's 1ff8:3b1c halves and retries.
+ divide.halving=()=>getVector(0)===gaddr(0x1ff8,0x3b1c);divide.faults=0;
  machine.fs=new FileSystem(assets,storage);machine.exe=unpacked;machine.args=args;
  return machine;
 }

@@ -33,7 +33,8 @@ export function arenaBlocks(){return [...blocks()];}
 // Files: originals are read-only; writes go to an overlay persisted by the storage provider.
 export class FileSystem{
  constructor(assets,storage){this.assets=assets;this.storage=storage;this.handles=new Map();this.next=5;}
- key(name){return name.replace(/^.*[\\/:]/,'').toUpperCase();}
+ // DOS truncates each name part to 8.3 ("ACTIVISIO" opens ACTIVISI, as title.ttm relies on).
+ key(name){const b=name.replace(/^.*[\\/:]/,'').toUpperCase(),i=b.indexOf('.');return i<0?b.slice(0,8):b.slice(0,i).slice(0,8)+'.'+b.slice(i+1).slice(0,3);}
  lookup(name){const k=this.key(name);const w=this.storage?.read(k);if(w)return w;return this.assets.get(k)||null;}
  open(name,mode){const k=this.key(name),d=this.lookup(name);if(!d&&!(mode&0x100))return -2;
   const h=this.next++;this.handles.set(h,{name:k,data:d?d.slice():new Uint8Array(0),pos:0,dirty:!!(mode&0x100),write:!!(mode&3)});if(mode&0x200)this.handles.get(h).data=new Uint8Array(0);return h;}
