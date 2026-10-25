@@ -35,6 +35,7 @@ export const salloc=n=>{SP-=n+1&~1;if(SP<0x9000)throw Error('Emulated stack over
 export const sfree=n=>{SP+=n+1&~1;if(SP>STACK_TOP)throw Error('Emulated stack underflow');};
 export const stackDepth=()=>STACK_TOP-SP;
 export const resetStack=()=>{SP=STACK_TOP;};
+export const setStack=v=>{SP=v;};
 // C strings in DGROUP / far memory.
 export const strAt=(o,max=4096)=>{let s='';for(let i=0;i<max;i++){const c=rb(o+i);if(!c)break;s+=String.fromCharCode(c);}return s;};
 export const fstrAt=(s,o,max=4096)=>{let r='';for(let i=0;i<max;i++){const c=frb(s,o+i);if(!c)break;r+=String.fromCharCode(c);}return r;};

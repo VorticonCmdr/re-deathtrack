@@ -8,6 +8,8 @@ import {sha256} from './sha256.js';
 
 export const REFERENCE_EXE_SHA256='5b23cafb2542195a7473b532e46a25023cd7bd59351445f6a7cb732807ff2928';
 export class SetupError extends Error{}
+// The current machine; translated code reaches files through bios.js, which reads this.
+export const machine={fs:null,exe:null,args:[]};
 
 // assets: Map of upper-case file name -> Uint8Array. storage: {read(name),write(name,data),keys()}.
 export function createMachine({assets,storage=null,strict=true,args=[]}){
@@ -19,7 +21,8 @@ export function createMachine({assets,storage=null,strict=true,args=[]}){
  const unpacked=unexepack(exe);
  loadImage(B,unpacked,LOAD_SEG);
  initPsp(args);initBiosData();initArena();
- return {fs:new FileSystem(assets,storage),exe:unpacked};
+ machine.fs=new FileSystem(assets,storage);machine.exe=unpacked;machine.args=args;
+ return machine;
 }
 
 function initPsp(args){

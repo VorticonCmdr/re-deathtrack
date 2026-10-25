@@ -90,4 +90,4 @@ export function runUntil(gen,until){
   else throw Error(`Unknown yield ${String(r.value)}`);
  }
 }
-export function resetHost(){Object.assign(state,{clock:0,pitDivisor:0x10000,nextTick:0x10000,diagnostics:[],events:[],port60:0,inIrq:0});biosHandlers.clear();}
+export function resetHost(){Object.assign(state,{frameStart:undefined,clock:0,pitDivisor:0x10000,nextTick:0x10000,diagnostics:[],events:[],port60:0,inIrq:0});biosHandlers.clear();}

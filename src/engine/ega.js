@@ -61,9 +61,14 @@ export function resetAttrFlip(){regs.attrFlip=false;}
 export function setMode(mode){
  regs.mode=mode;for(const p of planes)p.fill(0);
  Object.assign(regs,{mapMask:0xf,setReset:0,enableSetReset:0,colorCompare:0,rotate:0,func:0,readMap:0,writeMode:0,readMode:0,colorDontCare:0xf,bitMask:0xff,start:0,overscan:0});
- regs.palette=[0,1,2,3,4,5,20,7,56,57,58,59,60,61,62,63];
+ // The BIOS loads 200-line attribute values for modes 0Dh/0Eh (bit 4 = intensity), 350-line values otherwise.
+ regs.palette=mode===0x0d||mode===0x0e?[0,1,2,3,4,5,6,7,16,17,18,19,20,21,22,23]:[0,1,2,3,4,5,20,7,56,57,58,59,60,61,62,63];
 }
-// 6-bit EGA colour (rgbRGB) to 0xRRGGBB.
+// 200-line modes (0Dh): the monitor (and the VGA BIOS DAC table for these modes) uses bits 0-2 as RGB and
+// bit 4 as intensity, like a CGA display; colour 6 shows as brown. The game relies on this (docs/re/graphics.md).
+const CGA=[0x000000,0x0000aa,0x00aa00,0x00aaaa,0xaa0000,0xaa00aa,0xaa5500,0xaaaaaa,0x555555,0x5555ff,0x55ff55,0x55ffff,0xff5555,0xff55ff,0xffff55,0xffffff];
+export const rgb200=c=>CGA[(c&7)|(c&0x10?8:0)];
+// 6-bit EGA colour (rgbRGB, 350-line interpretation) to 0xRRGGBB.
 export function egaRgb(c){const r=(c>>2&1)*0xaa+(c>>5&1)*0x55,g=(c>>1&1)*0xaa+(c>>4&1)*0x55,b=(c&1)*0xaa+(c>>3&1)*0x55;return r<<16|g<<8|b;}
 // Chunky 4-bit pixels of the page starting at `start` (bytes), 320x200, 40 bytes per line.
 export function pageIndices(start=regs.start,out=new Uint8Array(320*200)){

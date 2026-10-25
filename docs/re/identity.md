@@ -86,3 +86,12 @@ Project `ghidra/DeathTrack` (local, not committed).
   - `Mn`/`Tn` set music `[0x1fb2]`.
   - `Sn` sets sound `[0x1fb0]`.
   - `Gx` selects graphics.
+
+## Observed reference-run facts (DOSBox default config)
+
+- `DTRACK DEMO` skips the title and sign-up, plays shop and roster screens automatically, then races on autopilot ("DEMO MODE", "AUTO ON"). It is the input-free reference scenario.
+- Race frame rate: 416 frames (`[924e]` 0x105 → 0x2a5) in 505 BIOS ticks (27.7 s), about **15.0 frames/s**.
+- The race loop advances one fixed step per frame with no throttle (static; `docs/re/input-timer-sound.md`), so this rate is a property of the emulated CPU speed.
+- The sound driver detected **MT-32**: `[2d32]` = `0x2ec8`, because DOSBox emulates an MPU-401. The port uses the PC-speaker path instead.
+  - Gameplay never reads sound state (static).
+  - DOSBox comparisons must therefore exclude the sound-driver data (`DS:2d26–34ff` region) and the PIT rate.
