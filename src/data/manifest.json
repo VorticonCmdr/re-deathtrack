@@ -1,0 +1,374 @@
+{
+ "edition": "Deathtrack 1.0 (1989) PC, DTRACK.EXE crack-patched build",
+ "reference": "DTRACK.EXE",
+ "files": {
+  "DTRACK.EXE": {
+   "size": 177687,
+   "sha256": "5b23cafb2542195a7473b532e46a25023cd7bd59351445f6a7cb732807ff2928"
+  },
+  "DTRACK.EX_": {
+   "size": 177687,
+   "sha256": "c28a0284bb5f7311d1f15e84d165f50d0399084788ef1b3e72fd46b97470a26a"
+  },
+  "Deathtrack (1989).ba1": {
+   "size": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "activisi": {
+   "size": 3004,
+   "sha256": "5dead3ee88090c955c29bf8693a96e3f33f53b667aa00e9452decc0ffa7d07df"
+  },
+  "angel.bmp": {
+   "size": 3249,
+   "sha256": "1b2aa019cb7eac89d3727c4d513489abc59502041ae2bca6d854e1b23792c04e"
+  },
+  "angel.tbl": {
+   "size": 1690,
+   "sha256": "90c99d878c90a75b9618ec99192da6ccd3db31cbad7a13ec7c5f6789d99a97a2"
+  },
+  "bay_area.bmp": {
+   "size": 2554,
+   "sha256": "abf4e0f776bb385e453131a2b6cabe32e1bdcbd365a429cc631917a390884d45"
+  },
+  "bay_area.map": {
+   "size": 7827,
+   "sha256": "de0463100ce91c876a1d0c05c1fa9b299b7c8108c2eab4d6467a92c5ffbe64d3"
+  },
+  "bay_area.trk": {
+   "size": 10558,
+   "sha256": "b22eeaaaacb045145e567ec041fb9f9e1fc67cf23e507c09ad50cf2b68849db6"
+  },
+  "bitmaps.blk": {
+   "size": 19380,
+   "sha256": "b776d45f816b741521b7e64943bdff1922bc0976f9342abaf3a72b3296f52561"
+  },
+  "boston.bmp": {
+   "size": 3369,
+   "sha256": "c22f8689fcc3aa34ef0d8019449fdc69887ede6542bdc0141d3bba6cc7089f76"
+  },
+  "boston.map": {
+   "size": 4005,
+   "sha256": "e03dccc34822b1d1da025b1930a0262fc9e48ea63b3698abf4ea4680768dfada"
+  },
+  "boston.trk": {
+   "size": 8216,
+   "sha256": "ebf98b04ba3ec40c2e614654062ff7e4265f213b1fbb277655eb6a9e43ab854c"
+  },
+  "car1.scr": {
+   "size": 6926,
+   "sha256": "583be2f7874c9cc376a28a760b193d8da3b62b94931623f33bf1f04e9ef821a3"
+  },
+  "car2.scr": {
+   "size": 9361,
+   "sha256": "5a4e3645cc723ac52753bab9f769231fd6de4909e8d31d596463d11c3ec4b171"
+  },
+  "car3.scr": {
+   "size": 6143,
+   "sha256": "beea02425143fb5e2687210edeef53bef908942d39951183adeca85ee4413ce2"
+  },
+  "champ.bmp": {
+   "size": 6136,
+   "sha256": "7f92e11d18d809f6ece1422e58f11140fb932e5105add785fce2f52b36eefbc6"
+  },
+  "chicago.bmp": {
+   "size": 3517,
+   "sha256": "7c65af6d1840d490de4d4ba49d5b4e35c121ebafd98d6d74ebee9dfd2979e3d9"
+  },
+  "chicago.map": {
+   "size": 7386,
+   "sha256": "257862eb9ff17170f287f0927307578380bf98169e9f1814e1226a70cf961540"
+  },
+  "chicago.trk": {
+   "size": 8738,
+   "sha256": "109ba8b493cf0290e62501212d8b3c1bc92bce630d29387e981b240eee977e9f"
+  },
+  "cityline.bmp": {
+   "size": 2811,
+   "sha256": "c89a0ef95a1474b4aa6f6c3982e98579f47d7204cd054b524b72a76d2e510fd6"
+  },
+  "citypic.scr": {
+   "size": 12139,
+   "sha256": "092fe47ebf273810b4aebe67a4287d0727537604c10b6a8a449bb857c3321227"
+  },
+  "crimson.bmp": {
+   "size": 2445,
+   "sha256": "5b98737e4a11b9f4c0d88f3a883082246a5fe967afc73c4728caf548bd10002b"
+  },
+  "crimson.tbl": {
+   "size": 2092,
+   "sha256": "c45f1f08b5c05507ce5f6f3412eb1344e05784050d141cf71b63c2f74bf28cbb"
+  },
+  "d.exe": {
+   "size": 117278,
+   "sha256": "7ba6c7f2717758207eaa3a67ac9fa0e0e83f2e5067d5bdcee8ad4f336d2d57f4"
+  },
+  "danger.mus": {
+   "size": 1853,
+   "sha256": "14a3712b2e1604c063e40f2b2320e9d00a28571354b65c0756e153937022cdcb"
+  },
+  "dash0.scr": {
+   "size": 5405,
+   "sha256": "d7d266e715aef3ec619122e79e0cb0e31c20a32bfd6a32698638157e5a22e278"
+  },
+  "dash1.scr": {
+   "size": 5581,
+   "sha256": "ae68661bf02294041df89050e2c9dd8cb391123bc464656f2b50e262bfc9fad2"
+  },
+  "dash2.scr": {
+   "size": 5488,
+   "sha256": "6a24a1cbd580abfe3c59f94c98cdd8e054f7850f5d45e063c29d62d38d70b748"
+  },
+  "demo.bak": {
+   "size": 278,
+   "sha256": "12f4c65e4c8f8c8f3703dc9f91fe2672712e67fbfe962bee1da055ee6a7cd804"
+  },
+  "demo.bat": {
+   "size": 272,
+   "sha256": "a540277a572082aea5de5546880ef6bd5e54149bc48736a690d3882afdaa8432"
+  },
+  "dynamix.bmp": {
+   "size": 844,
+   "sha256": "82bc81c6866ff95b17cb078be1c80facfa75598beac3965ef68c364297a1940a"
+  },
+  "file_id.diz": {
+   "size": 206,
+   "sha256": "2015203804d5467af080db0a9171163bd4a4d0a89be82a428d61d1a7ab73f054"
+  },
+  "fonts.blk": {
+   "size": 1860,
+   "sha256": "991b1e0f0f597ccab6ac38484ad4d5f58cf11f94f78525cc3b4fd3178ead655e"
+  },
+  "gas.bmp": {
+   "size": 4167,
+   "sha256": "505cadb6e17322c0799189af68ccfcf428b3808953cad5acd4bb99e989f54288"
+  },
+  "hi_score": {
+   "size": 190,
+   "sha256": "a80277ab64d50306fdffbf7f678b2f2eb633ef2a8859afd1957323e7a1bed86b"
+  },
+  "houston.bmp": {
+   "size": 3651,
+   "sha256": "8154cdfcc8165680e79dede600b976541e51a73b33260ce56670094f3c6b2557"
+  },
+  "houston.map": {
+   "size": 5890,
+   "sha256": "6fc02e459fc4a3fcda2586b1daa384ba266298c086574e317152ee37ab15dc8d"
+  },
+  "houston.trk": {
+   "size": 5332,
+   "sha256": "edb317bcd82910cc1c465e56f8392a492353caff0ddc6e99375d9c7933619801"
+  },
+  "install.bat": {
+   "size": 2765,
+   "sha256": "468461ef52459422286a080320092bcc3bc01564623926284abf231235761bb0"
+  },
+  "int.exe": {
+   "size": 1566,
+   "sha256": "63f230ec35011b0360c42c93fdc83c16019f5b4266e2162e45cdf9807eec58f5"
+  },
+  "la.bmp": {
+   "size": 3181,
+   "sha256": "853ef4e818b7ecea190755f56d1bb6271da1a5ebcbee6bd2e3f5c71d3ba2972b"
+  },
+  "la.map": {
+   "size": 3282,
+   "sha256": "6354d3045e5f83ded6c7dcd704633b3c1de1920d9c190be553c49c037c3851d6"
+  },
+  "la.trk": {
+   "size": 10678,
+   "sha256": "694ce6369695a6a1452c9e8af4e351e01d317399ce40922ba0dd91ff929febcb"
+  },
+  "lurker.bmp": {
+   "size": 3184,
+   "sha256": "9038c01a0e3a76829869a9b2fe34038b3b2a0626dee686dd8cdd93111c903518"
+  },
+  "lurker.tbl": {
+   "size": 1621,
+   "sha256": "64b1586b1228329c904b8663d32020885112c8c54451753cde311c86a7abe615"
+  },
+  "mafiozo1.bmp": {
+   "size": 2752,
+   "sha256": "c89994a22bf696da1ad6fee470fd9e131e6b0c61e3367ff741b296edd7eaa983"
+  },
+  "mafiozo2.bmp": {
+   "size": 4823,
+   "sha256": "573fc6dd91a03ceb69b96e7892863ae80c83c01edc522cafd69327fa75ac627c"
+  },
+  "maniac.bmp": {
+   "size": 2782,
+   "sha256": "e5253de41f82de69c861214d9ba0f9b81a97a9ec6e6fae1ebba4f813a97ba7bc"
+  },
+  "maniac.tbl": {
+   "size": 1909,
+   "sha256": "b1bbab573ed9892399116f998a6da87fe35eebc4892f457c197d5c5f81cdb245"
+  },
+  "mega.bmp": {
+   "size": 2665,
+   "sha256": "ed1476b7b0305d27c4c96b33de140f9c8103801bcac03094b82af0b3190756de"
+  },
+  "mega.tbl": {
+   "size": 1668,
+   "sha256": "15f6242f2a13fd9e597386742a456ff0e4f5a1e0f326aea8946508e97594e1dd"
+  },
+  "melissa.bmp": {
+   "size": 4254,
+   "sha256": "2c0e8dbef3008cc7dc6dcd7eb2b6878b92b5e7d51d3ae121041ade012d2fda72"
+  },
+  "melissa.tbl": {
+   "size": 1709,
+   "sha256": "a320a122e03e57acf3b9069fb08444ba1c48d574143a6dc1b6b5bb9b374a1777"
+  },
+  "menace.bmp": {
+   "size": 4471,
+   "sha256": "cbff2587cc94dac06b5858004c5f55d9c7eaa5be58a04f162bac80b1f132ae26"
+  },
+  "menace.tbl": {
+   "size": 1690,
+   "sha256": "c198eabb1dbadce6bacd483eeaf6684155046f6ca2591973d4564f34200af54c"
+  },
+  "mycar0.tbl": {
+   "size": 1756,
+   "sha256": "0339f2d3e8fc5d1454b72af0cddf60e13bedb66998c6dbee7b5446036ce8d9aa"
+  },
+  "mycar1.tbl": {
+   "size": 1974,
+   "sha256": "e204d293a116b9af69246aadc204a9c0597159cb22ab3724abd90930daf08052"
+  },
+  "mycar2.tbl": {
+   "size": 2012,
+   "sha256": "c10ce3daa4c6facd81a67f08c74b418cc175a75a5ea5fcb36e6375209367bce3"
+  },
+  "nyc.bmp": {
+   "size": 1945,
+   "sha256": "ae13fb4a2d1dff4c867ac32b0b6f7466fcc7b85f2e9fb26e633cdb3d420d4b65"
+  },
+  "nyc.map": {
+   "size": 10395,
+   "sha256": "e964f5296733d0a76891b9b16686e6211db348098789ee1d496f4e66a40435f8"
+  },
+  "nyc.trk": {
+   "size": 8474,
+   "sha256": "89302f2e441db26cdd9cbd40ff000e9265f73dd12255a78306c2e1208ac8f900"
+  },
+  "orlando.bmp": {
+   "size": 2694,
+   "sha256": "928fc9e2a96039bfa9f170ee981096d3a81b5d3a2acfeef79cd5d1a15fd462e1"
+  },
+  "orlando.map": {
+   "size": 3567,
+   "sha256": "c2690b4b7779e5f6f6adc23ec86efe4ae7e6dd2673dc09c8f3372dd11ca3f56c"
+  },
+  "orlando.trk": {
+   "size": 11422,
+   "sha256": "1051ef3ca9f68715dfe427664fce031211d4b7fe4ee030c7f186a40a04790762"
+  },
+  "pals.blk": {
+   "size": 1493,
+   "sha256": "def75e313a8c6bcb8b0ff2673a57ae0b0f09b4e684f133ae54491deec1b343ad"
+  },
+  "parts.bmp": {
+   "size": 3640,
+   "sha256": "1896fe67ceafbf06eba4b8b89cfa6b8f105ae2be3bedc782488b2e7ade9377f2"
+  },
+  "phoenix.bmp": {
+   "size": 2590,
+   "sha256": "dac86d03639d7adc0adfc0867a77db2cabdc91a9e26394387dc30e3b28a0b75d"
+  },
+  "phoenix.map": {
+   "size": 5413,
+   "sha256": "585d926103402dd19a5309c1cafd135a8f3fec6c248606578f4f4237f0bb3f8f"
+  },
+  "phoenix.trk": {
+   "size": 8990,
+   "sha256": "214bf3f56e814d3b8d5d03fa859cf13aeec016067bfe6a49a9ce34308817df6b"
+  },
+  "pitstop.bmp": {
+   "size": 3657,
+   "sha256": "98fbf609a27e477dbd72589cb341b9bff8c0855ee9cab90563729cd2bb1d9dab"
+  },
+  "postwar.scr": {
+   "size": 11260,
+   "sha256": "f3c5fb7b73d3dd578978f6367cb971e7524d5032a00579cd4c69a735d781a1c1"
+  },
+  "results.bmp": {
+   "size": 1226,
+   "sha256": "909905aea81144f1ba0957ea25bb3ef30ca721e9d5c02af1d70515161b305d28"
+  },
+  "run.bat": {
+   "size": 477,
+   "sha256": "52d5574b7574f12bcd029ad46086ec1cb473ae77a0cb1d06c7763f251c06a48e"
+  },
+  "seattle.bmp": {
+   "size": 3447,
+   "sha256": "7104468b03fb5c11f0261797f63c533f093cca848bcaf3d9c7db8074deb69184"
+  },
+  "seattle.map": {
+   "size": 5053,
+   "sha256": "3974d41074ed7776e7ea9608968c24537bb04342767af612262f89e801cf66c4"
+  },
+  "seattle.trk": {
+   "size": 10566,
+   "sha256": "2d9edb7b268d38417507cd968fddc7db313b1f85b5c22ebb5f966cfa0cd61771"
+  },
+  "shape.tbl": {
+   "size": 78544,
+   "sha256": "fa24a9b07323be955a5c00fdb0eb367bffdcb99b4398df43393093346e65c289"
+  },
+  "sly.bmp": {
+   "size": 2021,
+   "sha256": "d7ae53e75bdccd4bb51cb8226df9b96ecfce75c299ae3183dbe73da46a58baee"
+  },
+  "sly.tbl": {
+   "size": 1656,
+   "sha256": "ab06c52654f44f1d788864ae63706a4f4b26aa3292f7f53923508d764a9738bc"
+  },
+  "st_louis.bmp": {
+   "size": 3160,
+   "sha256": "40fd88eb0ae570f47882ed362eff99825ce090bd5c94702f3b5555fb7aba5d0c"
+  },
+  "st_louis.map": {
+   "size": 5259,
+   "sha256": "6d01ed43dfcf1fb41d9aae3ecf4d82e4608d714062aa5577835941a7374165af"
+  },
+  "st_louis.trk": {
+   "size": 6870,
+   "sha256": "f09b3a6f5e960b4ffb8d705b5aa11d579226ebcf3bc94ea39e0697f6ebe4f7f5"
+  },
+  "tetris.pst": {
+   "size": 1111,
+   "sha256": "8d23aec54842932b4302e6f6d6b83e5171128dacf7898049352e2f937c0548df"
+  },
+  "title.bmp": {
+   "size": 1328,
+   "sha256": "f07382a8ec4e06ddd6aa6644949dccb40aaa1ff551c41ff0bd486a6d6ffab6d3"
+  },
+  "title.ttm": {
+   "size": 391,
+   "sha256": "30126ee2e1e24d931d5333d20c74efb6cfdd208c916ab80476d2af96c1058ee2"
+  },
+  "trax.mus": {
+   "size": 26957,
+   "sha256": "fcee304f4426b9f025802c8d4d1ba1f3ec8a20b94eeaf1291c20418520adee10"
+  },
+  "wantsyou.bmp": {
+   "size": 956,
+   "sha256": "b1aa47d5f0ae7ce856673ce6bb24b72048686debae854d8970e78cc27e30712b"
+  },
+  "weapons.bmp": {
+   "size": 8806,
+   "sha256": "4e0a8e133c07efe28d3ab13f607d1b80dcf70f7cb2c016292a1a0cf722b21fdc"
+  },
+  "win.bmp": {
+   "size": 6927,
+   "sha256": "1bdce8a73a595a2243a7e5d8f4b3597631ac206abfb72719f701e811862ba43c"
+  },
+  "wrecker.bmp": {
+   "size": 2836,
+   "sha256": "66bcd1817cc7f08e41d4df0e4632a6ec780c7fb9a1bd12136aa98ec651e750b9"
+  },
+  "wrecker.tbl": {
+   "size": 1412,
+   "sha256": "743b5918a907db7ca201233e0a520e4b092aaeca851036e9ba4fcfecd9e7b737"
+  }
+ }
+}
