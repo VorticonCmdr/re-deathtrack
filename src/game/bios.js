@@ -90,15 +90,18 @@ export function int33(r){
 // 3DAh: bit 3 vertical retrace, bit 0 display disabled; reading resets the attribute flip-flop.
 export function vstatus(){ega.resetAttrFlip();return inRetrace()?0x09:0x00;}
 const pit={mode:[0,0,0],latch:[null,null,null],write:[[],[],[]],reload:[0x10000,0x10000,0x14]};
-export const speaker={gate:0,divisor:0x14};
+// PC speaker: PIT channel 2 square wave, audible when port 61h bits 0 (timer gate) and 1 (speaker data) are set.
+// Every change is time-stamped in virtual time so the browser can render it sample-accurately (src/web/audio.js).
+export const speaker={gate:0,divisor:0x14,events:[]};
+const spk=()=>{if(speaker.events.length<20000)speaker.events.push({t:state.clock,divisor:speaker.divisor,gate:speaker.gate});};
 export function outp(port,v){
  v&=0xff;
  if(port>=0x3c0&&port<=0x3df){ega.out(port,v);return;}
  switch(port){
   case 0x20:case 0x21:return; // PIC: EOI and mask writes have no effect in the virtual machine
   case 0x43:{const ch=v>>6;if(ch===3)return;if((v&0x30)===0){pit.latch[ch]=0;return;}pit.mode[ch]=v;pit.write[ch]=[];return;}
-  case 0x40:case 0x42:{const ch=port-0x40;pit.write[ch].push(v);if(pit.write[ch].length===2){const d=pit.write[ch][0]|pit.write[ch][1]<<8;pit.write[ch]=[];pit.reload[ch]=d||0x10000;if(ch===0)setPitDivisor(d);else speaker.divisor=d||0x10000;record('pit',{ch,d});}return;}
-  case 0x61:speaker.gate=v&3;return;
+  case 0x40:case 0x42:{const ch=port-0x40;pit.write[ch].push(v);if(pit.write[ch].length===2){const d=pit.write[ch][0]|pit.write[ch][1]<<8;pit.write[ch]=[];pit.reload[ch]=d||0x10000;if(ch===0)setPitDivisor(d);else{speaker.divisor=d||0x10000;spk();}record('pit',{ch,d});}return;}
+  case 0x61:if((v&3)!==speaker.gate){speaker.gate=v&3;spk();}return;
   default:unsupported(`OUT ${port.toString(16)}`);
  }
 }

@@ -31,6 +31,8 @@ try{
  async function key(k,ms=120){await page.keyboard.down(k);await sleep(ms);await page.keyboard.up(k);await sleep(120);}
  await waitFor('game running',async()=>await g('!!window.__deathtrack')&&await g('window.__deathtrack.clock()')>5*1193182);
  await shot('01-title');await key('Enter');
+ // Audio starts on the first user gesture (AudioWorklet rendering the emulated PC speaker).
+ if(!(await waitFor('audio context running after the first key press',async()=>await g('window.__deathtrack.audioRunning()'),5000)))fail('no audio');
  if(await menuReady('sign-up page (21)',p=>p===21)){await page.keyboard.down('Shift');for(const k of ['KeyA','KeyC','KeyE'])await key(k);await page.keyboard.up('Shift');
   await sleep(300);await shot('02-signup');await click(160,174);
  }
@@ -43,7 +45,8 @@ try{
   const s0=(await mem(0x8926))<<16>>16;await page.keyboard.down('ArrowUp');await sleep(5000);
   const speed=(await mem(0x8926))<<16>>16;if(!(speed>s0&&speed>20))fail(`player speed ${s0} -> ${speed} after 5 s of acceleration`);
   await key('ArrowLeft',400);await key('Space',150);await sleep(800);await page.keyboard.up('ArrowUp');
-  await shot('07-race');console.log(`race frame ${await mem(0x924e)}, speed ${speed}`);
+  const lvl=await g('window.__deathtrack.audioLevel()');if(!(lvl>0.01))fail(`speaker output silent during the race (peak ${lvl})`);
+  await shot('07-race');console.log(`race frame ${await mem(0x924e)}, speed ${speed}, audio peak ${lvl.toFixed(3)}`);
  }
  clearInterval(tracer);console.log('page ids seen:',pages.join(' '));
  const diag=await g('window.__deathtrack.diagnostics()');if(diag.length)fail(`unsupported-path diagnostics: ${JSON.stringify(diag)}`);
