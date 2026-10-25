@@ -75,11 +75,11 @@ These are the only sources of external values. Each is recorded at its consumpti
 - joystick (not supported; reported as absent)
 - file contents (assets keyed by upper-case 8.3 name) and save/score writes
 - PIT ticks and vertical retrace (virtual time)
-- sound-device status (PC speaker: none; MT-32/AdLib: absent)
+- sound-device status and MIDI/OPL ports (default PC speaker: MPU and OPL read FFh; AdLib and MT-32 selectable by host option)
 
 ## Unsupported paths
 
-- Code paths for CGA, Tandy, Hercules, joystick, MT-32 or AdLib are not translated.
+- Code paths for Tandy, Hercules, mode-4 adapters and joystick hardware are not translated. CGA, AdLib and MT-32 are (docs/re/hardware-paths.md).
 - Reaching one calls `unsupported('<address> <what>')`. That throws in strict mode, the default and the setting for tests. In demo mode it records a visible diagnostic.
 
 ## Evidence notes

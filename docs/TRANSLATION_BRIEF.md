@@ -38,7 +38,7 @@ You translate one bounded part of DTRACK.EXE into JavaScript for a faithful brow
   - Ports `0x3c4`–`0x3cf` and `0x3d4`/`0x3d5` go through `ega.out`. Port `0x3da` reads go through `vstatus()` from `src/game/bios.js` (owned by the main session, which adds whatever you need; ask for it in your report).
   - INT 10h, INT 21h and INT 33h go through `src/game/bios.js`.
   - Never touch `src/engine/*` or files outside your ownership list. If you need an engine change, describe it in your report.
-- **Unsupported adapters/devices** (CGA, Tandy, Hercules, MCGA mode 4, AdLib, MT-32, joystick hardware): don't translate them. The branch calls `unsupported('<addr> <what>')`.
+- **Unsupported adapters/devices** (Tandy, Hercules, MCGA mode 4, joystick hardware): don't translate them. The branch calls `unsupported('<addr> <what>')`. CGA (adapter id 1), AdLib and MT-32/MPU-401 are in scope and are translated; see `docs/re/hardware-paths.md`.
 - **No invention.** If something can't be determined, write `// UNKNOWN:` and choose the literal translation of the instructions. Mark approximations `// APPROX:`.
 - **Quirks:** keep observable quirks (bugs included) and comment them `// QUIRK:` with a reference to the analysis doc.
 - **Tests:** write a focused test file `tests/<area>.test.mjs` for logic you can check without the whole game:
