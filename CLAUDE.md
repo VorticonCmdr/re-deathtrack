@@ -17,7 +17,7 @@ node scripts/run-headless.mjs --args demo --seconds 120   # headless run with sc
 node scripts/replay-race.mjs .local/captures/demo-race-start 0 399 --stop   # race replay vs DOSBox, per-range diffs
 ```
 
-- Tests need `game/`. `tests/scenario-demo-race.test.mjs` also needs `.local/captures/demo-race-start`. A missing fixture is a setup failure, never a skip.
+- Tests need `game/`. The scenario tests also need local DOSBox captures under `.local/captures/`: `demo-race-start`, `cga-race`, `sound-startup/trace.json`, `seg-race-setup` and `seg-cga-{init,hwinit,ground,sky}` (recipes in `docs/scenarios/*.json`). A missing fixture is a setup failure, never a skip.
 - `npm run unpack:exe` rebuilds `.local/re/DTRACK_U.EXE`, the unpacked MZ that Ghidra analyses.
 
 ## Architecture

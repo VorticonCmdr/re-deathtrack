@@ -291,8 +291,9 @@ export function f1000_cb72(){
  for(let i=0;i<10;i++)inp(0x330);
  outp(0x20,0x20);outp(0x21,0);
 }
-// Waits for the slot-8 tick to drain the queue. The original spins with IF=1 even when called from the sequencer (observed:
-// every cbd0 entry in DOSBox has IF set, and c731 guards itself against re-entry with [2d59]), so the tick preempts it.
+// Waits for the slot-8 tick to drain the queue. cbd0 ends with CLI ... STI (1000:cbf2), so the first byte queued inside a timer ISR
+// turns interrupts on for the rest of that ISR (observed in DOSBox: IF is clear only at the first byte of each burst, where the
+// queue is empty) and the tick preempts the sequencer; c731 guards itself against that re-entry with [2d59].
 function waitQueue(full){
  for(let i=0;full();i++){
   if(i>200000)throw new HangError('1000:cbd0/cbb6 MPU queue wait never ends');

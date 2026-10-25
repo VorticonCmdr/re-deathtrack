@@ -47,6 +47,8 @@ Demo mode (`?args=demo`) autoplays the shop screens and a full race, then return
 - **cga-race-start**: 150 DOSBox checkpoints of a CGA demo race (`dtrack GC demo`). All 149 following frames match exactly: conventional memory, B800 RAM and the EGA planes. Same conditional-start caveat as demo-race-start.
 - **cga-segments**: CGA driver init (`2fd2:0252`), hardware init (`2524:0260`, with five documented sound/joystick exclusions), ground fill (`2f73:035f`) and sky strip (`2f73:000f`) match DOSBox from injected entry states, memory and B800.
 
+- **CGA display (one observation, not a committed test):** a paused DOSBox mode-6 screen (B800 RAM read through the API, frame from `/video/frame`) and `cgaFrame()` rendered from that RAM agree on all 128,000 pixels (9,013 lit). Mode 4 colours were not compared.
+
 ## Known limitations
 
 - Speaker audio is approximate (inaudible rates above 15 kHz are silenced, one-pole low-pass).
@@ -56,6 +58,7 @@ Demo mode (`?args=demo`) autoplays the shop screens and a full race, then return
 - Menu screens, shops, saves and results have **no reference comparison yet** (their RNG depends on timing). They are exercised by the demo and browser runs only.
 - Tandy, Hercules/mode-4 and joystick paths are unsupported. Reaching one stops the game with a diagnostic (default strict mode) or is reported (`?mode=demo`).
 - **CGA:** the title, menus and races are verified only as far as the captures above (race loop, sky, ground, driver init). The other driver slots (sprites, glyphs, lines, dissolve) are translated and checked against the original instructions by `tests/x86mini.mjs`, but not against DOSBox. Colour handling of mode 4 and the work-cost of B800 accesses (`work.vram` per byte) are APPROX; the menu timing on CGA is not calibrated.
+- **Boot time:** with the MPU and OPL absent the port spends about 0.16 s of APPROX virtual time in the absent-device probes (docs/re/environment.md); the DOSBox references never ran that path.
 - **AdLib:** synthesis is approximate (not bit-exact, no comparison with an OPL reference); the OPL port-access cost (2.4 µs) is fitted to one DOSBox count.
 - **MT-32:** needs a connected MIDI output (real MT-32 or Munt) and a browser with Web MIDI permission; nothing is audible otherwise. Byte times are not compared.
 - No production deployment has been configured.
