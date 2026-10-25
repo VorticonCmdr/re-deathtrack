@@ -2,7 +2,7 @@
 // results, copy-protection quiz, race entry, .MAP loading, menu loops and pointer handling, saves and HI_SCORE.
 // Translated from the disassembly of DTRACK.EXE (Ghidra addresses). Analysis: docs/re/gameflow.md, race.md,
 // input-timer-sound.md. Calls outside this range go through the late-bound table F (src/game/link.js).
-import {rb,rsb,rw,rsw,rd,rsd,wb,ww,wd,frb,frsb,frw,frsw,frd,frsd,fwb,fww,fwd,fp,pseg,poff,padd,salloc,sfree,strAt,gseg,gaddr,DGROUP} from '../engine/mem.js';
+import {rb,rsb,rw,rsw,rd,rsd,wb,ww,wd,frb,frsb,frw,frsw,frd,frsd,fwb,fww,fwd,fp,pseg,poff,padd,salloc,sfree,getStack,strAt,gseg,gaddr,DGROUP} from '../engine/mem.js';
 import {s8,u8,s16,u16,s32,u32,idiv16,imod16,idiv32_16,imod32_16,div16,mod16,div32_16,mod32_16,imul16,mul16,lmul,ldiv,lmod,uldiv,ulmod,lshl,lsar,lshr,sar16,shr16,shl16} from '../engine/int.js';
 import {idle,register,callFar,callFarG,unsupported} from '../engine/host.js';
 import * as ega from '../engine/ega.js';
@@ -184,8 +184,12 @@ export function* f1000_047c(){
  f1000_1692();
  if(rw(0x8f02)|rw(0x8f04))F.f2524_03f2(rw(0x8f02),rw(0x8f04));
  // The loop body is f1000_04ed so a checkpoint replay can enter at the loop head (no JS locals cross iterations).
- for(;;){const r=yield* f1000_04ed();if(r!==undefined)return r;}
+ // Stack frame as in the original (near CALL + PUSH BP + SUB SP,6) so [BP-2..BP-6] land in emulated stack memory.
+ salloc(4);raceFrame.bp=getStack();salloc(6);
+ try{for(;;){const r=yield* f1000_04ed();if(r!==undefined)return r;}}finally{sfree(10);}
 }
+// BP of 047c's frame; a checkpoint replay sets it from the captured registers.
+export const raceFrame={bp:0};
 
 // 1000:04ed raceFrame: one iteration of the race loop body (04ed-06cb). Returns undefined to continue, or 0 after the
 // exit-side calls of the 05fd/0632 exits (the original 047c returns void; 0 is the port's 'loop ended' marker).
@@ -242,6 +246,8 @@ export function* f1000_04ed(){
  }
  if((rw(0x8f02)|rw(0x8f04))&&F.f2524_4cd4()===0)F.f2524_03f2(rw(0x8f02),rw(0x8f04));
  const pos=rsw(0x96f2),lo2=rsw(0x1d04+rw(0x9808)*2),hi2=s16(lo2+0x3c);
+ // 065b-066e store these in [BP-2], [BP-4], [BP-6]; mirrored so the stack matches the original.
+ const bp=raceFrame.bp;if(bp){ww(bp-2,pos);ww(bp-4,lo2);ww(bp-6,hi2);}
  if(pos>lo2&&pos<hi2){
   ww(0x1fb4,1);
   if(rw(0x59f4)!==0&&rw(0x8926)===0&&rsw(0xa97a)>0x37&&rb(0x8a54)===1){

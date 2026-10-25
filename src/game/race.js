@@ -39,7 +39,12 @@ const cstrcat=(d,s)=>{const o=d+cstrlen(d);for(let i=0;;i++){const c=rb(s+i);wb(
 // the initial value is unknown (0 here).
 // dmgBpm2: 9e90's [BP-2], read uninitialised for type-4 damage when DS:1fe2 is not 0..2. APPROX: modelled as
 // the value 9e90 itself last stored there (bounty path); the real word depends on the caller's stack depth.
-export const staleStack={bpm4:0,dmgBpm2:0};
+export const staleStack={bpm4:0,dmgBpm2:0,
+ // ENVIRONMENT INPUT: 9542's uninitialised [BP-4] at entry. In the original this stack slot is last written by
+ // whatever ran at the same depth, including hardware interrupts pushing FLAGS/CS/IP (observed with a DOSBox write
+ // watchpoint on DS:b9b4: the timer ISR is the most frequent writer), so its value depends on interrupt timing.
+ // A replay provides the value captured at the consumption point; otherwise the deterministic carry is used. APPROX.
+ entry9542:null};
 
 // 1000:6dbc playerInput: fire buttons, key commands (ASCII jump table CS:716a, weapon fire table CS:705a),
 // demo auto-fire (tail 71ec), throttle/brake/steering (tail 7216) and the per-frame random number DS:9636.
@@ -879,6 +884,7 @@ export function f1000_9406(e){
 
 // 1000:9542 updateProjectiles: Terminator flight and hits, projectile rel and warnings, AI missile attack.
 export function f1000_9542(){
+ if(staleStack.entry9542)staleStack.bpm4=staleStack.entry9542();
  for(let j=0;j<10;j++){
   const e=j+10,E=2*e,J=2*j;
   if(rb(0x8a54+e)===0)continue;

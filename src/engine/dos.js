@@ -32,12 +32,14 @@ export function arenaBlocks(){return [...blocks()];}
 
 // Files: originals are read-only; writes go to an overlay persisted by the storage provider.
 export class FileSystem{
- constructor(assets,storage){this.assets=assets;this.storage=storage;this.handles=new Map();this.next=5;}
+ constructor(assets,storage){this.assets=assets;this.storage=storage;this.handles=new Map();}
+ // DOS returns the lowest free entry of the 20-entry job file table (0-4 are the standard devices).
+ freeHandle(){for(let h=5;h<20;h++)if(!this.handles.has(h))return h;return -1;}
  // DOS truncates each name part to 8.3 ("ACTIVISIO" opens ACTIVISI, as title.ttm relies on).
  key(name){const b=name.replace(/^.*[\\/:]/,'').toUpperCase(),i=b.indexOf('.');return i<0?b.slice(0,8):b.slice(0,i).slice(0,8)+'.'+b.slice(i+1).slice(0,3);}
  lookup(name){const k=this.key(name);const w=this.storage?.read(k);if(w)return w;return this.assets.get(k)||null;}
  open(name,mode){const k=this.key(name),d=this.lookup(name);if(!d&&!(mode&0x100))return -2;
-  const h=this.next++;this.handles.set(h,{name:k,data:d?d.slice():new Uint8Array(0),pos:0,dirty:!!(mode&0x100),write:!!(mode&3)});if(mode&0x200)this.handles.get(h).data=new Uint8Array(0);return h;}
+  const h=this.freeHandle();if(h<0)return -4;this.handles.set(h,{name:k,data:d?d.slice():new Uint8Array(0),pos:0,dirty:!!(mode&0x100),write:!!(mode&3)});if(mode&0x200)this.handles.get(h).data=new Uint8Array(0);return h;}
  read(h,seg,off,n){const f=this.handles.get(h);if(!f)return -6;const c=Math.max(0,Math.min(n,f.data.length-f.pos));for(let i=0;i<c;i++)fwb(seg,off+i,f.data[f.pos+i]);f.pos+=c;return c;}
  write(h,seg,off,n){const f=this.handles.get(h);if(!f)return -6;if(f.pos+n>f.data.length){const d=new Uint8Array(f.pos+n);d.set(f.data);f.data=d;}for(let i=0;i<n;i++)f.data[f.pos+i]=frb(seg,off+i);f.pos+=n;f.dirty=true;return n;}
  seek(h,pos,whence){const f=this.handles.get(h);if(!f)return -6;const p=whence===0?pos:whence===1?f.pos+pos:f.data.length+pos;if(p<0)return -25;f.pos=p;return p;}

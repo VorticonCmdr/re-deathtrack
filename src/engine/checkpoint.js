@@ -30,6 +30,7 @@ export function raceReplayExclusions(sp){
   {from:DS+0x30d2,to:DS+0x34d6,why:'synth voices, channel table and sysex state (driven by the sequencer tick)'},
   {from:DS+0x35ef,to:DS+0x37c4,why:'sound-effect voices and MIDI parser state (ISR effect tick 334e:0000)'},
   {from:DS+0x3502,to:DS+0x3508,why:'speaker round-robin state'},
+  {from:DS+0x8ea6,to:DS+0x8eae,why:'effect id per sfx voice: the voice chosen by 32e3:043f depends on ISR-maintained voice priorities; read only by the sfx code'},
   {from:DS+0xaaa0,to:DS+sp,why:'stack below SP at the checkpoint (dead data); the stack occupies DS:aaa0-ba40'},
  ];
 }
