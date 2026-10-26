@@ -1,0 +1,12 @@
+export function el(tag,text,parent,attrs={}){const e=document.createElement(tag);if(text!==null)e.textContent=text;Object.assign(e,attrs);parent?.append(e);return e;}
+export function button(text,parent,onclick){return el('button',text,parent,{type:'button',onclick});}
+export function select(label,items,parent,onchange){const wrap=el('label',label+' ',parent),s=el('select',null,wrap);s.setAttribute('aria-label',label);for(const [value,text] of items)el('option',text,s,{value:String(value)});s.onchange=()=>onchange(s.value);return s;}
+export function range(label,min,max,value,parent,oninput){const wrap=el('label',label+' ',parent),input=el('input',null,wrap,{type:'range',min,max,value});input.setAttribute('aria-label',label);input.oninput=()=>oninput(Number(input.value));return input;}
+export function check(label,parent,onchange,checked=false){const wrap=el('label','',parent),input=el('input',null,wrap,{type:'checkbox',checked});wrap.append(' '+label);input.onchange=()=>onchange(input.checked);return input;}
+export function details(label,parent,open=false){const d=el('details',null,parent,{open});el('summary',label,d);return d;}
+export function table(headers,rows,parent){const wrap=el('div',null,parent,{className:'table-wrap'}),t=el('table',null,wrap),head=el('tr',null,el('thead',null,t));for(const h of headers)el('th',h,head);const body=el('tbody',null,t);for(const row of rows){const tr=el('tr',null,body);for(const value of row){const td=el('td',null,tr);if(value instanceof Node)td.append(value);else td.textContent=String(value);}}return t;}
+export function save(data,name){const url=URL.createObjectURL(data instanceof Blob?data:new Blob([data])),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+export const json=(data,name,parent)=>button('Export JSON',parent,()=>save(JSON.stringify(data,null,2),name+'.json'));
+export function png(canvas,name,parent){button('Save PNG',parent,()=>canvas.toBlob(blob=>{if(blob)save(blob,name+'.png');}));}
+export function canvas(parent,width=720,height=440){const c=el('canvas',null,parent,{width,height});c.setAttribute('role','img');return c;}
+export function hex(b){let s='';for(let p=0;p<Math.min(b.length,4096);p+=16){const row=b.slice(p,p+16);s+=p.toString(16).padStart(6,'0')+'  '+[...row].map(v=>v.toString(16).padStart(2,'0')).join(' ').padEnd(47)+'  '+[...row].map(v=>v>=32&&v<127?String.fromCharCode(v):'.').join('')+'\n';}return s+(b.length>4096?'\nPreview limited to 4 KiB. Download for the complete data.':'');}
