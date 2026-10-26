@@ -15,7 +15,7 @@ Game code is not changed to select devices. The environment answers on the ports
 
 | Option | URL / API | Effect |
 | --- | --- | --- |
-| sound `speaker` (default) | `?sound=speaker` | MPU and OPL absent: reads FFh |
+| sound `speaker` (engine default; browser default is `mt32`) | `?sound=speaker` | MPU and OPL absent: reads FFh |
 | sound `adlib` | `?sound=adlib` | OPL2 present at 388h/389h (timers follow virtual time), MPU absent |
 | sound `mt32` | `?sound=mt32` | MPU-401 present at 330h/331h, IRQ 2; bytes go to a MIDI sink (Web MIDI output). OPL absent so only the MT-32 can be chosen. |
 | video `ega` (default) | | `INT 10h AH=12h BL=10h` answers EGA |

@@ -30,7 +30,7 @@ async function folderAssets(files){const m=new Map();for(const f of files)if(!f.
 // vNow: virtual time corresponding to the wall clock. The game never runs ahead of it, so work charged by the
 // cost model (src/game/pacing.js) takes real time, as on the original machine.
 let gen=null,last=0,halted=false,vNow=0;
-const audio=createAudio(),midi=createMidi(t=>{notice=t;status.textContent=t;});let notice='';
+const audio=createAudio(),midi=createMidi(t=>{notice=t;status.textContent=t;},new URLSearchParams(location.search).get('synth')==='builtin');let notice='';
 // Browsers start audio only after a user gesture.
 for(const ev of ['keydown','mousedown'])addEventListener(ev,()=>{if(hw.sound==='mt32')midi.start();audio.start().catch(e=>console.warn('Audio unavailable',e));},{once:false,passive:true});
 const pixels=new Uint8Array(320*200);
@@ -74,7 +74,7 @@ function start(assets){
   // ?video=cga: CGA-only machine (no EGA BIOS) and the game's own argument GC forces adapter 1
   if(params.get('video')==='cga'){cgaHw.noEga=true;if(!args.some(a=>a.toUpperCase()==='GC'))args.push('GC');}
   createMachine({assets,storage:browserStorage(),strict,args});
-  const sound=params.get('sound')||'speaker';
+  const sound=params.get('sound')||'mt32';
   gen=startGame({sound});
   status.textContent=strict?'':'Best-effort mode: unsupported paths are reported, not fatal.';
   if(sound==='mt32')status.textContent='MT-32 selected: click the page to connect a MIDI output.';

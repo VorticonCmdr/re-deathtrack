@@ -7,7 +7,7 @@ Updated 2026-10-25.
 - `DTRACK.EXE`, SHA-256 `5b23cafb…ff2928`: Deathtrack 1.0 (1989) PC, with the one-byte copy-protection patch. Asset set: `src/data/manifest.json` (92 files).
 - Display: EGA mode 0Dh (default, the adapter DOSBox detects), or CGA with `?video=cga` (argument `GC`: the game sets BIOS mode 6, 640x200 two colours, dithered; the driver programs mode 4 first).
 - Sound: PC-speaker path by default (music and effects), rendered in the browser by an AudioWorklet from time-stamped PIT/port 61h changes. The browser test asserts non-silent output. Audio fidelity (speaker response) is APPROX and has not been compared with hardware or DOSBox output.
-- Optional music hardware: `?sound=adlib` (OPL2 register stream rendered by `src/engine/opl2.js`, an independent APPROX synth; effects stay on the speaker) and `?sound=mt32` (MPU-401 UART, MIDI bytes sent to a Web MIDI output; the port has no MT-32 synth, ROMs or fallback).
+- Browser default sound is `mt32` (built-in synth fallback); `?sound=speaker` selects the PC speaker. Optional music hardware: `?sound=adlib` (OPL2 register stream rendered by `src/engine/opl2.js`, an independent APPROX synth; effects stay on the speaker) and `?sound=mt32` (MPU-401 UART, MIDI bytes sent to a Web MIDI output; the port has no MT-32 synth, ROMs or fallback).
 - Input: keyboard and mouse. Joystick is reported absent.
 
 ## Working playable route (browser, verified by `npm run verify:browser`)
@@ -60,7 +60,7 @@ Demo mode (`?args=demo`) autoplays the shop screens and a full race, then return
 - **CGA:** the title, menus and races are verified only as far as the captures above (race loop, sky, ground, driver init). The other driver slots (sprites, glyphs, lines, dissolve) are translated and checked against the original instructions by `tests/x86mini.mjs`, but not against DOSBox. Colour handling of mode 4 and the work-cost of B800 accesses (`work.vram` per byte) are APPROX; the menu timing on CGA is not calibrated.
 - **Boot time:** with the MPU and OPL absent the port spends about 0.16 s of APPROX virtual time in the absent-device probes (docs/re/environment.md); the DOSBox references never ran that path.
 - **AdLib:** synthesis is approximate (not bit-exact, no comparison with an OPL reference); the OPL port-access cost (2.4 µs) is fitted to one DOSBox count.
-- **MT-32:** needs a connected MIDI output (real MT-32 or Munt) and a browser with Web MIDI permission; nothing is audible otherwise. Byte times are not compared.
+- **MT-32:** best with a connected MIDI output (real MT-32 or Munt) and Web MIDI permission. Without one (or with `?synth=builtin`) `src/web/midi-worklet.js` plays the same MIDI stream on a small built-in synth: APPROX, program numbers pick a rough instrument family, MT-32 SysEx timbres are ignored, so it does not sound like an MT-32. Byte times are not compared.
 - No production deployment has been configured.
 
 ## Next milestone

@@ -15,7 +15,7 @@ npm run dev        # open the printed URL; viewer.html is the asset inspector
 
 - **Controls:** mouse for menus. In a race: Up/Down to accelerate and brake, Left/Right to steer, Space to fire, number keys for weapons, Esc for the in-race menu, P to pause.
 - **Demo mode:** `?args=demo`.
-- **Hardware options:** `?video=cga` (CGA, 640x200 two-colour), `?sound=adlib` (OPL2 music), `?sound=mt32` (MIDI to a Web MIDI output you connect). The default is EGA with the PC speaker.
+- **Hardware options:** `?video=cga` (CGA, 640x200 two-colour), `?sound=adlib` (OPL2 music), `?sound=mt32` (MIDI to a Web MIDI output if connected, else a built-in approximate synth), `?sound=speaker` (PC speaker only). The browser default is EGA with `mt32` sound; `?synth=builtin` forces the built-in synth.
 - **Best-effort mode:** `?mode=demo` reports unsupported paths instead of stopping.
 - **Production:** `npm run build` writes `dist/` without any game files. Visitors select their own game folder, and nothing is uploaded.
 

@@ -16,7 +16,7 @@ try{
  const page=await browser.newPage();await page.setViewport({width:1100,height:900});
  page.on('console',m=>{if(m.type()==='error')fail(`console error: ${m.text()}`);});
  page.on('pageerror',e=>fail(`page error: ${e.message}`));
- await page.goto(url+(process.env.ACCEPT_QUERY||''));
+ await page.goto(url+(process.env.ACCEPT_QUERY||'')+((process.env.ACCEPT_QUERY||'').includes('sound=')?'':(process.env.ACCEPT_QUERY?'&':'?')+'sound=speaker'));
  const pages=[];const tracer=setInterval(async()=>{try{const p=await page.evaluate('window.__deathtrack&&window.__deathtrack.rw(0x9018)');if(p!==pages.at(-1))pages.push(p);}catch{}},50);
  const g=(expr)=>page.evaluate(expr);
  const mem=o=>g(`window.__deathtrack.rw(${o})`);
