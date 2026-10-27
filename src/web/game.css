@@ -8,3 +8,5 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.4 system-ui,sans-
 label{border:1px solid var(--accent);color:var(--accent);padding:8px 14px;cursor:pointer}
 .hidden{display:none}
 input[type=file]{display:none}
+
+.remaster-link{color:#d9f477;font-size:12px;text-decoration:none}.remaster-link:hover{text-decoration:underline}

@@ -1,0 +1,501 @@
+{
+  "scope": "48 fixed-step approach probes; 1.8m body envelope and nominal chase camera. Not headroom proof for arbitrary jumps/collisions.",
+  "reports": [
+    {
+      "city": "nyc",
+      "originalUpperSampleHeight": 0.546,
+      "newUpperSampleHeight": 7.037,
+      "indicesAndXYUnchanged": true,
+      "runs": [
+        {
+          "route": "lower",
+          "speedKmh": 36,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.011,
+          "minimumBodyClearance": 4.82,
+          "minimumChaseCameraClearance": 2.12
+        },
+        {
+          "route": "lower",
+          "speedKmh": 36,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.011,
+          "minimumBodyClearance": 4.88,
+          "minimumChaseCameraClearance": 2.18
+        },
+        {
+          "route": "lower",
+          "speedKmh": 36,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.011,
+          "minimumBodyClearance": 4.98,
+          "minimumChaseCameraClearance": 2.28
+        },
+        {
+          "route": "lower",
+          "speedKmh": 90,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.026,
+          "minimumBodyClearance": 4.82,
+          "minimumChaseCameraClearance": 2.12
+        },
+        {
+          "route": "lower",
+          "speedKmh": 90,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.026,
+          "minimumBodyClearance": 4.87,
+          "minimumChaseCameraClearance": 2.17
+        },
+        {
+          "route": "lower",
+          "speedKmh": 90,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.026,
+          "minimumBodyClearance": 4.98,
+          "minimumChaseCameraClearance": 2.28
+        },
+        {
+          "route": "lower",
+          "speedKmh": 144,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.053,
+          "minimumBodyClearance": 4.82,
+          "minimumChaseCameraClearance": 2.12
+        },
+        {
+          "route": "lower",
+          "speedKmh": 144,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.054,
+          "minimumBodyClearance": 4.87,
+          "minimumChaseCameraClearance": 2.17
+        },
+        {
+          "route": "lower",
+          "speedKmh": 144,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.052,
+          "minimumBodyClearance": 4.98,
+          "minimumChaseCameraClearance": 2.28
+        },
+        {
+          "route": "lower",
+          "speedKmh": 216,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.055,
+          "minimumBodyClearance": 4.82,
+          "minimumChaseCameraClearance": 2.12
+        },
+        {
+          "route": "lower",
+          "speedKmh": 216,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.055,
+          "minimumBodyClearance": 4.88,
+          "minimumChaseCameraClearance": 2.17
+        },
+        {
+          "route": "lower",
+          "speedKmh": 216,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.054,
+          "minimumBodyClearance": 4.99,
+          "minimumChaseCameraClearance": 2.28
+        },
+        {
+          "route": "upper",
+          "speedKmh": 36,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.036,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 36,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.025,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 36,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.048,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 90,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.063,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 90,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.063,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 90,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.07,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 144,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.086,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 144,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.087,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 144,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.081,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 216,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.075,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 216,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.058,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 216,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.08,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        }
+      ]
+    },
+    {
+      "city": "boston",
+      "originalUpperSampleHeight": 1.947,
+      "newUpperSampleHeight": 7.528,
+      "indicesAndXYUnchanged": true,
+      "runs": [
+        {
+          "route": "lower",
+          "speedKmh": 36,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0,
+          "minimumBodyClearance": 5.32,
+          "minimumChaseCameraClearance": 2.62
+        },
+        {
+          "route": "lower",
+          "speedKmh": 36,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0,
+          "minimumBodyClearance": 5.35,
+          "minimumChaseCameraClearance": 2.65
+        },
+        {
+          "route": "lower",
+          "speedKmh": 36,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0,
+          "minimumBodyClearance": 5.34,
+          "minimumChaseCameraClearance": 2.64
+        },
+        {
+          "route": "lower",
+          "speedKmh": 90,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0,
+          "minimumBodyClearance": 5.32,
+          "minimumChaseCameraClearance": 2.62
+        },
+        {
+          "route": "lower",
+          "speedKmh": 90,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0,
+          "minimumBodyClearance": 5.35,
+          "minimumChaseCameraClearance": 2.65
+        },
+        {
+          "route": "lower",
+          "speedKmh": 90,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0,
+          "minimumBodyClearance": 5.34,
+          "minimumChaseCameraClearance": 2.64
+        },
+        {
+          "route": "lower",
+          "speedKmh": 144,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0,
+          "minimumBodyClearance": 5.32,
+          "minimumChaseCameraClearance": 2.62
+        },
+        {
+          "route": "lower",
+          "speedKmh": 144,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0,
+          "minimumBodyClearance": 5.35,
+          "minimumChaseCameraClearance": 2.65
+        },
+        {
+          "route": "lower",
+          "speedKmh": 144,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0,
+          "minimumBodyClearance": 5.34,
+          "minimumChaseCameraClearance": 2.64
+        },
+        {
+          "route": "lower",
+          "speedKmh": 216,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0,
+          "minimumBodyClearance": 5.32,
+          "minimumChaseCameraClearance": 2.62
+        },
+        {
+          "route": "lower",
+          "speedKmh": 216,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0,
+          "minimumBodyClearance": 5.35,
+          "minimumChaseCameraClearance": 2.65
+        },
+        {
+          "route": "lower",
+          "speedKmh": 216,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0,
+          "minimumBodyClearance": 5.34,
+          "minimumChaseCameraClearance": 2.64
+        },
+        {
+          "route": "upper",
+          "speedKmh": 36,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.038,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 36,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.026,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 36,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.026,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 90,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.065,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 90,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.065,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 90,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.065,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 144,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.099,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 144,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.099,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 144,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.099,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 216,
+          "lane": -4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.129,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 216,
+          "lane": 0,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.129,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        },
+        {
+          "route": "upper",
+          "speedKmh": 216,
+          "lane": 4,
+          "passed": true,
+          "wrongBranch": false,
+          "maxVerticalStep": 0.129,
+          "minimumBodyClearance": null,
+          "minimumChaseCameraClearance": null
+        }
+      ]
+    }
+  ]
+}

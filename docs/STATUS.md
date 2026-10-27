@@ -2,6 +2,14 @@
 
 Updated 2026-10-25.
 
+## Modern championship
+
+`remaster.html` supports all ten original circuits, a ten-car field with original named rivals/models, a saved season calendar and standings, original place prizes, contracts, repairs and live pits. Guns, lasers, particle beams, Terminator rockets and homing missiles are selectable. Ordnance includes original prices/capacities, upgrades, pit rearming, target locks, incoming warnings, braking evasion and interception. A championship win carries equipment and cash into a harder season; a loss ends the season. Any city can be selected in separate practice. The game uses continuous 60 Hz arcade handling and Babylon rendering. All weapon families and the first ten-city landmark pass are implemented; exact rival behavior, human championship balance and release validation remain open. Seattle now has worn asphalt, overcast lighting and improved shadows, with textured race cars and pooled smoke/explosions shared across the remaster. Persistent weather and time-of-day presets add a procedural sky, cloud drift, rain, wet asphalt and fog across remaster circuits. Automatic weather now holds conditions for 60 seconds and blends over 20 seconds; manual changes blend over eight seconds. Street-lamp arms and lenses now face the road. An independent six-minute automatic day/night cycle fades headlights and nearby street spotlights on at dusk, with fewer local lights on Balanced. Filtered local-light shadows now let cars and road/overpass structures block headlights and street lights. High uses up to six 512px maps, Balanced four 256px maps; inactive lights stop refreshing. Focused New York/Boston comparisons confirmed crossing occlusion. Rain now stops on road/roof surfaces and creates pooled ripples. Effects volume controls sheltered rain ambience and delayed thunder accompanying occasional cloud lightning; reduced motion suppresses flashes. Short local rain/combat stress samples held 60 fps on High and Balanced with the mirror enabled; a 20-minute local ten-city rain/night rendering soak and post-fix Balanced regression are complete. Balanced lamp handoffs now stay within four shadows. Full-race AI/physics checks are complete across all ten circuits: 90 independent fixed-step scenarios (6.13 simulated hours), all 50 three-lap practice finishes and all 280 pit services, with no stalls or invalid states detected. Career scenarios ended in seven finishes and 33 wrecks; human championship survival/economy balance remains open. Live pit transactions exposed and verified a fix for a $1 floating-point repair overcharge. Representative-hardware, multi-hour and human championship checks remain pending. See [full-race results](remaster-full-race-checks.md). See [performance measurements](remaster-weather-performance.md). See [remaster scope and controls](remaster.md).
+
+## Track editor
+
+`editor.html` provides Circuit Lab: road/elevation editing, scenery placement, linked profile, lap marker preview, undo/redo, local drafts, project import/export and binary TRK export. All ten original tracks round-trip byte-identically. The preview is schematic, not a game simulation; custom track drivability requires playtesting. See [the editor guide](track-editor.md).
+
 ## Supported build
 
 - `DTRACK.EXE`, SHA-256 `5b23cafb…ff2928`: Deathtrack 1.0 (1989) PC, with the one-byte copy-protection patch. Asset set: `src/data/manifest.json` (92 files).
@@ -49,6 +57,12 @@ Demo mode (`?args=demo`) autoplays the shop screens and a full race, then return
 
 - **CGA display (one observation, not a committed test):** a paused DOSBox mode-6 screen (B800 RAM read through the API, frame from `/video/frame`) and `cgaFrame()` rendered from that RAM agree on all 128,000 pixels (9,013 lit). Mode 4 colours were not compared.
 
+## Asset inspector
+
+`viewer.html` now exposes the established resource formats: 179 image frames, 3 fonts, 3 EGA palettes, 10 skyline panoramas (60 strips), 10 road layouts/elevation profiles, 136 models (1,195 groups / 3,525 faces), 11 speaker effects, MIDI timelines, 88 title-script commands and 10 high-score records. Track object links open the referenced `shape.tbl` model. Effects reuse the translated `334e` interpreter and offer WAV export at each device's effect-tick rate.
+
+`npm run audit:assets` validates these layouts against the local files, including all effect programs at three rates and track-to-model references. Inspector 3D rendering is orthographic/painter-order visualization, not the game renderer; MIDI audition remains simple synthesis. CGA palette data and save files retain raw inspection. Detailed coverage and limitations: [asset formats](asset-formats.md).
+
 ## Known limitations
 
 - Speaker audio is approximate (inaudible rates above 15 kHz are silenced, one-pole low-pass).
@@ -69,3 +83,49 @@ Demo mode (`?args=demo`) autoplays the shop screens and a full race, then return
 2. A capture with type-5 entities, to exercise the stale-slot input path.
 3. A save/load round trip in the browser.
 4. Segment captures for `34b0` (results), the shop purchases and `2230` (quiz), using `scripts/dosbox/capture-segment.mjs`.
+
+- Modern practice/championship garage: three original car models/start setups, all six three-tier parts, runtime original prices, finite gun ammo, practice budget controls and versioned local persistence. Paid repairs, live Seattle pits and a separate saved championship economy with original place prizes and optional contracts are now available. The full ten-city calendar and original named roster are now available. See `docs/remaster.md`.
+
+### Remaster: rear hazards and contact weapons
+
+Mines, caltrops, ram spikes and wheel spikes are playable with original price/capacity tables, garage upgrades, finite rear stock, live pit reloads, rival use and persistent tyre wear. Save v6 migrates prior championship and equipment. See `docs/remaster.md` for modern tuning, validation and remaining limitations.
+
+### Remaster: gun upgrades and measured combat tuning
+
+All three gun models are purchasable with original pack trade-in, 100-round replacement stock, model capacities and 3/7/11 damage. Rival profiles, passing decisions, aim reaction, rear hazard cadence and contact damage were tuned against one- and three-lap simulations on all ten circuits at the easiest/hardest settings. See `docs/remaster.md` for before/after numbers and the reproducible balance probe. Los Angeles attrition and human difficulty remain review targets.
+
+### Remaster: Los Angeles and defensive AI tuning
+
+Measured long-straight weapon exposure, added committed passing lanes, reactions to fire from behind and local hazard avoidance/braking. Fixed ordinary collision cooldown isolation between pairs. Forty three-lap runs (ten cities, four difficulties) completed without unresolved rivals; Los Angeles now retains 8/7/5/6 finishers. Full results in `docs/remaster-balance.json`; methodology and remaining human balance work in `docs/remaster.md`.
+
+### Remaster: airborne driving and rear-view awareness
+
+Added crest takeoff, gravity, landing feedback/consequences and airborne control restrictions for player/rivals. Added a bounded live rear-view render, pursuer labels and road-hazard warnings. Weapon HUD now sits on the right between time and speed. Mirror can be disabled and uses a lighter Balanced pass. See `docs/remaster.md` for rules and verification.
+
+Remaster autopilot and display controls: J delegates steering/speed while leaving weapons manual; driving input takes over immediately. H cycles Full/Minimal/Hidden, with individual visibility preferences in Settings persisted separately from career saves. Autopilot completed shielded steering diagnostics on all ten circuits; browser controls and the existing 166 checks verified. See docs/remaster.md for limitations and intentional differences from the original.
+
+Remaster driver/save milestone: named drivers, Continue Career entry, v7 migration, portable JSON export/import with validation and replacement preview, recovery copies, and retirement confirmations. Original assets remain local and excluded from saves. One active profile per practice/career mode; additional careers can be exported. The local full-remaster roadmap now reflects delivered gameplay/control/save milestones and puts the original supporting archive next.
+
+Remaster archive: nine original rival biographies/portraits, ten original track dossiers with route/pit maps and city art, and a rotatable three-car showroom with factory equipment and labeled modern performance. Assets decode locally; optional missing illustrations have fallback messages. Statistics and money-winner records remain next.
+
+Remaster archive completion: Driver statistics shows retained career totals and current-season history, while Top money winners separates read-only original HI_SCORE records from a browser-local top-ten career-earnings board. Stable driver identities prevent duplicate imported/repeated records; practice is excluded. Next roadmap milestone: main menu/title/credits, attract mode and audio controls.
+
+Remaster presentation milestone: title/credits using original runtime text/art, an explicit isolated Watch demo race, and separate remembered music/effects volume controls with opt-in master audio. Original menu/race music plays through a bounded synthesized MIDI scheduler. Roadmap now moves to presentation/accessibility polish, human balance and final parity/release validation.
+
+Remaster accessibility controls: configurable primary keyboard bindings with fixed Arrow/Escape fallbacks, reduced camera shake/speed zoom, standard gamepad race controls with deadzone/controller selection, edge-triggered actions and neutral-to-arm/disconnect safeguards. No physical gamepad was available for hardware validation. Remaining: spatial audio/city polish, full human balance and final parity/release audit.
+
+- Remaster spatial combat audio and damage feedback implemented: positional player/rival weapons, impacts/explosions, nearby motors and homing-missile approach tone; successful live pit completion cue; directional hit text, critical-condition warnings, armor wear and pooled damage smoke. Respects effects volume, pause/mute and reduced motion. Build and 166 checks pass; headphone mix and full live-pit/performance validation remain pending. Next: city/car polish and full-career balance/parity verification.
+
+- City/car art pass delivered across all ten cities: distinct sky/light/facade palettes, vegetation and landmark silhouettes; alloy rims, exhausts/diffusers and deceleration lights. Fixed pit-board clearance, a Bay Area duplicate-sample height sliver and washed-out sky/facade emission. Ten opening/demo scenes inspected in browser without errors; geometry/decorative footprint/pit-entry report: `docs/remaster-circuit-inspection.json`. New York and Boston crossing checks, full human laps and performance/balance remain open.
+
+- Focused New York/Boston crossing blockers resolved: remaster upper roads now have 7.06/7.53 m separation with smooth approaches and visible undersides/supports. Original layout indices and faithful port preserved. All 48 speed/lane/route probes passed; both camera views and four browser traversals checked without errors. Build and 166 checks pass. Reports: `docs/remaster-crossing-inspection.json`, refreshed `docs/remaster-circuit-inspection.json`. Next: full championship balance and performance validation.
+
+## Championship balance pass (26 October 2026)
+
+The first persistent championship balance pass is delivered: all three cars completed ten-event Punk seasons with paid upgrades/repairs and conditional pits. Focused armor/tyre pit repairs and engine-aware autopilot are implemented. Matched no-pit controls left Hellcat and Crusher unable to afford repairs; Pitbull completed without stops. All planned runs lost the title, so human wins, harder difficulties, contracts and second-season sustainability remain open. See [season strategy, cash ledgers and validation](remaster-season-balance.md).
+
+## Vehicle Foundry (26 October 2026)
+
+Local Node-backed vehicle authoring and shared stdio MCP delivered: editable primitives/custom indexed meshes, orthographic component/vertex manipulation, numeric transforms, mirror copies, panel colors, visibility, persisted undo/redo and JSON/OBJ export. Real MCP client checks and bidirectional UI synchronization verified. [Setup, formats and scope](vehicle-editor.md). Remaster custom-model loading remains a separate integration step.
+
+Vehicle Foundry now opens all original vehicle TBL files and individual SHAPE.TBL models, edits existing geometry/colors, and downloads original-format copies. No-op exports preserve every byte; topology is fixed in original mode. Original import/inspection/export is also available through the Node MCP. See [original editing scope](vehicle-editor.md#original-vehicle-editing).

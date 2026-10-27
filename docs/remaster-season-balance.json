@@ -1,0 +1,6637 @@
+{
+  "date": "2026-10-26",
+  "method": "Six deterministic accelerated Punk seasons at 60 Hz and three laps, production race/progression/economy with isolated in-memory localStorage; no cash injections or resource resets beyond normal event entry.",
+  "limitations": [
+    "Autopilot plus scripted combat/pit decisions; not human balance acceptance.",
+    "No contracts or ordnance/weapon upgrade strategies; higher difficulties and championship wins remain open.",
+    "Two no-pit control runs terminate at unaffordable essential repairs, rather than inventing income.",
+    "Not a browser FPS or real-time endurance measurement."
+  ],
+  "runs": [
+    {
+      "carIndex": 0,
+      "strategy": "planned",
+      "rows": [
+        {
+          "round": 1,
+          "city": "phoenix",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 331.700000000027,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 4,
+            "mine": 40,
+            "collision": 0.7013763407579728,
+            "gun": 24
+          },
+          "cashBefore": 10000,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "upgrade:5",
+              "cost": 5000
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 6000,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 300,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 0,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.8282465591481051,
+              0.9395665477482844,
+              0.9850306995701996,
+              0.6100000000000002,
+              0.988,
+              0.6564931182962102
+            ],
+            "fuel": 27.650358363609755
+          },
+          "points": 400
+        },
+        {
+          "round": 2,
+          "city": "st_louis",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 281.9333333334056,
+          "pits": 1,
+          "services": [
+            {
+              "kind": "repair:5",
+              "ok": true,
+              "time": 72.98333333333048,
+              "message": "Repairs complete \u00b7 $2,125"
+            },
+            {
+              "kind": "repair:3",
+              "ok": true,
+              "time": 77.99999999999686,
+              "message": "Repairs complete \u00b7 $208"
+            }
+          ],
+          "damage": {
+            "wheel": 4,
+            "mine": 80,
+            "gun": 12
+          },
+          "cashBefore": 6000,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1718
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 195
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 300
+            },
+            {
+              "where": "pit",
+              "kind": "repair:5",
+              "cost": 2125
+            },
+            {
+              "where": "pit",
+              "kind": "repair:3",
+              "cost": 208
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 3454,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 100,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.8282465591481051,
+              0.9395665477482844,
+              0.9850306995701996,
+              1,
+              0.988,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.7795,
+              0.9335665477482844,
+              0.9770306995701996,
+              0.9790000000000001,
+              0.8639999999999999,
+              0.945
+            ],
+            "fuel": 35.33465063428246
+          },
+          "points": 900
+        },
+        {
+          "round": 3,
+          "city": "seattle",
+          "outcome": "finished",
+          "position": 4,
+          "elapsed": 400.44999999996446,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 6,
+            "mine": 40,
+            "beam": 20
+          },
+          "cashBefore": 3454,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 300
+            }
+          ],
+          "prize": 4500,
+          "cashAfter": 7654,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 100,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.7795,
+              0.9335665477482844,
+              0.9770306995701996,
+              0.9790000000000001,
+              0.8639999999999999,
+              0.945
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.7775,
+              0.8515665477482843,
+              0.9330306995701996,
+              0.8120000000000004,
+              0.8619999999999999,
+              0.615
+            ],
+            "fuel": 20.973512320321074
+          },
+          "points": 1600
+        },
+        {
+          "round": 4,
+          "city": "chicago",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 320.5333333333705,
+          "pits": 1,
+          "services": [
+            {
+              "kind": "repair:5",
+              "ok": true,
+              "time": 145.48333333334125,
+              "message": "Repairs complete \u00b7 $2,150"
+            },
+            {
+              "kind": "repair:3",
+              "ok": true,
+              "time": 150.5000000000119,
+              "message": "Repairs complete \u00b7 $221"
+            },
+            {
+              "kind": "ammo",
+              "ok": true,
+              "time": 152.51666666668018,
+              "message": "Ammunition loaded \u00b7 $300"
+            }
+          ],
+          "damage": {
+            "wheel": 1,
+            "gun": 45,
+            "mine": 40
+          },
+          "cashBefore": 7654,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1925
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 300
+            },
+            {
+              "where": "pit",
+              "kind": "repair:5",
+              "cost": 2150
+            },
+            {
+              "where": "pit",
+              "kind": "repair:3",
+              "cost": 221
+            },
+            {
+              "where": "pit",
+              "kind": "ammo",
+              "cost": 300
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 3758,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 100,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.7775,
+              0.8515665477482843,
+              0.9330306995701996,
+              0.8120000000000004,
+              0.8619999999999999,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.7254999999999999,
+              0.8215665477482843,
+              0.8730306995701995,
+              1,
+              0.8379999999999999,
+              1
+            ],
+            "fuel": 29.030809785716887
+          },
+          "points": 2000
+        },
+        {
+          "round": 5,
+          "city": "orlando",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 432.6166666666019,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 40
+          },
+          "cashBefore": 3758,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 300
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 5458,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 100,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.7254999999999999,
+              0.8215665477482843,
+              0.8730306995701995,
+              1,
+              0.8379999999999999,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.7254999999999999,
+              0.8215665477482843,
+              0.7910306995701994,
+              0.5125000000000001,
+              0.8379999999999999,
+              0.795
+            ],
+            "fuel": 17.71505604682699
+          },
+          "points": 2500
+        },
+        {
+          "round": 6,
+          "city": "bay_area",
+          "outcome": "finished",
+          "position": 5,
+          "elapsed": 404.26666666662766,
+          "pits": 1,
+          "services": [
+            {
+              "kind": "repair:5",
+              "ok": true,
+              "time": 82.0166666666633,
+              "message": "Repairs complete \u00b7 $2,575"
+            }
+          ],
+          "damage": {
+            "wheel": 2,
+            "mine": 80,
+            "gun": 21
+          },
+          "cashBefore": 5458,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1025
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 244
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 300
+            },
+            {
+              "where": "pit",
+              "kind": "repair:5",
+              "cost": 2575
+            }
+          ],
+          "prize": 3000,
+          "cashAfter": 4314,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 100,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.7254999999999999,
+              0.8215665477482843,
+              0.7910306995701994,
+              1,
+              0.8379999999999999,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.6734999999999999,
+              0.7735665477482843,
+              0.7830306995701994,
+              0.653,
+              0.8319999999999999,
+              1
+            ],
+            "fuel": 21.668379996368355
+          },
+          "points": 3100
+        },
+        {
+          "round": 7,
+          "city": "nyc",
+          "outcome": "finished",
+          "position": 5,
+          "elapsed": 329.13333333336266,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 6,
+            "ram": 6.14870127978155,
+            "mine": 80,
+            "gun": 42
+          },
+          "cashBefore": 4314,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 174
+            },
+            {
+              "where": "garage",
+              "kind": "repair:0",
+              "cost": 2612
+            }
+          ],
+          "prize": 3000,
+          "cashAfter": 4528,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              1,
+              0.7735665477482843,
+              0.7830306995701994,
+              1,
+              0.8319999999999999,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.6646282468005462,
+              0.6973236842696733,
+              0.7210306995701994,
+              0.5400780347163332,
+              0.7619999999999998,
+              0.3292564936010923
+            ],
+            "fuel": 29.081389379328215
+          },
+          "points": 3700
+        },
+        {
+          "round": 8,
+          "city": "la",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 374.0333333333218,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 40,
+            "collision": 3.635568178846066,
+            "gun": 42
+          },
+          "cashBefore": 4528,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 3354
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 230
+            },
+            {
+              "where": "garage",
+              "kind": "repair:1",
+              "cost": 152
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 2792,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.6646282468005462,
+              1,
+              0.7210306995701994,
+              1,
+              0.7619999999999998,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.6466282468005462,
+              0.942,
+              0.7030306995701994,
+              0.6812288636423078,
+              0.7539999999999998,
+              0.5668221591057697
+            ],
+            "fuel": 21.44328241609418
+          },
+          "points": 4200
+        },
+        {
+          "round": 9,
+          "city": "houston",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 260.01666666675885,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 60
+          },
+          "cashBefore": 2792,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 2166
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 160
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 2466,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.6466282468005462,
+              0.942,
+              0.7030306995701994,
+              1,
+              0.7539999999999998,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.6466282468005462,
+              0.942,
+              0.6630306995701993,
+              0.5525,
+              0.7519999999999998,
+              0.695
+            ],
+            "fuel": 40.10379717315115
+          },
+          "points": 4700
+        },
+        {
+          "round": 10,
+          "city": "boston",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 275.1833333334117,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 3,
+            "mine": 60,
+            "laser": 105
+          },
+          "cashBefore": 2466,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1525
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 224
+            },
+            {
+              "where": "garage",
+              "kind": "repair:2",
+              "cost": 708
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 1009,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.6466282468005462,
+              0.942,
+              1,
+              1,
+              0.7519999999999998,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.5606282468005461,
+              0.8879999999999999,
+              0.972,
+              0.5475000000000001,
+              0.6539999999999997,
+              0.16
+            ],
+            "fuel": 31.074274981108122
+          },
+          "points": 5100
+        }
+      ],
+      "issues": [],
+      "season": {
+        "number": 1,
+        "round": 10,
+        "state": "lost",
+        "points": [
+          5100,
+          3500,
+          3400,
+          2000,
+          4600,
+          5500,
+          5300,
+          7400,
+          9300,
+          8900
+        ],
+        "wins": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          4,
+          5
+        ],
+        "history": [
+          {
+            "city": 2,
+            "position": 7,
+            "order": [
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              0,
+              1,
+              2,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          },
+          {
+            "city": 4,
+            "position": 6,
+            "order": [
+              8,
+              9,
+              6,
+              7,
+              4,
+              0,
+              1,
+              5,
+              2,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 6,
+            "position": 4,
+            "order": [
+              8,
+              7,
+              6,
+              0,
+              2,
+              4,
+              9,
+              5,
+              3,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 4500,
+            "bounty": 0
+          },
+          {
+            "city": 9,
+            "position": 7,
+            "order": [
+              8,
+              9,
+              7,
+              5,
+              4,
+              1,
+              0,
+              6,
+              2,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          },
+          {
+            "city": 0,
+            "position": 6,
+            "order": [
+              9,
+              7,
+              8,
+              4,
+              5,
+              0,
+              2,
+              3,
+              6,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 1,
+            "position": 5,
+            "order": [
+              8,
+              9,
+              6,
+              5,
+              0,
+              1,
+              2,
+              7,
+              3,
+              4
+            ],
+            "outcome": "finished",
+            "prize": 3000,
+            "bounty": 0
+          },
+          {
+            "city": 3,
+            "position": 5,
+            "order": [
+              9,
+              8,
+              6,
+              5,
+              0,
+              1,
+              7,
+              2,
+              3,
+              4
+            ],
+            "outcome": "finished",
+            "prize": 3000,
+            "bounty": 0
+          },
+          {
+            "city": 5,
+            "position": 6,
+            "order": [
+              7,
+              8,
+              9,
+              6,
+              4,
+              0,
+              1,
+              5,
+              2,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 7,
+            "position": 6,
+            "order": [
+              9,
+              8,
+              7,
+              4,
+              5,
+              0,
+              3,
+              2,
+              1,
+              6
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 8,
+            "position": 7,
+            "order": [
+              9,
+              8,
+              7,
+              5,
+              2,
+              1,
+              0,
+              3,
+              4,
+              6
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          }
+        ]
+      },
+      "cash": 1009,
+      "rank": 6
+    },
+    {
+      "carIndex": 1,
+      "strategy": "planned",
+      "rows": [
+        {
+          "round": 1,
+          "city": "phoenix",
+          "outcome": "finished",
+          "position": 8,
+          "elapsed": 347.9833333333455,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 2,
+            "mine": 40
+          },
+          "cashBefore": 10000,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "upgrade:3",
+              "cost": 1300
+            },
+            {
+              "where": "garage",
+              "kind": "upgrade:1",
+              "cost": 1500
+            }
+          ],
+          "prize": 500,
+          "cashAfter": 7700,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 100,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 0,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.895,
+              0.998,
+              0.998,
+              0.545,
+              1,
+              0.79
+            ],
+            "fuel": 27.263296061246386
+          },
+          "points": 300
+        },
+        {
+          "round": 2,
+          "city": "st_louis",
+          "outcome": "finished",
+          "position": 9,
+          "elapsed": 307.68333333338217,
+          "pits": 1,
+          "services": [
+            {
+              "kind": "repair:5",
+              "ok": true,
+              "time": 73.71666666666377,
+              "message": "Repairs complete \u00b7 $2,525"
+            },
+            {
+              "kind": "ammo",
+              "ok": true,
+              "time": 75.73333333333032,
+              "message": "Ammunition loaded \u00b7 $300"
+            }
+          ],
+          "damage": {
+            "wheel": 1,
+            "mine": 100
+          },
+          "cashBefore": 7700,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1050
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 592
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 300
+            },
+            {
+              "where": "pit",
+              "kind": "repair:5",
+              "cost": 2525
+            },
+            {
+              "where": "pit",
+              "kind": "ammo",
+              "cost": 300
+            }
+          ],
+          "prize": 250,
+          "cashAfter": 3183,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 100,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.895,
+              0.998,
+              0.998,
+              1,
+              1,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7475,
+              0.9179999999999999,
+              0.996,
+              0.5925,
+              1,
+              1
+            ],
+            "fuel": 34.62811006876608
+          },
+          "points": 500
+        },
+        {
+          "round": 3,
+          "city": "seattle",
+          "outcome": "finished",
+          "position": 4,
+          "elapsed": 414.13333333328535,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 120
+          },
+          "cashBefore": 3183,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 530
+            }
+          ],
+          "prize": 4500,
+          "cashAfter": 7153,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7475,
+              0.9179999999999999,
+              0.996,
+              1,
+              1,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6975,
+              0.9179999999999999,
+              0.9159999999999999,
+              0.7925,
+              0.958,
+              0.395
+            ],
+            "fuel": 20.650174286858878
+          },
+          "points": 1200
+        },
+        {
+          "round": 4,
+          "city": "chicago",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 328.06666666669696,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 80,
+            "gun": 45,
+            "ram": 2.798852358357683,
+            "collision": 0.39885235835768335
+          },
+          "cashBefore": 7153,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 3025
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 270
+            },
+            {
+              "where": "garage",
+              "kind": "repair:0",
+              "cost": 1815
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 4043,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              1,
+              0.9179999999999999,
+              0.9159999999999999,
+              1,
+              0.958,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6770057382082115,
+              0.8656045905665691,
+              0.8859999999999999,
+              0.6205,
+              0.8579999999999999,
+              0.35401147641642317
+            ],
+            "fuel": 28.581543087530406
+          },
+          "points": 1700
+        },
+        {
+          "round": 5,
+          "city": "orlando",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 458.29999999991185,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 100
+          },
+          "cashBefore": 4043,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 3230
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 494
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 2319,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6770057382082115,
+              0.8656045905665691,
+              0.8859999999999999,
+              1,
+              0.8579999999999999,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5570057382082114,
+              0.8636045905665691,
+              0.8859999999999999,
+              0.5925,
+              0.8179999999999998,
+              0.495
+            ],
+            "fuel": 17.118482477119827
+          },
+          "points": 2200
+        },
+        {
+          "round": 6,
+          "city": "bay_area",
+          "outcome": "finished",
+          "position": 5,
+          "elapsed": 426.74999999994054,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 40
+          },
+          "cashBefore": 2319,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 530
+            }
+          ],
+          "prize": 3000,
+          "cashAfter": 4789,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5570057382082114,
+              0.8636045905665691,
+              0.8859999999999999,
+              1,
+              0.8179999999999998,
+              0.495
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5170057382082114,
+              0.8636045905665691,
+              0.8859999999999999,
+              0.6325000000000001,
+              0.7759999999999998,
+              0.29
+            ],
+            "fuel": 21.019424355567747
+          },
+          "points": 2800
+        },
+        {
+          "round": 7,
+          "city": "nyc",
+          "outcome": "finished",
+          "position": 8,
+          "elapsed": 338.76666666668723,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 60
+          },
+          "cashBefore": 4789,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 3550
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 478
+            }
+          ],
+          "prize": 500,
+          "cashAfter": 1261,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5170057382082114,
+              0.8636045905665691,
+              0.8859999999999999,
+              1,
+              0.7759999999999998,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5170057382082114,
+              0.7836045905665691,
+              0.8859999999999999,
+              0.7125,
+              0.7739999999999998,
+              0.695
+            ],
+            "fuel": 28.877611636722616
+          },
+          "points": 3100
+        },
+        {
+          "round": 8,
+          "city": "la",
+          "outcome": "finished",
+          "position": 8,
+          "elapsed": 390.1166666666405,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 20
+          },
+          "cashBefore": 1261,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 374
+            }
+          ],
+          "prize": 500,
+          "cashAfter": 1387,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5170057382082114,
+              0.7836045905665691,
+              0.8859999999999999,
+              1,
+              0.7739999999999998,
+              0.695
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5170057382082114,
+              0.7836045905665691,
+              0.8459999999999999,
+              0.8725,
+              0.7719999999999998,
+              0.59
+            ],
+            "fuel": 21.05241151069345
+          },
+          "points": 3400
+        },
+        {
+          "round": 9,
+          "city": "houston",
+          "outcome": "finished",
+          "position": 8,
+          "elapsed": 265.48333333342055,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 40
+          },
+          "cashBefore": 1387,
+          "transactions": [],
+          "prize": 500,
+          "cashAfter": 1887,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5170057382082114,
+              0.7836045905665691,
+              0.8459999999999999,
+              0.8725,
+              0.7719999999999998,
+              0.59
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5170057382082114,
+              0.7816045905665691,
+              0.7659999999999998,
+              0.5050000000000001,
+              0.7719999999999998,
+              0.385
+            ],
+            "fuel": 40.00734277057113
+          },
+          "points": 3700
+        },
+        {
+          "round": 10,
+          "city": "boston",
+          "outcome": "finished",
+          "position": 9,
+          "elapsed": 311.05000000004577,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 3,
+            "mine": 40,
+            "gun": 33
+          },
+          "cashBefore": 1887,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 644
+            }
+          ],
+          "prize": 250,
+          "cashAfter": 1493,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5170057382082114,
+              0.7816045905665691,
+              0.7659999999999998,
+              1,
+              0.7719999999999998,
+              0.385
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.46500573820821134,
+              0.767604590566569,
+              0.7399999999999998,
+              0.6915000000000001,
+              0.7579999999999998,
+              0.005
+            ],
+            "fuel": 30.166618994289735
+          },
+          "points": 3900
+        }
+      ],
+      "issues": [],
+      "season": {
+        "number": 1,
+        "round": 10,
+        "state": "lost",
+        "points": [
+          3900,
+          2200,
+          3400,
+          3500,
+          4500,
+          6500,
+          6600,
+          8100,
+          8600,
+          7700
+        ],
+        "wins": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          6
+        ],
+        "history": [
+          {
+            "city": 2,
+            "position": 8,
+            "order": [
+              9,
+              8,
+              7,
+              6,
+              5,
+              3,
+              4,
+              0,
+              1,
+              2
+            ],
+            "outcome": "finished",
+            "prize": 500,
+            "bounty": 0
+          },
+          {
+            "city": 4,
+            "position": 9,
+            "order": [
+              8,
+              9,
+              7,
+              6,
+              5,
+              2,
+              4,
+              3,
+              0,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 250,
+            "bounty": 0
+          },
+          {
+            "city": 6,
+            "position": 4,
+            "order": [
+              8,
+              6,
+              5,
+              0,
+              3,
+              4,
+              7,
+              2,
+              9,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 4500,
+            "bounty": 0
+          },
+          {
+            "city": 9,
+            "position": 6,
+            "order": [
+              8,
+              6,
+              7,
+              2,
+              5,
+              0,
+              1,
+              4,
+              9,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 0,
+            "position": 6,
+            "order": [
+              8,
+              7,
+              6,
+              5,
+              4,
+              0,
+              9,
+              2,
+              1,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 1,
+            "position": 5,
+            "order": [
+              9,
+              7,
+              5,
+              3,
+              0,
+              8,
+              4,
+              6,
+              1,
+              2
+            ],
+            "outcome": "finished",
+            "prize": 3000,
+            "bounty": 0
+          },
+          {
+            "city": 3,
+            "position": 8,
+            "order": [
+              9,
+              7,
+              6,
+              8,
+              5,
+              4,
+              1,
+              0,
+              2,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 500,
+            "bounty": 0
+          },
+          {
+            "city": 5,
+            "position": 8,
+            "order": [
+              9,
+              7,
+              8,
+              6,
+              5,
+              2,
+              4,
+              0,
+              3,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 500,
+            "bounty": 0
+          },
+          {
+            "city": 7,
+            "position": 8,
+            "order": [
+              9,
+              8,
+              7,
+              4,
+              5,
+              3,
+              1,
+              0,
+              2,
+              6
+            ],
+            "outcome": "finished",
+            "prize": 500,
+            "bounty": 0
+          },
+          {
+            "city": 8,
+            "position": 9,
+            "order": [
+              9,
+              7,
+              8,
+              6,
+              5,
+              2,
+              3,
+              4,
+              0,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 250,
+            "bounty": 0
+          }
+        ]
+      },
+      "cash": 1493,
+      "rank": 7
+    },
+    {
+      "carIndex": 2,
+      "strategy": "planned",
+      "rows": [
+        {
+          "round": 1,
+          "city": "phoenix",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 328.2666666666968,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 100
+          },
+          "cashBefore": 10000,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "upgrade:3",
+              "cost": 1300
+            },
+            {
+              "where": "garage",
+              "kind": "upgrade:1",
+              "cost": 1500
+            },
+            {
+              "where": "garage",
+              "kind": "upgrade:4",
+              "cost": 1000
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 8200,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 0,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.8316666666666667,
+              1,
+              0.9186666666666669,
+              0.8458333333333334,
+              0.9733333333333334,
+              0.6633333333333333
+            ],
+            "fuel": 27.783952159244784
+          },
+          "points": 500
+        },
+        {
+          "round": 2,
+          "city": "st_louis",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 281.5500000000726,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 80
+          },
+          "cashBefore": 8200,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 2121
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 800
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 7279,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.8316666666666667,
+              1,
+              0.9186666666666669,
+              0.8458333333333334,
+              0.9733333333333334,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7783333333333334,
+              1,
+              0.8906666666666669,
+              0.7183333333333335,
+              0.9466666666666668,
+              0.73
+            ],
+            "fuel": 35.08862518322823
+          },
+          "points": 1000
+        },
+        {
+          "round": 3,
+          "city": "seattle",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 414.4333333332851,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 3,
+            "mine": 40
+          },
+          "cashBefore": 7279,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1701
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 367
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 800
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 6411,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7783333333333334,
+              1,
+              0.8906666666666669,
+              1,
+              0.9466666666666668,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7770000000000001,
+              0.9986666666666667,
+              0.862666666666667,
+              0.8575000000000002,
+              0.9200000000000002,
+              0.8566666666666667
+            ],
+            "fuel": 20.603892674109005
+          },
+          "points": 1500
+        },
+        {
+          "round": 4,
+          "city": "chicago",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 331.98333333336006,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 60
+          },
+          "cashBefore": 6411,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 903
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 800
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 5708,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7770000000000001,
+              0.9986666666666667,
+              0.862666666666667,
+              0.8575000000000002,
+              0.9200000000000002,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7770000000000001,
+              0.9986666666666667,
+              0.8613333333333337,
+              0.556666666666667,
+              0.8933333333333335,
+              0.7966666666666666
+            ],
+            "fuel": 28.47198191913455
+          },
+          "points": 1900
+        },
+        {
+          "round": 5,
+          "city": "orlando",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 426.966666666607,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 40
+          },
+          "cashBefore": 5708,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1281
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 577
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 800
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 5050,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7770000000000001,
+              0.9986666666666667,
+              0.8613333333333337,
+              1,
+              0.8933333333333335,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7770000000000001,
+              0.9986666666666667,
+              0.8333333333333338,
+              0.8458333333333334,
+              0.8933333333333335,
+              0.8633333333333333
+            ],
+            "fuel": 17.891226922938795
+          },
+          "points": 2400
+        },
+        {
+          "round": 6,
+          "city": "bay_area",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 423.13333333327716,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 80
+          },
+          "cashBefore": 5050,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 861
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 800
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 4389,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7770000000000001,
+              0.9986666666666667,
+              0.8333333333333338,
+              0.8458333333333334,
+              0.8933333333333335,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7503333333333335,
+              0.9986666666666667,
+              0.8053333333333339,
+              0.5983333333333335,
+              0.8400000000000003,
+              0.73
+            ],
+            "fuel": 21.114140410007145
+          },
+          "points": 2800
+        },
+        {
+          "round": 7,
+          "city": "nyc",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 323.11666666670146,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 2,
+            "mine": 20,
+            "laser": 21
+          },
+          "cashBefore": 4389,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1701
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 523
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 4165,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7503333333333335,
+              0.9986666666666667,
+              0.8053333333333339,
+              1,
+              0.8400000000000003,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7236666666666669,
+              0.9893333333333334,
+              0.7866666666666673,
+              0.8650000000000001,
+              0.8373333333333337,
+              0.8566666666666667
+            ],
+            "fuel": 29.319056710645626
+          },
+          "points": 3300
+        },
+        {
+          "round": 8,
+          "city": "la",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 418.2833333332816,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 40
+          },
+          "cashBefore": 4165,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 903
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 800
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 3462,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7236666666666669,
+              0.9893333333333334,
+              0.7866666666666673,
+              0.8650000000000001,
+              0.8373333333333337,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6970000000000003,
+              0.9893333333333334,
+              0.7586666666666674,
+              0.37750000000000017,
+              0.8373333333333337,
+              0.8633333333333333
+            ],
+            "fuel": 20.34002742054131
+          },
+          "points": 3700
+        },
+        {
+          "round": 9,
+          "city": "houston",
+          "outcome": "finished",
+          "position": 10,
+          "elapsed": 268.30000000008465,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 120
+          },
+          "cashBefore": 3462,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 861
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 810
+            }
+          ],
+          "prize": 0,
+          "cashAfter": 1791,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6970000000000003,
+              0.9893333333333334,
+              0.7586666666666674,
+              1,
+              0.8373333333333337,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6703333333333337,
+              0.9613333333333335,
+              0.7586666666666674,
+              0.45916666666666683,
+              0.7840000000000005,
+              0.5966666666666667
+            ],
+            "fuel": 39.944593872502026
+          },
+          "points": 3800
+        },
+        {
+          "round": 10,
+          "city": "boston",
+          "outcome": "finished",
+          "position": 9,
+          "elapsed": 293.4000000000618,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "mine": 60
+          },
+          "cashBefore": 1791,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 704
+            }
+          ],
+          "prize": 250,
+          "cashAfter": 1337,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6703333333333337,
+              0.9613333333333335,
+              0.7586666666666674,
+              1,
+              0.7840000000000005,
+              0.5966666666666667
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6170000000000004,
+              0.9613333333333335,
+              0.7320000000000008,
+              0.88,
+              0.7840000000000005,
+              0.39666666666666667
+            ],
+            "fuel": 30.645033097052398
+          },
+          "points": 4000
+        }
+      ],
+      "issues": [],
+      "season": {
+        "number": 1,
+        "round": 10,
+        "state": "lost",
+        "points": [
+          4000,
+          2900,
+          3800,
+          2400,
+          5200,
+          5500,
+          5000,
+          7300,
+          9600,
+          9300
+        ],
+        "wins": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7,
+          3
+        ],
+        "history": [
+          {
+            "city": 2,
+            "position": 6,
+            "order": [
+              9,
+              8,
+              7,
+              5,
+              4,
+              0,
+              6,
+              3,
+              2,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 4,
+            "position": 6,
+            "order": [
+              8,
+              9,
+              7,
+              6,
+              2,
+              0,
+              4,
+              1,
+              5,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 6,
+            "position": 6,
+            "order": [
+              8,
+              9,
+              6,
+              5,
+              7,
+              0,
+              1,
+              4,
+              2,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 9,
+            "position": 7,
+            "order": [
+              8,
+              9,
+              6,
+              7,
+              5,
+              4,
+              0,
+              2,
+              1,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          },
+          {
+            "city": 0,
+            "position": 6,
+            "order": [
+              9,
+              7,
+              8,
+              5,
+              4,
+              0,
+              3,
+              6,
+              2,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 1,
+            "position": 7,
+            "order": [
+              8,
+              9,
+              7,
+              4,
+              5,
+              2,
+              0,
+              6,
+              3,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          },
+          {
+            "city": 3,
+            "position": 6,
+            "order": [
+              8,
+              9,
+              7,
+              1,
+              2,
+              0,
+              3,
+              5,
+              6,
+              4
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 5,
+            "position": 7,
+            "order": [
+              8,
+              9,
+              6,
+              4,
+              5,
+              1,
+              0,
+              7,
+              2,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          },
+          {
+            "city": 7,
+            "position": 10,
+            "order": [
+              9,
+              8,
+              7,
+              4,
+              6,
+              2,
+              5,
+              3,
+              1,
+              0
+            ],
+            "outcome": "finished",
+            "prize": 0,
+            "bounty": 0
+          },
+          {
+            "city": 8,
+            "position": 9,
+            "order": [
+              8,
+              9,
+              7,
+              5,
+              4,
+              2,
+              3,
+              1,
+              0,
+              6
+            ],
+            "outcome": "finished",
+            "prize": 250,
+            "bounty": 0
+          }
+        ]
+      },
+      "cash": 1337,
+      "rank": 7
+    },
+    {
+      "carIndex": 0,
+      "strategy": "no-pits",
+      "rows": [
+        {
+          "round": 1,
+          "city": "phoenix",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 331.700000000027,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 4,
+            "mine": 40,
+            "collision": 0.7013763407579728,
+            "gun": 24
+          },
+          "cashBefore": 10000,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "upgrade:5",
+              "cost": 5000
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 6000,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 300,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 0,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.8282465591481051,
+              0.9395665477482844,
+              0.9850306995701996,
+              0.6100000000000002,
+              0.988,
+              0.6564931182962102
+            ],
+            "fuel": 27.650358363609755
+          },
+          "points": 400
+        },
+        {
+          "round": 2,
+          "city": "st_louis",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 292.0666666667297,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 5,
+            "mine": 80,
+            "gun": 42,
+            "ram": 1.5645106151520616,
+            "collision": 0.5371155581984238
+          },
+          "cashBefore": 6000,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1718
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 195
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 300
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 4787,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 100,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.8282465591481051,
+              0.9395665477482844,
+              0.9850306995701996,
+              1,
+              0.988,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.6772459345666237,
+              0.9215665477482844,
+              0.9590306995701996,
+              0.5514257688836033,
+              0.8339999999999999,
+              0.3544918691332476
+            ],
+            "fuel": 34.78761710061556
+          },
+          "points": 800
+        },
+        {
+          "round": 3,
+          "city": "seattle",
+          "outcome": "finished",
+          "position": 8,
+          "elapsed": 416.2499999999501,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 3,
+            "mine": 100,
+            "gun": 30,
+            "collision": 0.11231715881875494
+          },
+          "cashBefore": 4787,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 3228
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 225
+            }
+          ],
+          "prize": 500,
+          "cashAfter": 1834,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.6772459345666237,
+              0.9215665477482844,
+              0.9590306995701996,
+              1,
+              0.8339999999999999,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.6290213002489862,
+              0.8695665477482843,
+              0.8950306995701995,
+              0.6115000000000002,
+              0.7379999999999998,
+              0.33443841420590625
+            ],
+            "fuel": 20.583943084547855
+          },
+          "points": 1100
+        },
+        {
+          "round": 4,
+          "city": "chicago",
+          "outcome": "wrecked",
+          "position": 9,
+          "elapsed": 87.03333333332968,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 40,
+            "collision": 4.704878888750949,
+            "gun": 7.182803952430298,
+            "laser": 14
+          },
+          "cashBefore": 1834,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 195
+            }
+          ],
+          "prize": 0,
+          "cashAfter": 1639,
+          "startBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.6290213002489862,
+              0.8695665477482843,
+              0.8950306995701995,
+              1,
+              0.7379999999999998,
+              0.33443841420590625
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 0,
+            "beam": 0,
+            "selected": 1,
+            "battery": 41,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 2,
+            "missileAmmo": 0,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 0,
+            "caltropAmmo": 0,
+            "ram": 1,
+            "wheel": 1,
+            "condition": [
+              0.5,
+              0.8541567899707825,
+              0.8010306995701995,
+              0.8725,
+              0.7299999999999998,
+              0
+            ],
+            "fuel": 53.478772610171276
+          },
+          "points": 1100
+        }
+      ],
+      "issues": [
+        "Cannot afford essential repair before orlando"
+      ],
+      "season": {
+        "number": 1,
+        "round": 4,
+        "state": "racing",
+        "points": [
+          1100,
+          1500,
+          1400,
+          1100,
+          1500,
+          2000,
+          2900,
+          2700,
+          3900,
+          3700
+        ],
+        "wins": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          1
+        ],
+        "history": [
+          {
+            "city": 2,
+            "position": 7,
+            "order": [
+              9,
+              8,
+              7,
+              6,
+              5,
+              4,
+              0,
+              1,
+              2,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          },
+          {
+            "city": 4,
+            "position": 7,
+            "order": [
+              8,
+              9,
+              6,
+              4,
+              2,
+              1,
+              0,
+              7,
+              5,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          },
+          {
+            "city": 6,
+            "position": 8,
+            "order": [
+              8,
+              9,
+              7,
+              6,
+              5,
+              3,
+              1,
+              0,
+              4,
+              2
+            ],
+            "outcome": "finished",
+            "prize": 500,
+            "bounty": 0
+          },
+          {
+            "city": 9,
+            "position": 9,
+            "order": [
+              8,
+              9,
+              7,
+              6,
+              5,
+              2,
+              3,
+              1,
+              0,
+              4
+            ],
+            "outcome": "wrecked",
+            "prize": 0,
+            "bounty": 0
+          }
+        ]
+      },
+      "cash": 1639,
+      "rank": 9
+    },
+    {
+      "carIndex": 1,
+      "strategy": "no-pits",
+      "rows": [
+        {
+          "round": 1,
+          "city": "phoenix",
+          "outcome": "finished",
+          "position": 8,
+          "elapsed": 347.9833333333455,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 2,
+            "mine": 40
+          },
+          "cashBefore": 10000,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "upgrade:3",
+              "cost": 1300
+            },
+            {
+              "where": "garage",
+              "kind": "upgrade:1",
+              "cost": 1500
+            }
+          ],
+          "prize": 500,
+          "cashAfter": 7700,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 100,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 0,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.895,
+              0.998,
+              0.998,
+              0.545,
+              1,
+              0.79
+            ],
+            "fuel": 27.263296061246386
+          },
+          "points": 300
+        },
+        {
+          "round": 2,
+          "city": "st_louis",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 284.5333333334032,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 100
+          },
+          "cashBefore": 7700,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1050
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 592
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 300
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 6758,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 100,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.895,
+              0.998,
+              0.998,
+              1,
+              1,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7475,
+              0.9179999999999999,
+              0.996,
+              0.7125,
+              1,
+              0.495
+            ],
+            "fuel": 35.03183781070366
+          },
+          "points": 700
+        },
+        {
+          "round": 3,
+          "city": "seattle",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 425.2499999999419,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 20
+          },
+          "cashBefore": 6758,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 2525
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 374
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 300
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 5559,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 100,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7475,
+              0.9179999999999999,
+              0.996,
+              1,
+              1,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7075,
+              0.9179999999999999,
+              0.994,
+              0.6325000000000001,
+              1,
+              0.895
+            ],
+            "fuel": 20.401399532038603
+          },
+          "points": 1200
+        },
+        {
+          "round": 4,
+          "city": "chicago",
+          "outcome": "finished",
+          "position": 8,
+          "elapsed": 340.4000000000191,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 80
+          },
+          "cashBefore": 5559,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 525
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 478
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 300
+            }
+          ],
+          "prize": 500,
+          "cashAfter": 4756,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 100,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7075,
+              0.9179999999999999,
+              0.994,
+              1,
+              1,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6275,
+              0.8779999999999999,
+              0.992,
+              0.5125000000000001,
+              0.96,
+              0.595
+            ],
+            "fuel": 28.26699621737652
+          },
+          "points": 1500
+        },
+        {
+          "round": 5,
+          "city": "orlando",
+          "outcome": "finished",
+          "position": 5,
+          "elapsed": 436.9999999999312,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 3,
+            "mine": 60,
+            "collision": 0.09113747473727969,
+            "gun": 33,
+            "laser": 42
+          },
+          "cashBefore": 4756,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 2025
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 634
+            }
+          ],
+          "prize": 3000,
+          "cashAfter": 5097,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6275,
+              0.8779999999999999,
+              0.992,
+              1,
+              0.96,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5394999999999999,
+              0.7878177250505253,
+              0.98,
+              0.8055000000000001,
+              0.9259999999999999,
+              0.3095443126263136
+            ],
+            "fuel": 17.695454988194143
+          },
+          "points": 2100
+        },
+        {
+          "round": 6,
+          "city": "bay_area",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 409.38333333328967,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 3,
+            "mine": 40,
+            "collision": 1.118863520824646,
+            "gun": 3
+          },
+          "cashBefore": 5097,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 3453
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 3644,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5394999999999999,
+              0.7878177250505253,
+              0.98,
+              0.8055000000000001,
+              0.9259999999999999,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5332622729583506,
+              0.7878177250505253,
+              0.98,
+              0.7830000000000003,
+              0.8379999999999999,
+              0.7644056823958768
+            ],
+            "fuel": 21.470788896494046
+          },
+          "points": 2600
+        },
+        {
+          "round": 7,
+          "city": "nyc",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 340.4333333333524,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 40
+          },
+          "cashBefore": 3644,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1178
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 283
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 3183,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.5332622729583506,
+              0.7878177250505253,
+              0.98,
+              1,
+              0.8379999999999999,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.49326227295835057,
+              0.7878177250505253,
+              0.98,
+              0.5925,
+              0.8359999999999999,
+              0.795
+            ],
+            "fuel": 28.900115830258468
+          },
+          "points": 3000
+        },
+        {
+          "round": 8,
+          "city": "la",
+          "outcome": "finished",
+          "position": 9,
+          "elapsed": 410.3999999999554,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 2,
+            "mine": 60,
+            "gun": 36
+          },
+          "cashBefore": 3183,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1025
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 530
+            }
+          ],
+          "prize": 250,
+          "cashAfter": 1878,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.49326227295835057,
+              0.7878177250505253,
+              0.98,
+              1,
+              0.8359999999999999,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.4292622729583505,
+              0.7338177250505252,
+              0.968,
+              0.6070000000000001,
+              0.7879999999999998,
+              0.51
+            ],
+            "fuel": 20.537322219964214
+          },
+          "points": 3200
+        },
+        {
+          "round": 9,
+          "city": "houston",
+          "outcome": "wrecked",
+          "position": 9,
+          "elapsed": 35.549999999999265,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 2,
+            "mine": 100
+          },
+          "cashBefore": 1878,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 511
+            }
+          ],
+          "prize": 0,
+          "cashAfter": 1367,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.4292622729583505,
+              0.7338177250505252,
+              0.968,
+              1,
+              0.7879999999999998,
+              0.51
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "ammo": 0,
+            "gun": 0,
+            "laser": 1,
+            "beam": 0,
+            "selected": 1,
+            "battery": 76,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 0,
+            "missileAmmo": 3,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 1,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.3892622729583505,
+              0.7338177250505252,
+              0.968,
+              0.863,
+              0.7459999999999998,
+              0
+            ],
+            "fuel": 59.650535197648914
+          },
+          "points": 3200
+        }
+      ],
+      "issues": [
+        "Cannot afford essential repair before boston"
+      ],
+      "season": {
+        "number": 1,
+        "round": 9,
+        "state": "racing",
+        "points": [
+          3200,
+          2400,
+          3500,
+          3200,
+          3900,
+          4900,
+          5600,
+          7200,
+          8300,
+          7100
+        ],
+        "wins": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          4,
+          4
+        ],
+        "history": [
+          {
+            "city": 2,
+            "position": 8,
+            "order": [
+              9,
+              8,
+              7,
+              6,
+              5,
+              3,
+              4,
+              0,
+              1,
+              2
+            ],
+            "outcome": "finished",
+            "prize": 500,
+            "bounty": 0
+          },
+          {
+            "city": 4,
+            "position": 7,
+            "order": [
+              8,
+              9,
+              7,
+              6,
+              5,
+              2,
+              0,
+              4,
+              3,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          },
+          {
+            "city": 6,
+            "position": 6,
+            "order": [
+              8,
+              7,
+              6,
+              5,
+              1,
+              0,
+              2,
+              9,
+              4,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 9,
+            "position": 8,
+            "order": [
+              8,
+              6,
+              5,
+              7,
+              2,
+              4,
+              3,
+              0,
+              9,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 500,
+            "bounty": 0
+          },
+          {
+            "city": 0,
+            "position": 5,
+            "order": [
+              9,
+              7,
+              4,
+              8,
+              0,
+              3,
+              1,
+              2,
+              5,
+              6
+            ],
+            "outcome": "finished",
+            "prize": 3000,
+            "bounty": 0
+          },
+          {
+            "city": 1,
+            "position": 6,
+            "order": [
+              8,
+              9,
+              6,
+              5,
+              7,
+              0,
+              4,
+              2,
+              3,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 3,
+            "position": 7,
+            "order": [
+              7,
+              8,
+              9,
+              6,
+              5,
+              2,
+              0,
+              3,
+              1,
+              4
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          },
+          {
+            "city": 5,
+            "position": 9,
+            "order": [
+              9,
+              8,
+              6,
+              7,
+              3,
+              4,
+              1,
+              2,
+              0,
+              5
+            ],
+            "outcome": "finished",
+            "prize": 250,
+            "bounty": 0
+          },
+          {
+            "city": 7,
+            "position": 9,
+            "order": [
+              9,
+              8,
+              7,
+              4,
+              5,
+              2,
+              3,
+              1,
+              0,
+              6
+            ],
+            "outcome": "wrecked",
+            "prize": 0,
+            "bounty": 0
+          }
+        ]
+      },
+      "cash": 1367,
+      "rank": 8
+    },
+    {
+      "carIndex": 2,
+      "strategy": "no-pits",
+      "rows": [
+        {
+          "round": 1,
+          "city": "phoenix",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 328.2666666666968,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 100
+          },
+          "cashBefore": 10000,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "upgrade:3",
+              "cost": 1300
+            },
+            {
+              "where": "garage",
+              "kind": "upgrade:1",
+              "cost": 1500
+            },
+            {
+              "where": "garage",
+              "kind": "upgrade:4",
+              "cost": 1000
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 8200,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 0,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.8316666666666667,
+              1,
+              0.9186666666666669,
+              0.8458333333333334,
+              0.9733333333333334,
+              0.6633333333333333
+            ],
+            "fuel": 27.783952159244784
+          },
+          "points": 500
+        },
+        {
+          "round": 2,
+          "city": "st_louis",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 281.5500000000726,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 80
+          },
+          "cashBefore": 8200,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 2121
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 800
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 7279,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.8316666666666667,
+              1,
+              0.9186666666666669,
+              0.8458333333333334,
+              0.9733333333333334,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7783333333333334,
+              1,
+              0.8906666666666669,
+              0.7183333333333335,
+              0.9466666666666668,
+              0.73
+            ],
+            "fuel": 35.08862518322823
+          },
+          "points": 1000
+        },
+        {
+          "round": 3,
+          "city": "seattle",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 414.4333333332851,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 3,
+            "mine": 40
+          },
+          "cashBefore": 7279,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1701
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 367
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 800
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 6411,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7783333333333334,
+              1,
+              0.8906666666666669,
+              1,
+              0.9466666666666668,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7770000000000001,
+              0.9986666666666667,
+              0.862666666666667,
+              0.8575000000000002,
+              0.9200000000000002,
+              0.8566666666666667
+            ],
+            "fuel": 20.603892674109005
+          },
+          "points": 1500
+        },
+        {
+          "round": 4,
+          "city": "chicago",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 331.98333333336006,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 60
+          },
+          "cashBefore": 6411,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 903
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 800
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 5708,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7770000000000001,
+              0.9986666666666667,
+              0.862666666666667,
+              0.8575000000000002,
+              0.9200000000000002,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7770000000000001,
+              0.9986666666666667,
+              0.8613333333333337,
+              0.556666666666667,
+              0.8933333333333335,
+              0.7966666666666666
+            ],
+            "fuel": 28.47198191913455
+          },
+          "points": 1900
+        },
+        {
+          "round": 5,
+          "city": "orlando",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 426.966666666607,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 40
+          },
+          "cashBefore": 5708,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1281
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 577
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 800
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 5050,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7770000000000001,
+              0.9986666666666667,
+              0.8613333333333337,
+              1,
+              0.8933333333333335,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7770000000000001,
+              0.9986666666666667,
+              0.8333333333333338,
+              0.8458333333333334,
+              0.8933333333333335,
+              0.8633333333333333
+            ],
+            "fuel": 17.891226922938795
+          },
+          "points": 2400
+        },
+        {
+          "round": 6,
+          "city": "bay_area",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 423.13333333327716,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 80
+          },
+          "cashBefore": 5050,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 861
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 800
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 4389,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7770000000000001,
+              0.9986666666666667,
+              0.8333333333333338,
+              0.8458333333333334,
+              0.8933333333333335,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7503333333333335,
+              0.9986666666666667,
+              0.8053333333333339,
+              0.5983333333333335,
+              0.8400000000000003,
+              0.73
+            ],
+            "fuel": 21.114140410007145
+          },
+          "points": 2800
+        },
+        {
+          "round": 7,
+          "city": "nyc",
+          "outcome": "finished",
+          "position": 6,
+          "elapsed": 323.11666666670146,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 2,
+            "mine": 20,
+            "laser": 21
+          },
+          "cashBefore": 4389,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 1701
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 523
+            }
+          ],
+          "prize": 2000,
+          "cashAfter": 4165,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7503333333333335,
+              0.9986666666666667,
+              0.8053333333333339,
+              1,
+              0.8400000000000003,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7236666666666669,
+              0.9893333333333334,
+              0.7866666666666673,
+              0.8650000000000001,
+              0.8373333333333337,
+              0.8566666666666667
+            ],
+            "fuel": 29.319056710645626
+          },
+          "points": 3300
+        },
+        {
+          "round": 8,
+          "city": "la",
+          "outcome": "finished",
+          "position": 7,
+          "elapsed": 418.2833333332816,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 40
+          },
+          "cashBefore": 4165,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 903
+            },
+            {
+              "where": "garage",
+              "kind": "ammo",
+              "cost": 800
+            }
+          ],
+          "prize": 1000,
+          "cashAfter": 3462,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 100,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.7236666666666669,
+              0.9893333333333334,
+              0.7866666666666673,
+              0.8650000000000001,
+              0.8373333333333337,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6970000000000003,
+              0.9893333333333334,
+              0.7586666666666674,
+              0.37750000000000017,
+              0.8373333333333337,
+              0.8633333333333333
+            ],
+            "fuel": 20.34002742054131
+          },
+          "points": 3700
+        },
+        {
+          "round": 9,
+          "city": "houston",
+          "outcome": "finished",
+          "position": 10,
+          "elapsed": 268.30000000008465,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "wheel": 1,
+            "mine": 120
+          },
+          "cashBefore": 3462,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:5",
+              "cost": 861
+            },
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 810
+            }
+          ],
+          "prize": 0,
+          "cashAfter": 1791,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6970000000000003,
+              0.9893333333333334,
+              0.7586666666666674,
+              1,
+              0.8373333333333337,
+              1
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6703333333333337,
+              0.9613333333333335,
+              0.7586666666666674,
+              0.45916666666666683,
+              0.7840000000000005,
+              0.5966666666666667
+            ],
+            "fuel": 39.944593872502026
+          },
+          "points": 3800
+        },
+        {
+          "round": 10,
+          "city": "boston",
+          "outcome": "finished",
+          "position": 9,
+          "elapsed": 293.4000000000618,
+          "pits": 0,
+          "services": [],
+          "damage": {
+            "mine": 60
+          },
+          "cashBefore": 1791,
+          "transactions": [
+            {
+              "where": "garage",
+              "kind": "repair:3",
+              "cost": 704
+            }
+          ],
+          "prize": 250,
+          "cashAfter": 1337,
+          "startBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 100,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6703333333333337,
+              0.9613333333333335,
+              0.7586666666666674,
+              1,
+              0.7840000000000005,
+              0.5966666666666667
+            ],
+            "fuel": 62.5
+          },
+          "endBuild": {
+            "parts": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2
+            ],
+            "ammo": 0,
+            "gun": 1,
+            "laser": 0,
+            "beam": 0,
+            "selected": 2,
+            "battery": 0,
+            "rocket": 0,
+            "missile": 0,
+            "rocketAmmo": 3,
+            "missileAmmo": 1,
+            "mine": 0,
+            "caltrop": 0,
+            "mineAmmo": 3,
+            "caltropAmmo": 0,
+            "ram": 0,
+            "wheel": 0,
+            "condition": [
+              0.6170000000000004,
+              0.9613333333333335,
+              0.7320000000000008,
+              0.88,
+              0.7840000000000005,
+              0.39666666666666667
+            ],
+            "fuel": 30.645033097052398
+          },
+          "points": 4000
+        }
+      ],
+      "issues": [],
+      "season": {
+        "number": 1,
+        "round": 10,
+        "state": "lost",
+        "points": [
+          4000,
+          2900,
+          3800,
+          2400,
+          5200,
+          5500,
+          5000,
+          7300,
+          9600,
+          9300
+        ],
+        "wins": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7,
+          3
+        ],
+        "history": [
+          {
+            "city": 2,
+            "position": 6,
+            "order": [
+              9,
+              8,
+              7,
+              5,
+              4,
+              0,
+              6,
+              3,
+              2,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 4,
+            "position": 6,
+            "order": [
+              8,
+              9,
+              7,
+              6,
+              2,
+              0,
+              4,
+              1,
+              5,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 6,
+            "position": 6,
+            "order": [
+              8,
+              9,
+              6,
+              5,
+              7,
+              0,
+              1,
+              4,
+              2,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 9,
+            "position": 7,
+            "order": [
+              8,
+              9,
+              6,
+              7,
+              5,
+              4,
+              0,
+              2,
+              1,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          },
+          {
+            "city": 0,
+            "position": 6,
+            "order": [
+              9,
+              7,
+              8,
+              5,
+              4,
+              0,
+              3,
+              6,
+              2,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 1,
+            "position": 7,
+            "order": [
+              8,
+              9,
+              7,
+              4,
+              5,
+              2,
+              0,
+              6,
+              3,
+              1
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          },
+          {
+            "city": 3,
+            "position": 6,
+            "order": [
+              8,
+              9,
+              7,
+              1,
+              2,
+              0,
+              3,
+              5,
+              6,
+              4
+            ],
+            "outcome": "finished",
+            "prize": 2000,
+            "bounty": 0
+          },
+          {
+            "city": 5,
+            "position": 7,
+            "order": [
+              8,
+              9,
+              6,
+              4,
+              5,
+              1,
+              0,
+              7,
+              2,
+              3
+            ],
+            "outcome": "finished",
+            "prize": 1000,
+            "bounty": 0
+          },
+          {
+            "city": 7,
+            "position": 10,
+            "order": [
+              9,
+              8,
+              7,
+              4,
+              6,
+              2,
+              5,
+              3,
+              1,
+              0
+            ],
+            "outcome": "finished",
+            "prize": 0,
+            "bounty": 0
+          },
+          {
+            "city": 8,
+            "position": 9,
+            "order": [
+              8,
+              9,
+              7,
+              5,
+              4,
+              2,
+              3,
+              1,
+              0,
+              6
+            ],
+            "outcome": "finished",
+            "prize": 250,
+            "bounty": 0
+          }
+        ]
+      },
+      "cash": 1337,
+      "rank": 7
+    }
+  ]
+}

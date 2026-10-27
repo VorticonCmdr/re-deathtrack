@@ -378,7 +378,7 @@ The data is `PAL:EGA:`, 128 bytes = 64 little-endian words.
 
 **Meaning:**
 - Words 0-15 are the 16 EGA colours (4-bit IRGB; 8-15 map to the intensified attribute codes 0x10-0x17).
-- The second halves of each table hold pairs of nibbles, e.g. `0x0808`, `0x1010`. Inferred: dither and remap pairs for the drawing code. Their consumers are not analysed here.
+- The second halves supply logical colors 16–31 as 2×2 ordered dither pairs: high/low bytes select even/odd x, `41a4`/`4424` select even/odd rows. See [graphics color model](graphics.md) for the translated consumers.
 - The `CGA:` sub-chunk is not read on EGA.
 
 **Globals:** `pals.blk` palettes go to `DS:a252/a254`. `main` activates `a252`, and many screens restore it (`setPalette([a252])`).
@@ -401,7 +401,7 @@ The data is `PAL:EGA:`, 128 bytes = 64 little-endian words.
 | +0x12 | u16 | INF word 3 |
 | +0x14 | u16 | ITM node or 0 |
 
-The block holds 11 relocated far pointers to PC-speaker command streams; their format is unknown here. `main` stores the bank number in `DS:8f9c` and selects it with `32e3:05ba` (`DS:9a40`).
+The block holds 11 relocated far pointers to PC-speaker command streams. Their command format and missing-ITM quirk are now translated in `src/game/sfx.js`; see [effect tick and bank data](input-timer-sound.md#effect-tick-334e0000-di-based-register-code). The asset viewer reuses that interpreter for individual-effect auditions. `main` stores the bank number in `DS:8f9c` and selects it with `32e3:05ba` (`DS:9a40`).
 
 ### Music (`.mus`)
 
@@ -414,7 +414,7 @@ The block holds 11 relocated far pointers to PC-speaker command streams; their f
 
 On a mismatch it closes the stream and chunk file a second time (harmless no-ops), calls near `free(0)`, **leaks the DOS block** and returns 0:0.
 
-**Result:** a far pointer `seg:0` to a standard MIDI file (format 0, 96 tpq). It is consumed by `1000:c60a` (music driver, not analysed here).
+**Result:** a far pointer `seg:0` to a standard MIDI file (format 0, 96 tpq). It is consumed by `1000:c60a`, now translated in `src/game/music.js`; see [music tick](input-timer-sound.md#music-tick-1000c731) and [hardware paths](hardware-paths.md).
 
 ### TTM script (`title.ttm`)
 
@@ -873,12 +873,12 @@ All of these are real code with valid prologues, not gap-fill artefacts.
 
 ## Open questions
 
-- `ACTIVISIO` (9 characters, `DS:2ab2`) versus the file `activisi`. Inferred: DOS truncates the name to 8 characters, so it opens `ACTIVISI`. The port's file lookup must apply the same 8.3 truncation (unknown how the port keys names).
-- The bit order of EGA planes and mask produced by `29f6:2034/2137/216a`: belongs to the EGA analysis. Unknown here.
-- The meaning of the second-half palette words (41c4, 4444) and of 46a4: inferred dither/remap.
-- The PC-speaker command format inside `SND:IBM:`: unknown.
+- **Resolved:** `ACTIVISIO` (9 characters, `DS:2ab2`) opens `activisi` through DOS 8.3 truncation. `FileSystem.key` in `src/engine/dos.js` implements this.
+- **Resolved:** `29f6:2034/2137/216a` plane/mask packing is translated in `src/game/egadrv.js`; bit 7 is the leftmost pixel and the mask is `~(p0|p1|p2|p3)`. See [graphics](graphics.md).
+- **Resolved:** `41c4`/`4444` hold logical-color dither pairs; `46a4` is the text color remap (identity). See [graphics](graphics.md).
+- **Resolved:** `SND:IBM:` commands are translated in `src/game/sfx.js` and documented in [effect tick](input-timer-sound.md#effect-tick-334e0000-di-based-register-code).
 - `1ff8:0edf`, `123f`, `1346`, `49a6`, `49ec`, `3a26` have no direct callers. I searched for them as `0x<off>` immediates in `disasm.asm` and found no hits, apart from unrelated `DS:49ec` data operands in `1ff8:320c-349d`. I also searched the EXE for far pointers `<off> f8 0f` (pre-relocation segment) and found none. Indirect use through computed addresses cannot be ruled out (static, negative).
-- How `ttmRun` (`2524:0c66`) reaches the scripts: it reads its program pointer from `DS:5790[entry]`, while `loadTtm` registers buffers in `DS:05da[]`. The link is probably `2524:0a7c` (unverified).
+- **Resolved:** `2524:0a7c` indexes a loaded `DS:05da[]` script into `DS:5790[]` parts at `/` boundaries; both indexer and runner are translated in `src/game/seg2524.js`.
 - Whether music plays depends on `2524:01da` finding 128 KiB of free DOS memory. The port's `dos.js` must report enough free conventional memory, or `trax.mus` is dropped and music is switched off (`DS:1fb2=0`).
 - The meaning of most `.RCT` fields, the `.tbl` group flag byte and model byte +2: unknown.
 - `RESULTS.BMP` (`DS:1145`) and `.BMP` loading through `2c46` or `1000:33be` callers were not traced individually.

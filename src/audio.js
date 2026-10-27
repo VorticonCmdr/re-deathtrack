@@ -19,8 +19,8 @@ export function midiNotes(b){
  if(active.has(key)){const n=active.get(key);n.duration=time-n.time;notes.push(n);active.delete(key);}if(e.on)active.set(key,{time,note:e.note,channel:e.c,velocity:e.velocity,duration:0});}
  for(const n of active.values()){n.duration=Math.max(.1,time-n.time);notes.push(n);}return {notes,duration:time};
 }
-let context;
-export async function stopAudio(){if(context){const old=context;context=null;await old.close();}}
-export async function playMidi(b,volume=.12){await stopAudio();const score=midiNotes(b);const ctx=new AudioContext();context=ctx;await ctx.resume();const gain=ctx.createGain();gain.gain.value=volume;gain.connect(ctx.destination);const origin=ctx.currentTime+.08;
+let context,session=0;
+export async function stopAudio(){session++;if(context){const old=context;context=null;await old.close();}}
+export async function playMidi(b,volume=.12){const ticket=++session,old=context;context=null;if(old)await old.close();if(ticket!==session)return;const score=midiNotes(b);const ctx=new AudioContext();context=ctx;await ctx.resume();if(ticket!==session)return;const gain=ctx.createGain();gain.gain.value=volume;gain.connect(ctx.destination);const origin=ctx.currentTime+.08;
  for(const n of score.notes){if(n.duration<=0)continue;const osc=ctx.createOscillator(),env=ctx.createGain();osc.type=n.channel===9?'triangle':'square';osc.frequency.value=440*2**((n.note-69)/12);osc.connect(env);env.connect(gain);const start=origin+n.time,end=start+n.duration;env.gain.setValueAtTime(0,start);env.gain.linearRampToValueAtTime(n.velocity/127*.15,start+.005);env.gain.setValueAtTime(n.velocity/127*.15,Math.max(start+.005,end-.015));env.gain.linearRampToValueAtTime(0,end+.01);osc.start(start);osc.stop(end+.02);}return score;
 }

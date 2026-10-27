@@ -14,7 +14,7 @@ import {rw,rb} from '../engine/mem.js';
 
 const $=s=>document.querySelector(s);
 $('#app').innerHTML=`<main class="shell"><canvas id="screen" width="320" height="200" aria-label="Deathtrack"></canvas>
-<p id="status" role="status">Loading game files…</p>
+<p id="status" role="status">Loading game files…</p><a class="remaster-link" href="./remaster.html">Try Seattle Remastered ↗</a>
 <label id="pick" class="hidden">Open Deathtrack folder<input id="folder" type="file" webkitdirectory multiple></label></main>`;
 const canvas=$('#screen'),ctx=canvas.getContext('2d'),image=ctx.createImageData(320,200),status=$('#status');
 const params=new URLSearchParams(location.search);

@@ -1,0 +1,255 @@
+{
+  "scope": "Geometry, decoration footprints and pit entry; not full visual/human driving acceptance.",
+  "circuits": [
+    {
+      "city": "Orlando",
+      "style": "wheel",
+      "samples": 1890,
+      "lengthMeters": 2812,
+      "maxGradePercent": 20.3,
+      "minimumSegmentMeters": 1.395,
+      "coincidentSamples": 0,
+      "crossings": [
+        {
+          "segments": [
+            204,
+            816
+          ],
+          "heightGapMeters": 3.88
+        }
+      ],
+      "pitIndex": 957,
+      "pitEntry": true,
+      "sceneryFootprintsClear": true,
+      "buildings": 79,
+      "plants": 65,
+      "sourceScenery": {
+        "retained": 0,
+        "relocated": 6,
+        "omitted": 10
+      },
+      "finite": true
+    },
+    {
+      "city": "Bay Area",
+      "style": "bridge",
+      "samples": 1724,
+      "lengthMeters": 2552,
+      "maxGradePercent": 15.5,
+      "minimumSegmentMeters": 0.212,
+      "coincidentSamples": 1,
+      "crossings": [
+        {
+          "segments": [
+            977,
+            1227
+          ],
+          "heightGapMeters": 0
+        }
+      ],
+      "pitIndex": 917,
+      "pitEntry": true,
+      "sceneryFootprintsClear": true,
+      "buildings": 109,
+      "plants": 56,
+      "sourceScenery": {
+        "retained": 0,
+        "relocated": 6,
+        "omitted": 10
+      },
+      "finite": true
+    },
+    {
+      "city": "Phoenix",
+      "style": "mesa",
+      "samples": 1486,
+      "lengthMeters": 2197,
+      "maxGradePercent": 25.9,
+      "minimumSegmentMeters": 1.259,
+      "coincidentSamples": 0,
+      "crossings": [],
+      "pitIndex": 839,
+      "pitEntry": true,
+      "sceneryFootprintsClear": true,
+      "buildings": 65,
+      "plants": 53,
+      "sourceScenery": {
+        "retained": 0,
+        "relocated": 7,
+        "omitted": 7
+      },
+      "finite": true
+    },
+    {
+      "city": "New York",
+      "style": "spire",
+      "samples": 1398,
+      "lengthMeters": 2078,
+      "maxGradePercent": 15,
+      "minimumSegmentMeters": 1.05,
+      "coincidentSamples": 0,
+      "crossings": [
+        {
+          "segments": [
+            287,
+            1005
+          ],
+          "heightGapMeters": 7.06
+        }
+      ],
+      "pitIndex": 865,
+      "pitEntry": true,
+      "sceneryFootprintsClear": true,
+      "buildings": 181,
+      "plants": 42,
+      "sourceScenery": {
+        "retained": 0,
+        "relocated": 6,
+        "omitted": 11
+      },
+      "finite": true
+    },
+    {
+      "city": "St Louis",
+      "style": "arch",
+      "samples": 1130,
+      "lengthMeters": 1681,
+      "maxGradePercent": 5.3,
+      "minimumSegmentMeters": 1.404,
+      "coincidentSamples": 0,
+      "crossings": [],
+      "pitIndex": 742,
+      "pitEntry": true,
+      "sceneryFootprintsClear": true,
+      "buildings": 92,
+      "plants": 40,
+      "sourceScenery": {
+        "retained": 0,
+        "relocated": 5,
+        "omitted": 13
+      },
+      "finite": true
+    },
+    {
+      "city": "Los Angeles",
+      "style": "hills",
+      "samples": 1764,
+      "lengthMeters": 2626,
+      "maxGradePercent": 15.5,
+      "minimumSegmentMeters": 1.39,
+      "coincidentSamples": 0,
+      "crossings": [],
+      "pitIndex": 350,
+      "pitEntry": true,
+      "sceneryFootprintsClear": true,
+      "buildings": 102,
+      "plants": 62,
+      "sourceScenery": {
+        "retained": 0,
+        "relocated": 2,
+        "omitted": 17
+      },
+      "finite": true
+    },
+    {
+      "city": "Seattle",
+      "style": "needle",
+      "samples": 1748,
+      "lengthMeters": 2609,
+      "maxGradePercent": 15.7,
+      "minimumSegmentMeters": 1.401,
+      "coincidentSamples": 0,
+      "crossings": [
+        {
+          "segments": [
+            530,
+            796
+          ],
+          "heightGapMeters": 5.84
+        }
+      ],
+      "pitIndex": 1138,
+      "pitEntry": true,
+      "sceneryFootprintsClear": true,
+      "buildings": 108,
+      "plants": 60,
+      "sourceScenery": {
+        "retained": 1,
+        "relocated": 2,
+        "omitted": 12
+      },
+      "finite": true
+    },
+    {
+      "city": "Houston",
+      "style": "industry",
+      "samples": 875,
+      "lengthMeters": 1304,
+      "maxGradePercent": 5.2,
+      "minimumSegmentMeters": 1.404,
+      "coincidentSamples": 0,
+      "crossings": [],
+      "pitIndex": 571,
+      "pitEntry": true,
+      "sceneryFootprintsClear": true,
+      "buildings": 114,
+      "plants": 30,
+      "sourceScenery": {
+        "retained": 0,
+        "relocated": 8,
+        "omitted": 8
+      },
+      "finite": true
+    },
+    {
+      "city": "Boston",
+      "style": "clock",
+      "samples": 1359,
+      "lengthMeters": 2030,
+      "maxGradePercent": 25.9,
+      "minimumSegmentMeters": 1.408,
+      "coincidentSamples": 0,
+      "crossings": [
+        {
+          "segments": [
+            666,
+            1153
+          ],
+          "heightGapMeters": 7.53
+        }
+      ],
+      "pitIndex": 568,
+      "pitEntry": true,
+      "sceneryFootprintsClear": true,
+      "buildings": 117,
+      "plants": 45,
+      "sourceScenery": {
+        "retained": 0,
+        "relocated": 4,
+        "omitted": 7
+      },
+      "finite": true
+    },
+    {
+      "city": "Chicago",
+      "style": "twin",
+      "samples": 1442,
+      "lengthMeters": 2129,
+      "maxGradePercent": 13.4,
+      "minimumSegmentMeters": 1.237,
+      "coincidentSamples": 0,
+      "crossings": [],
+      "pitIndex": 502,
+      "pitEntry": true,
+      "sceneryFootprintsClear": true,
+      "buildings": 156,
+      "plants": 50,
+      "sourceScenery": {
+        "retained": 0,
+        "relocated": 6,
+        "omitted": 11
+      },
+      "finite": true
+    }
+  ]
+}

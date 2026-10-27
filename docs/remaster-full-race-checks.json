@@ -1,0 +1,6772 @@
+{
+  "date": "2026-10-25",
+  "method": "Accelerated production simulation at fixed 1/60 second; 3 laps, 900 second limit, real rival AI/combat; player autopilot with periodic fire/weapon cycling. Garage vehicle specs with controlled mixed weapon loadout. Pit adapter supplies resources, excluding economy. Invariants sampled once per second.",
+  "limitations": [
+    "Not a browser FPS benchmark or real-time endurance test.",
+    "Career scenarios are independent races, not a persisted ten-event championship.",
+    "Practice permits normal disable recovery and autopilot re-engagement.",
+    "Not human balance acceptance; career runs use simple autopilot and no strategic pit stops."
+  ],
+  "summary": {
+    "scenarios": 90,
+    "simulatedHours": 6.132240740740993,
+    "finished": 57,
+    "wrecked": 33,
+    "practiceFinished": 50,
+    "pitRuns": 40,
+    "completedServices": 280,
+    "issues": 0
+  },
+  "runs": [
+    {
+      "city": "orlando",
+      "mode": "baseline",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 427.0333333332736,
+      "laps": 3,
+      "progressLaps": 3.0000915823527166,
+      "position": 5,
+      "finished": 5,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "fuel": 17.88516772604507,
+      "damage": {
+        "gun": 554.8350891345258,
+        "wheel": 25,
+        "collision": 2.6486369721750895,
+        "laser": 105,
+        "missile": 200.243436593905,
+        "mine": 484.8641918483829,
+        "rocket": 190.01707397254842,
+        "beam": 120,
+        "ram": 6.565862413872964
+      },
+      "events": {
+        "shot": 390,
+        "hit": 243,
+        "explosion": 33,
+        "wreck": 5,
+        "tyres": 19
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "bay_area",
+      "mode": "baseline",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 429.69999999993786,
+      "laps": 3,
+      "progressLaps": 3.000073502774339,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 1,
+      "landings": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "fuel": 20.917738115180317,
+      "damage": {
+        "gun": 192,
+        "wheel": 41,
+        "collision": 11.961043671081445,
+        "missile": 199.16537883502212,
+        "laser": 206.28570726094244,
+        "mine": 500,
+        "beam": 82.63850096663349,
+        "rocket": 83.64555720323872,
+        "ram": 1.3830488271263168
+      },
+      "events": {
+        "shot": 304,
+        "hit": 178,
+        "explosion": 31,
+        "wreck": 4,
+        "tyres": 21
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "phoenix",
+      "mode": "baseline",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 343.7666666666827,
+      "laps": 3,
+      "progressLaps": 3.00010496779854,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 1,
+      "landings": [
+        0,
+        0,
+        5,
+        2,
+        1,
+        6,
+        4,
+        6,
+        6,
+        6
+      ],
+      "fuel": 27.28464556740885,
+      "damage": {
+        "gun": 144,
+        "wheel": 31,
+        "collision": 5.439685790180979,
+        "laser": 63,
+        "mine": 399,
+        "missile": 80.54496804718801,
+        "beam": 187.27997328831333,
+        "ram": 4.431607725815853
+      },
+      "events": {
+        "shot": 238,
+        "hit": 131,
+        "explosion": 21,
+        "tyres": 10,
+        "wreck": 3
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "nyc",
+      "mode": "baseline",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 321.1833333333699,
+      "laps": 3,
+      "progressLaps": 3.0001874147163665,
+      "position": 8,
+      "finished": 8,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 1,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 29.322340333933965,
+      "damage": {
+        "gun": 246,
+        "wheel": 37,
+        "collision": 2.6380523198944124,
+        "ram": 12.295692768866333,
+        "laser": 113,
+        "missile": 213.0225325788981,
+        "mine": 420,
+        "rocket": 75.26386745324393,
+        "beam": 140
+      },
+      "events": {
+        "shot": 267,
+        "hit": 179,
+        "explosion": 28,
+        "tyres": 11,
+        "wreck": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "st_louis",
+      "mode": "baseline",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 283.05000000007124,
+      "laps": 3,
+      "progressLaps": 3.0001921659700286,
+      "position": 7,
+      "finished": 7,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "autoRestarts": 1,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 35.01558056688034,
+      "damage": {
+        "gun": 299.57247378805465,
+        "wheel": 30,
+        "collision": 2.758984902076409,
+        "laser": 140,
+        "missile": 99.19901355254655,
+        "beam": 200.6205075489618,
+        "rocket": 111.42752621194533,
+        "mine": 480,
+        "ram": 1.3165130941298138
+      },
+      "events": {
+        "shot": 289,
+        "hit": 194,
+        "explosion": 29,
+        "tyres": 15,
+        "wreck": 5
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "la",
+      "mode": "baseline",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 380.96666666664885,
+      "laps": 3,
+      "progressLaps": 3.0000975745550518,
+      "position": 8,
+      "finished": 8,
+      "wrecked": 0,
+      "recoveries": [
+        2,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        2,
+        0,
+        2,
+        3,
+        0,
+        0,
+        3,
+        1,
+        1
+      ],
+      "fuel": 21.21784546409058,
+      "damage": {
+        "gun": 365,
+        "wheel": 25,
+        "collision": 4.943872824344284,
+        "laser": 279.9434809737528,
+        "missile": 171.01197720015188,
+        "beam": 101,
+        "rocket": 78.04536290748122,
+        "mine": 462.1439171004722,
+        "ram": 3.462984096779331
+      },
+      "events": {
+        "shot": 337,
+        "hit": 220,
+        "explosion": 30,
+        "tyres": 15,
+        "wreck": 5
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "seattle",
+      "mode": "baseline",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 434.6999999999333,
+      "laps": 3,
+      "progressLaps": 3.0000397564965473,
+      "position": 8,
+      "finished": 8,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "autoRestarts": 1,
+      "landings": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 20.00741372251067,
+      "damage": {
+        "gun": 249.6353687493263,
+        "wheel": 37,
+        "collision": 4.246608822825631,
+        "missile": 243.1484740790951,
+        "beam": 252,
+        "ram": 4.627539644529098,
+        "rocket": 88.54410373738996,
+        "laser": 161,
+        "mine": 404.21152524895047
+      },
+      "events": {
+        "shot": 325,
+        "hit": 194,
+        "explosion": 28,
+        "tyres": 14,
+        "wreck": 4
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "houston",
+      "mode": "baseline",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 270.866666666749,
+      "laps": 3,
+      "progressLaps": 3.0001521609716844,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 1,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 39.88529926157959,
+      "damage": {
+        "gun": 171.08166477292284,
+        "wheel": 21,
+        "collision": 0.6211428774359273,
+        "laser": 56,
+        "missile": 93.92411886504382,
+        "mine": 494,
+        "beam": 80,
+        "ram": 3.5328016698757683,
+        "rocket": 45
+      },
+      "events": {
+        "shot": 223,
+        "hit": 115,
+        "explosion": 28,
+        "wreck": 3,
+        "tyres": 12
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "boston",
+      "mode": "baseline",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 279.23333333340804,
+      "laps": 3,
+      "progressLaps": 3.000162178584698,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 1,
+      "landings": [
+        0,
+        0,
+        3,
+        3,
+        3,
+        3,
+        1,
+        3,
+        3,
+        2
+      ],
+      "fuel": 30.939121636363474,
+      "damage": {
+        "gun": 231.61335876907444,
+        "wheel": 39.65388920360755,
+        "collision": 5.155032465510857,
+        "laser": 49,
+        "missile": 224.01956499530968,
+        "beam": 100,
+        "ram": 12.07678611922674,
+        "mine": 400.5775120698313,
+        "rocket": 34.930091220942174
+      },
+      "events": {
+        "shot": 233,
+        "hit": 158,
+        "explosion": 26,
+        "tyres": 8,
+        "wreck": 3
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "chicago",
+      "mode": "baseline",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 343.7333333333494,
+      "laps": 3,
+      "progressLaps": 3.000031253097647,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 1,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 28.070962162298773,
+      "damage": {
+        "gun": 288,
+        "wheel": 25,
+        "collision": 3.1739428229084767,
+        "missile": 218.1018631471921,
+        "ram": 9.875732170348325,
+        "rocket": 37.89801094790667,
+        "laser": 151.47858585826293,
+        "mine": 371,
+        "beam": 166
+      },
+      "events": {
+        "shot": 274,
+        "hit": 187,
+        "explosion": 26,
+        "tyres": 17,
+        "wreck": 5
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "orlando",
+      "mode": "career",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 427.33333333327334,
+      "laps": 3,
+      "progressLaps": 3.0000870569401674,
+      "position": 5,
+      "finished": 5,
+      "wrecked": 3,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        3,
+        0
+      ],
+      "fuel": 17.86870604125332,
+      "damage": {
+        "gun": 158.5816858172648,
+        "wheel": 20,
+        "collision": 2.2779593804610236,
+        "laser": 91,
+        "missile": 199.99162615270416,
+        "mine": 404.8641918483829,
+        "rocket": 190.01707397254842,
+        "beam": 40
+      },
+      "events": {
+        "shot": 258,
+        "hit": 107,
+        "explosion": 29,
+        "wreck": 3,
+        "tyres": 12
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "bay_area",
+      "mode": "career",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 185.90000000004008,
+      "laps": 2,
+      "progressLaps": 1.3090113114106239,
+      "position": 9,
+      "finished": 0,
+      "wrecked": 3,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 44.27979922674745,
+      "damage": {
+        "gun": 175,
+        "wheel": 35,
+        "collision": 2.9616052480092367,
+        "missile": 199.16537883502212,
+        "laser": 98,
+        "mine": 440,
+        "beam": 62,
+        "rocket": 42.39949510136421
+      },
+      "events": {
+        "shot": 193,
+        "hit": 141,
+        "explosion": 27,
+        "wreck": 3,
+        "tyres": 16
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "phoenix",
+      "mode": "career",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 43.19999999999883,
+      "laps": 1,
+      "progressLaps": 0.3117102337649312,
+      "position": 9,
+      "finished": 0,
+      "wrecked": 2,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "fuel": 58.517642471455,
+      "damage": {
+        "gun": 66,
+        "wheel": 22,
+        "collision": 5.439685790180979,
+        "laser": 28,
+        "mine": 399,
+        "missile": 80.54496804718801,
+        "beam": 118,
+        "ram": 3.206299798497375
+      },
+      "events": {
+        "shot": 82,
+        "hit": 86,
+        "explosion": 21,
+        "tyres": 5,
+        "wreck": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "nyc",
+      "mode": "career",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 101.01666666666222,
+      "laps": 1,
+      "progressLaps": 0.8922713146285619,
+      "position": 9,
+      "finished": 0,
+      "wrecked": 2,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 52.338792434089534,
+      "damage": {
+        "gun": 138,
+        "wheel": 20,
+        "collision": 2.6380523198944124,
+        "ram": 5.422304874753111,
+        "laser": 85,
+        "missile": 213.0225325788981,
+        "mine": 400,
+        "rocket": 75.26386745324393,
+        "beam": 60
+      },
+      "events": {
+        "shot": 146,
+        "hit": 116,
+        "explosion": 27,
+        "tyres": 9,
+        "wreck": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "st_louis",
+      "mode": "career",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 59.74999999999789,
+      "laps": 1,
+      "progressLaps": 0.5779558478028957,
+      "position": 9,
+      "finished": 0,
+      "wrecked": 2,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 56.93821987653128,
+      "damage": {
+        "gun": 81,
+        "wheel": 24,
+        "collision": 2.758984902076409,
+        "laser": 56,
+        "missile": 99.19901355254655,
+        "beam": 120.6205075489618,
+        "rocket": 111.42752621194533,
+        "mine": 420,
+        "ram": 1.3165130941298138
+      },
+      "events": {
+        "shot": 97,
+        "hit": 96,
+        "explosion": 26,
+        "tyres": 10,
+        "wreck": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "la",
+      "mode": "career",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 90.14999999999617,
+      "laps": 1,
+      "progressLaps": 0.6751632388734365,
+      "position": 9,
+      "finished": 0,
+      "wrecked": 2,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 52.926384804664906,
+      "damage": {
+        "gun": 111,
+        "wheel": 22,
+        "collision": 4.943872824344284,
+        "laser": 77,
+        "missile": 171.01197720015188,
+        "beam": 81,
+        "rocket": 78.04536290748122,
+        "mine": 369.1439171004722,
+        "ram": 2.07103475605581
+      },
+      "events": {
+        "shot": 125,
+        "hit": 107,
+        "explosion": 25,
+        "tyres": 11,
+        "wreck": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "seattle",
+      "mode": "career",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 36.949999999999186,
+      "laps": 1,
+      "progressLaps": 0.28709996754825984,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 58.42547017238137,
+      "damage": {
+        "gun": 108,
+        "wheel": 20,
+        "collision": 3.8004258660587817,
+        "missile": 183.1484740790951,
+        "beam": 92,
+        "ram": 2.0587291971957984,
+        "rocket": 88.54410373738996,
+        "laser": 49,
+        "mine": 220
+      },
+      "events": {
+        "shot": 88,
+        "hit": 92,
+        "explosion": 17,
+        "tyres": 1,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "houston",
+      "mode": "career",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 132.69999999999774,
+      "laps": 2,
+      "progressLaps": 1.4826614655645074,
+      "position": 8,
+      "finished": 0,
+      "wrecked": 3,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 51.28227714356835,
+      "damage": {
+        "gun": 162.08166477292284,
+        "wheel": 18,
+        "collision": 0.6211428774359273,
+        "laser": 28,
+        "missile": 93.92411886504382,
+        "mine": 354,
+        "beam": 80,
+        "ram": 1.9942163620333377,
+        "rocket": 45
+      },
+      "events": {
+        "shot": 146,
+        "hit": 97,
+        "explosion": 21,
+        "wreck": 3,
+        "tyres": 6
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "boston",
+      "mode": "career",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 41.29999999999894,
+      "laps": 1,
+      "progressLaps": 0.384629826125556,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "fuel": 58.16943699008414,
+      "damage": {
+        "gun": 108.61335876907444,
+        "wheel": 33,
+        "collision": 5.155032465510857,
+        "laser": 42,
+        "missile": 224.01956499530968,
+        "beam": 40,
+        "ram": 10.774402758155144,
+        "mine": 340
+      },
+      "events": {
+        "shot": 88,
+        "hit": 105,
+        "explosion": 21,
+        "tyres": 2,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "chicago",
+      "mode": "career",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 88.99999999999623,
+      "laps": 1,
+      "progressLaps": 0.7910181875333391,
+      "position": 8,
+      "finished": 0,
+      "wrecked": 3,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 53.369000324200755,
+      "damage": {
+        "gun": 135,
+        "wheel": 16,
+        "collision": 3.1739428229084767,
+        "missile": 218.1018631471921,
+        "ram": 3.6186728669638866,
+        "rocket": 37.89801094790667,
+        "laser": 56,
+        "mine": 360,
+        "beam": 126
+      },
+      "events": {
+        "shot": 140,
+        "hit": 107,
+        "explosion": 25,
+        "tyres": 13,
+        "wreck": 3
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "orlando",
+      "mode": "career",
+      "difficulty": 1,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 99.6666666666623,
+      "laps": 1,
+      "progressLaps": 0.609822120341777,
+      "position": 8,
+      "finished": 0,
+      "wrecked": 3,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "fuel": 52.95314312966075,
+      "damage": {
+        "gun": 186.5032944811325,
+        "wheel": 19,
+        "collision": 7.019019781183754,
+        "laser": 49,
+        "missile": 147.07563780269746,
+        "mine": 420,
+        "rocket": 127.14759828187022,
+        "ram": 7.014765820860592,
+        "beam": 40
+      },
+      "events": {
+        "shot": 153,
+        "hit": 118,
+        "explosion": 28,
+        "wreck": 3,
+        "tyres": 14
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "bay_area",
+      "mode": "career",
+      "difficulty": 1,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 229.5666666667415,
+      "laps": 2,
+      "progressLaps": 1.69353325269642,
+      "position": 7,
+      "finished": 0,
+      "wrecked": 4,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "fuel": 39.27891207697518,
+      "damage": {
+        "gun": 151,
+        "wheel": 26,
+        "collision": 3.062032430236111,
+        "missile": 199.81484836259756,
+        "laser": 220,
+        "ram": 7.260817640574734,
+        "beam": 141.0614414977116,
+        "mine": 400,
+        "rocket": 38.2290093322568
+      },
+      "events": {
+        "shot": 205,
+        "hit": 149,
+        "explosion": 26,
+        "tyres": 13,
+        "wreck": 4
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "phoenix",
+      "mode": "career",
+      "difficulty": 1,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 24.58333333333322,
+      "laps": 1,
+      "progressLaps": 0.18527852417239657,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 60.10408955774133,
+      "damage": {
+        "gun": 96,
+        "wheel": 18,
+        "collision": 3.091573488655416,
+        "laser": 49,
+        "mine": 299,
+        "missile": 49.05753096519608,
+        "beam": 20,
+        "ram": 2.108169167146136,
+        "rocket": 37.48377751856364
+      },
+      "events": {
+        "shot": 73,
+        "hit": 77,
+        "explosion": 17,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "nyc",
+      "mode": "career",
+      "difficulty": 1,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 322.183333333369,
+      "laps": 3,
+      "progressLaps": 3.0000091581698567,
+      "position": 6,
+      "finished": 6,
+      "wrecked": 2,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 29.336582996304166,
+      "damage": {
+        "gun": 228,
+        "wheel": 22,
+        "collision": 3.2463120511311176,
+        "ram": 7.718462383978073,
+        "laser": 119,
+        "missile": 214.0128825574639,
+        "rocket": 77.87514752641653,
+        "mine": 420,
+        "beam": 87.61406617555312
+      },
+      "events": {
+        "shot": 259,
+        "hit": 158,
+        "explosion": 28,
+        "tyres": 15,
+        "wreck": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "st_louis",
+      "mode": "career",
+      "difficulty": 1,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 254.08333333342767,
+      "laps": 3,
+      "progressLaps": 3.000278633370457,
+      "position": 5,
+      "finished": 5,
+      "wrecked": 2,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 35.75607941424055,
+      "damage": {
+        "gun": 145.88079451826934,
+        "wheel": 21,
+        "collision": 2.758984902076409,
+        "missile": 86.10323606130689,
+        "laser": 126,
+        "beam": 100,
+        "mine": 380,
+        "ram": 1.6118050083699051,
+        "rocket": 37.119205481730646
+      },
+      "events": {
+        "shot": 200,
+        "hit": 118,
+        "explosion": 22,
+        "tyres": 14,
+        "wreck": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "la",
+      "mode": "career",
+      "difficulty": 1,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 33.23333333333273,
+      "laps": 1,
+      "progressLaps": 0.28888214655442734,
+      "position": 9,
+      "finished": 0,
+      "wrecked": 2,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 58.480289916396565,
+      "damage": {
+        "gun": 96,
+        "wheel": 18,
+        "collision": 9.711718220149184,
+        "laser": 91,
+        "beam": 80,
+        "missile": 141.18106841464746,
+        "mine": 310.38526649788037,
+        "ram": 10.53440621370083,
+        "rocket": 74.28907422843271
+      },
+      "events": {
+        "shot": 83,
+        "hit": 101,
+        "explosion": 22,
+        "wreck": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "seattle",
+      "mode": "career",
+      "difficulty": 1,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 59.89999999999788,
+      "laps": 1,
+      "progressLaps": 0.4236253362919043,
+      "position": 9,
+      "finished": 0,
+      "wrecked": 2,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 56.40841797101654,
+      "damage": {
+        "gun": 105,
+        "wheel": 17,
+        "collision": 3.6757433194195848,
+        "missile": 193.31236556201128,
+        "rocket": 81.57963832996779,
+        "mine": 277.3092235670497,
+        "ram": 14.959498298081842,
+        "beam": 100,
+        "laser": 42
+      },
+      "events": {
+        "shot": 98,
+        "hit": 95,
+        "explosion": 20,
+        "tyres": 6,
+        "wreck": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "houston",
+      "mode": "career",
+      "difficulty": 1,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 29.433333333332943,
+      "laps": 1,
+      "progressLaps": 0.29998045308746574,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 60.04673364854249,
+      "damage": {
+        "gun": 102,
+        "wheel": 13,
+        "collision": 0.6211428774359273,
+        "laser": 14,
+        "missile": 98.0373797835501,
+        "mine": 264,
+        "beam": 40
+      },
+      "events": {
+        "shot": 66,
+        "hit": 64,
+        "explosion": 16,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "boston",
+      "mode": "career",
+      "difficulty": 1,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 265.96666666675344,
+      "laps": 3,
+      "progressLaps": 3.000234849416576,
+      "position": 4,
+      "finished": 4,
+      "wrecked": 5,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        2,
+        3,
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        1
+      ],
+      "fuel": 31.28762883129297,
+      "damage": {
+        "gun": 283.601156564719,
+        "wheel": 33,
+        "collision": 8.176805263236558,
+        "laser": 98,
+        "missile": 301.9503067335547,
+        "ram": 9.663373059455116,
+        "mine": 420,
+        "beam": 45.9923991039862,
+        "rocket": 113.74512532975686
+      },
+      "events": {
+        "shot": 263,
+        "hit": 187,
+        "explosion": 30,
+        "tyres": 12,
+        "wreck": 5
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "chicago",
+      "mode": "career",
+      "difficulty": 1,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 30.1833333333329,
+      "laps": 1,
+      "progressLaps": 0.26400899884748463,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 59.33516657578504,
+      "damage": {
+        "gun": 84,
+        "wheel": 16,
+        "collision": 7.703097944475381,
+        "missile": 208.2252825969933,
+        "mine": 313.6702026993914,
+        "laser": 49,
+        "beam": 60,
+        "ram": 8.967574518785458
+      },
+      "events": {
+        "shot": 72,
+        "hit": 84,
+        "explosion": 20,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "orlando",
+      "mode": "career",
+      "difficulty": 2,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 88.84999999999624,
+      "laps": 1,
+      "progressLaps": 0.5541840234123525,
+      "position": 8,
+      "finished": 0,
+      "wrecked": 3,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "fuel": 53.881836713807736,
+      "damage": {
+        "gun": 195,
+        "wheel": 17,
+        "collision": 2.2779593804610236,
+        "laser": 84,
+        "missile": 93.35453891538252,
+        "mine": 400,
+        "rocket": 116.80672991944465,
+        "beam": 146.20669658057125,
+        "ram": 1.4497570682667635
+      },
+      "events": {
+        "shot": 148,
+        "hit": 111,
+        "explosion": 25,
+        "tyres": 17,
+        "wreck": 3
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "bay_area",
+      "mode": "career",
+      "difficulty": 2,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 351.30000000000916,
+      "laps": 3,
+      "progressLaps": 2.50619789029877,
+      "position": 6,
+      "finished": 1,
+      "wrecked": 5,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "fuel": 27.945325020348616,
+      "damage": {
+        "gun": 358.60700587362237,
+        "wheel": 25,
+        "collision": 3.8072884922920283,
+        "laser": 123.63799980197692,
+        "missile": 189.4301054158292,
+        "ram": 10.80015110193825,
+        "beam": 120,
+        "mine": 420.59856586891965,
+        "rocket": 75.20114282804522
+      },
+      "events": {
+        "shot": 331,
+        "hit": 208,
+        "explosion": 29,
+        "tyres": 16,
+        "wreck": 5
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "phoenix",
+      "mode": "career",
+      "difficulty": 2,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 19.966666666666814,
+      "laps": 1,
+      "progressLaps": 0.15655765199346947,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 60.482990706783795,
+      "damage": {
+        "gun": 88,
+        "wheel": 15,
+        "collision": 3.091573488655416,
+        "laser": 49,
+        "beam": 20,
+        "rocket": 38.49053939924421,
+        "mine": 176,
+        "missile": 46.83998922988087
+      },
+      "events": {
+        "shot": 57,
+        "hit": 63,
+        "explosion": 11,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "nyc",
+      "mode": "career",
+      "difficulty": 2,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 54.2499999999982,
+      "laps": 1,
+      "progressLaps": 0.41692073976152255,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 57.49976741376555,
+      "damage": {
+        "gun": 117,
+        "wheel": 31,
+        "collision": 9.51951960497928,
+        "ram": 17.01711643950007,
+        "laser": 89.17002369617691,
+        "missile": 204.35638519499972,
+        "mine": 380,
+        "beam": 60
+      },
+      "events": {
+        "shot": 109,
+        "hit": 120,
+        "explosion": 23,
+        "tyres": 8,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "st_louis",
+      "mode": "career",
+      "difficulty": 2,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 21.93333333333337,
+      "laps": 1,
+      "progressLaps": 0.15329060298682637,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 60.76075473566277,
+      "damage": {
+        "gun": 69,
+        "wheel": 16,
+        "collision": 2.758984902076409,
+        "rocket": 77.04428366616688,
+        "missile": 146.7831628866615,
+        "laser": 63,
+        "mine": 199,
+        "beam": 40
+      },
+      "events": {
+        "shot": 59,
+        "hit": 68,
+        "explosion": 15,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "la",
+      "mode": "career",
+      "difficulty": 2,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 30.599999999999543,
+      "laps": 1,
+      "progressLaps": 0.2509355936863698,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 58.94709308250607,
+      "damage": {
+        "gun": 111,
+        "wheel": 14,
+        "collision": 5.291528305286513,
+        "beam": 40,
+        "laser": 91,
+        "missile": 142.8469891554269,
+        "mine": 280,
+        "ram": 3.524311256269495,
+        "rocket": 31.79531812205789
+      },
+      "events": {
+        "shot": 86,
+        "hit": 90,
+        "explosion": 18,
+        "tyres": 1,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "seattle",
+      "mode": "career",
+      "difficulty": 2,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 52.28333333333165,
+      "laps": 1,
+      "progressLaps": 0.3823008636751534,
+      "position": 9,
+      "finished": 0,
+      "wrecked": 2,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 57.032666194429176,
+      "damage": {
+        "gun": 114,
+        "wheel": 13,
+        "collision": 2.3431127821056457,
+        "missile": 136.11420170724864,
+        "ram": 3.1941950928339597,
+        "laser": 35,
+        "mine": 340,
+        "rocket": 41.62977937782397,
+        "beam": 66
+      },
+      "events": {
+        "shot": 94,
+        "hit": 86,
+        "explosion": 21,
+        "tyres": 5,
+        "wreck": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "houston",
+      "mode": "career",
+      "difficulty": 2,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 39.84999999999902,
+      "laps": 1,
+      "progressLaps": 0.41851132883216996,
+      "position": 9,
+      "finished": 0,
+      "wrecked": 2,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 59.18534541781226,
+      "damage": {
+        "gun": 137,
+        "wheel": 11,
+        "collision": 0.6211428774359273,
+        "laser": 84,
+        "missile": 100.32037476456318,
+        "mine": 360,
+        "beam": 85.67962523543682,
+        "rocket": 31.656451480515795
+      },
+      "events": {
+        "shot": 100,
+        "hit": 88,
+        "explosion": 21,
+        "wreck": 2,
+        "tyres": 4
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "boston",
+      "mode": "career",
+      "difficulty": 2,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 45.08333333333206,
+      "laps": 1,
+      "progressLaps": 0.4529527076994692,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 2,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "fuel": 57.5258264696534,
+      "damage": {
+        "gun": 163,
+        "wheel": 19,
+        "collision": 2.9767334586463043,
+        "missile": 168.74680865720023,
+        "ram": 1.7764341688442806,
+        "beam": 114,
+        "laser": 70,
+        "mine": 392,
+        "rocket": 45
+      },
+      "events": {
+        "shot": 112,
+        "hit": 110,
+        "explosion": 25,
+        "tyres": 3,
+        "wreck": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "chicago",
+      "mode": "career",
+      "difficulty": 2,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 312.30000000004463,
+      "laps": 3,
+      "progressLaps": 3.000034034938029,
+      "position": 5,
+      "finished": 5,
+      "wrecked": 4,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 28.93430109734892,
+      "damage": {
+        "gun": 224,
+        "wheel": 18,
+        "collision": 2.3431127821056625,
+        "missile": 297.7571809231842,
+        "laser": 81.82790092991729,
+        "mine": 380,
+        "ram": 1.3267051183321839,
+        "beam": 120,
+        "rocket": 71.86176652025273
+      },
+      "events": {
+        "shot": 250,
+        "hit": 141,
+        "explosion": 28,
+        "tyres": 12,
+        "wreck": 4
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "orlando",
+      "mode": "career",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 36.0666666666659,
+      "laps": 1,
+      "progressLaps": 0.18544329091982145,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 59.34080571387433,
+      "damage": {
+        "gun": 140,
+        "wheel": 19,
+        "collision": 2.2779593804610236,
+        "laser": 56,
+        "beam": 100,
+        "missile": 101.88639483423472,
+        "rocket": 124.11721903240813,
+        "mine": 300,
+        "ram": 4.082780077494182
+      },
+      "events": {
+        "shot": 99,
+        "hit": 100,
+        "explosion": 20,
+        "tyres": 4,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "bay_area",
+      "mode": "career",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 26.44999999999978,
+      "laps": 1,
+      "progressLaps": 0.15881139711212383,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 60.06377374150785,
+      "damage": {
+        "gun": 135,
+        "wheel": 23,
+        "collision": 3.748919235242955,
+        "laser": 98,
+        "missile": 189.5107902700318,
+        "ram": 8.680605652378897,
+        "beam": 43.71885701550001,
+        "mine": 280,
+        "rocket": 80.81942021430089
+      },
+      "events": {
+        "shot": 87,
+        "hit": 114,
+        "explosion": 20,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "phoenix",
+      "mode": "career",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 164.58333333335645,
+      "laps": 2,
+      "progressLaps": 1.5649400070261041,
+      "position": 8,
+      "finished": 0,
+      "wrecked": 3,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        2,
+        1,
+        0,
+        0,
+        3,
+        3,
+        2,
+        3,
+        4,
+        4
+      ],
+      "fuel": 44.41221832154602,
+      "damage": {
+        "gun": 247,
+        "wheel": 23,
+        "collision": 3.2731446608259125,
+        "laser": 98,
+        "missile": 108.15726145481165,
+        "mine": 380,
+        "beam": 99.58117568777507
+      },
+      "events": {
+        "shot": 185,
+        "hit": 148,
+        "explosion": 22,
+        "tyres": 9,
+        "wreck": 3
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "nyc",
+      "mode": "career",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 46.449999999998646,
+      "laps": 1,
+      "progressLaps": 0.3674360425622464,
+      "position": 8,
+      "finished": 0,
+      "wrecked": 4,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 58.14680080480423,
+      "damage": {
+        "gun": 156.09386746836935,
+        "wheel": 26,
+        "collision": 9.416572048615928,
+        "ram": 11.330549848118139,
+        "laser": 70,
+        "beam": 100,
+        "missile": 194.14858688986033,
+        "rocket": 84.26855132069176,
+        "mine": 316.760190429807
+      },
+      "events": {
+        "shot": 115,
+        "hit": 129,
+        "explosion": 23,
+        "wreck": 4,
+        "tyres": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "st_louis",
+      "mode": "career",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 35.61666666666593,
+      "laps": 1,
+      "progressLaps": 0.28665345490882177,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 59.52578692760671,
+      "damage": {
+        "gun": 126,
+        "wheel": 16,
+        "collision": 2.758984902076409,
+        "laser": 63,
+        "rocket": 77.11388121999582,
+        "missile": 108.3703758202023,
+        "beam": 20,
+        "mine": 293,
+        "ram": 1.4148724887756872
+      },
+      "events": {
+        "shot": 91,
+        "hit": 90,
+        "explosion": 19,
+        "tyres": 1,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "la",
+      "mode": "career",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 371.9499999999904,
+      "laps": 3,
+      "progressLaps": 3.00001695596057,
+      "position": 4,
+      "finished": 4,
+      "wrecked": 6,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        1,
+        3,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "fuel": 21.490447066363576,
+      "damage": {
+        "gun": 216.35335044233082,
+        "wheel": 22,
+        "collision": 10.120234537506269,
+        "laser": 182,
+        "missile": 261.6611866194761,
+        "beam": 266.9718731736107,
+        "rocket": 39.67077457454896,
+        "mine": 332,
+        "ram": 6.480293326482674
+      },
+      "events": {
+        "shot": 298,
+        "hit": 163,
+        "explosion": 24,
+        "tyres": 10,
+        "wreck": 6
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "seattle",
+      "mode": "career",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 59.999999999997875,
+      "laps": 1,
+      "progressLaps": 0.4353651525849638,
+      "position": 8,
+      "finished": 0,
+      "wrecked": 3,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "fuel": 56.2633360666033,
+      "damage": {
+        "gun": 142,
+        "wheel": 20,
+        "collision": 2.3431127821056457,
+        "missile": 269.01919734930226,
+        "ram": 3.0471393462971967,
+        "beam": 140,
+        "laser": 84,
+        "mine": 360,
+        "rocket": 39.452542622628194
+      },
+      "events": {
+        "shot": 122,
+        "hit": 117,
+        "explosion": 25,
+        "tyres": 10,
+        "wreck": 3
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "houston",
+      "mode": "career",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 235.31666666674607,
+      "laps": 3,
+      "progressLaps": 3.000127793574042,
+      "position": 6,
+      "finished": 6,
+      "wrecked": 4,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 40.74338515860752,
+      "damage": {
+        "gun": 220.59633034668033,
+        "wheel": 18,
+        "collision": 0.6211428774359273,
+        "laser": 147,
+        "missile": 183.60712715287556,
+        "beam": 60.518923121933696,
+        "mine": 420,
+        "rocket": 78.70730418899136,
+        "ram": 3.170505439348333
+      },
+      "events": {
+        "shot": 213,
+        "hit": 141,
+        "explosion": 28,
+        "tyres": 16,
+        "wreck": 4
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "boston",
+      "mode": "career",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 24.03333333333325,
+      "laps": 1,
+      "progressLaps": 0.16801236187915278,
+      "position": 10,
+      "finished": 0,
+      "wrecked": 1,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 60.367293652781086,
+      "damage": {
+        "gun": 102,
+        "wheel": 14,
+        "collision": 3.7985359372908203,
+        "laser": 91,
+        "beam": 60,
+        "missile": 159.0610527462701,
+        "ram": 4.349904911741662,
+        "mine": 279
+      },
+      "events": {
+        "shot": 80,
+        "hit": 88,
+        "explosion": 17,
+        "wreck": 1
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "chicago",
+      "mode": "career",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "wrecked",
+      "elapsed": 37.19999999999917,
+      "laps": 1,
+      "progressLaps": 0.33624167249716636,
+      "position": 9,
+      "finished": 0,
+      "wrecked": 2,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 0,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 58.55866666783779,
+      "damage": {
+        "gun": 248,
+        "wheel": 17,
+        "collision": 4.3429264874530125,
+        "missile": 212.91189575338558,
+        "rocket": 62.829149469164605,
+        "laser": 66.14604455451247,
+        "mine": 272.98735618921893,
+        "beam": 80,
+        "ram": 3.395930614352195
+      },
+      "events": {
+        "shot": 123,
+        "hit": 122,
+        "explosion": 19,
+        "tyres": 3,
+        "wreck": 2
+      },
+      "pitStage": "drive",
+      "pitAttempts": 0,
+      "services": [],
+      "rivalDuringService": 0,
+      "issues": []
+    },
+    {
+      "city": "orlando",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 451.8499999999177,
+      "laps": 3,
+      "progressLaps": 3.0000550113211695,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        0
+      ],
+      "fuel": 62.472345759530214,
+      "damage": {
+        "gun": 393.58168581726477,
+        "wheel": 27,
+        "collision": 2.377947930681664,
+        "laser": 203,
+        "missile": 200.243436593905,
+        "mine": 444.8641918483829,
+        "rocket": 190.01707397254842,
+        "beam": 100,
+        "ram": 2.44999427511032
+      },
+      "events": {
+        "shot": 332,
+        "hit": 194,
+        "explosion": 31,
+        "wreck": 3,
+        "tyres": 18,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 89.31666666666288
+        },
+        {
+          "kind": "ammo",
+          "time": 91.33333333332943
+        },
+        {
+          "kind": "rocket",
+          "time": 93.34999999999599
+        },
+        {
+          "kind": "missile",
+          "time": 95.36666666666254
+        },
+        {
+          "kind": "mine",
+          "time": 97.38333333332909
+        },
+        {
+          "kind": "caltrop",
+          "time": 99.39999999999564
+        },
+        {
+          "kind": "repair-all",
+          "time": 104.41666666666202
+        }
+      ],
+      "rivalDuringService": 4769.860005396371,
+      "issues": []
+    },
+    {
+      "city": "bay_area",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 422.7833333332775,
+      "laps": 3,
+      "progressLaps": 3.000089552514892,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        2
+      ],
+      "fuel": 65.87954163511212,
+      "damage": {
+        "gun": 289,
+        "wheel": 44,
+        "collision": 7.881191776305352,
+        "missile": 199.16537883502212,
+        "laser": 202.28570726094244,
+        "mine": 500,
+        "beam": 62,
+        "rocket": 42.39949510136421,
+        "ram": 13.941734899290822
+      },
+      "events": {
+        "shot": 295,
+        "hit": 211,
+        "explosion": 30,
+        "wreck": 3,
+        "tyres": 18,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 82.96666666666324
+        },
+        {
+          "kind": "ammo",
+          "time": 84.9833333333298
+        },
+        {
+          "kind": "rocket",
+          "time": 86.99999999999635
+        },
+        {
+          "kind": "missile",
+          "time": 89.0166666666629
+        },
+        {
+          "kind": "mine",
+          "time": 91.03333333332945
+        },
+        {
+          "kind": "caltrop",
+          "time": 93.049999999996
+        },
+        {
+          "kind": "repair-all",
+          "time": 98.06666666666239
+        }
+      ],
+      "rivalDuringService": 3126.9140125763442,
+      "issues": []
+    },
+    {
+      "city": "phoenix",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 345.9666666666807,
+      "laps": 3,
+      "progressLaps": 3.000056462087447,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 3,
+      "landings": [
+        5,
+        0,
+        6,
+        4,
+        2,
+        6,
+        4,
+        6,
+        6,
+        6
+      ],
+      "fuel": 71.52901590762828,
+      "damage": {
+        "gun": 171,
+        "wheel": 25,
+        "collision": 5.439685790180979,
+        "laser": 49,
+        "mine": 399,
+        "missile": 80.54496804718801,
+        "beam": 209.3051997959845,
+        "ram": 4.4063812181447
+      },
+      "events": {
+        "shot": 244,
+        "hit": 133,
+        "explosion": 22,
+        "tyres": 10,
+        "wreck": 3,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 74.74999999999704
+        },
+        {
+          "kind": "ammo",
+          "time": 76.7666666666636
+        },
+        {
+          "kind": "rocket",
+          "time": 78.78333333333015
+        },
+        {
+          "kind": "missile",
+          "time": 80.7999999999967
+        },
+        {
+          "kind": "mine",
+          "time": 82.81666666666325
+        },
+        {
+          "kind": "caltrop",
+          "time": 84.8333333333298
+        },
+        {
+          "kind": "repair-all",
+          "time": 89.84999999999619
+        }
+      ],
+      "rivalDuringService": 3865.4586097085994,
+      "issues": []
+    },
+    {
+      "city": "nyc",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 321.8333333333693,
+      "laps": 3,
+      "progressLaps": 3.000023451021039,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 73.80735004692693,
+      "damage": {
+        "gun": 240,
+        "wheel": 23,
+        "collision": 2.6380523198944124,
+        "ram": 6.68182053394699,
+        "laser": 139.90827845561265,
+        "missile": 213.0225325788981,
+        "mine": 400,
+        "rocket": 75.26386745324393,
+        "beam": 80
+      },
+      "events": {
+        "shot": 250,
+        "hit": 162,
+        "explosion": 27,
+        "tyres": 9,
+        "wreck": 2,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 78.33333333333017
+        },
+        {
+          "kind": "ammo",
+          "time": 80.34999999999673
+        },
+        {
+          "kind": "rocket",
+          "time": 82.36666666666328
+        },
+        {
+          "kind": "missile",
+          "time": 84.38333333332983
+        },
+        {
+          "kind": "mine",
+          "time": 86.39999999999638
+        },
+        {
+          "kind": "caltrop",
+          "time": 88.41666666666293
+        },
+        {
+          "kind": "repair-all",
+          "time": 93.43333333332932
+        }
+      ],
+      "rivalDuringService": 4255.084414826473,
+      "issues": []
+    },
+    {
+      "city": "st_louis",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 288.16666666673325,
+      "laps": 3,
+      "progressLaps": 3.0000674801331293,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 78.4775931243998,
+      "damage": {
+        "gun": 244.69018207988898,
+        "wheel": 25,
+        "collision": 2.758984902076409,
+        "laser": 112,
+        "missile": 99.19901355254655,
+        "beam": 129.6205075489618,
+        "rocket": 111.42752621194533,
+        "mine": 480,
+        "ram": 1.3165130941298138
+      },
+      "events": {
+        "shot": 269,
+        "hit": 163,
+        "explosion": 29,
+        "tyres": 17,
+        "wreck": 2,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 70.18333333333064
+        },
+        {
+          "kind": "ammo",
+          "time": 72.19999999999719
+        },
+        {
+          "kind": "rocket",
+          "time": 74.21666666666374
+        },
+        {
+          "kind": "missile",
+          "time": 76.2333333333303
+        },
+        {
+          "kind": "mine",
+          "time": 78.24999999999685
+        },
+        {
+          "kind": "caltrop",
+          "time": 80.2666666666634
+        },
+        {
+          "kind": "repair-all",
+          "time": 85.28333333332978
+        }
+      ],
+      "rivalDuringService": 3187.4992978830105,
+      "issues": []
+    },
+    {
+      "city": "la",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 387.5499999999762,
+      "laps": 3,
+      "progressLaps": 3.000172530539123,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        1,
+        3,
+        0,
+        0,
+        3,
+        0,
+        0,
+        3,
+        1,
+        3
+      ],
+      "fuel": 61.23744138345224,
+      "damage": {
+        "gun": 186,
+        "wheel": 29,
+        "collision": 4.943872824344284,
+        "laser": 98,
+        "missile": 231.71352955709878,
+        "beam": 80,
+        "rocket": 77.6366516806811,
+        "mine": 342,
+        "ram": 15.741918567710991
+      },
+      "events": {
+        "shot": 275,
+        "hit": 147,
+        "explosion": 25,
+        "service": 7,
+        "tyres": 15,
+        "wreck": 1
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 28.449999999999665
+        },
+        {
+          "kind": "ammo",
+          "time": 30.466666666666217
+        },
+        {
+          "kind": "rocket",
+          "time": 32.48333333333277
+        },
+        {
+          "kind": "missile",
+          "time": 34.499999999999325
+        },
+        {
+          "kind": "mine",
+          "time": 36.51666666666588
+        },
+        {
+          "kind": "caltrop",
+          "time": 38.53333333333243
+        },
+        {
+          "kind": "repair-all",
+          "time": 43.54999999999881
+        }
+      ],
+      "rivalDuringService": 3490.2990342639905,
+      "issues": []
+    },
+    {
+      "city": "seattle",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 420.9166666666125,
+      "laps": 3,
+      "progressLaps": 3.0000770221074307,
+      "position": 8,
+      "finished": 8,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 3,
+      "landings": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 67.24308249407618,
+      "damage": {
+        "gun": 177,
+        "wheel": 37,
+        "collision": 4.246608822825631,
+        "missile": 243.1484740790951,
+        "beam": 212,
+        "ram": 4.7167644833520255,
+        "rocket": 88.54410373738996,
+        "laser": 126,
+        "mine": 364.21152524895047
+      },
+      "events": {
+        "shot": 273,
+        "hit": 159,
+        "explosion": 26,
+        "tyres": 17,
+        "wreck": 3,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 102.06666666666216
+        },
+        {
+          "kind": "ammo",
+          "time": 104.08333333332871
+        },
+        {
+          "kind": "rocket",
+          "time": 106.09999999999526
+        },
+        {
+          "kind": "missile",
+          "time": 108.11666666666181
+        },
+        {
+          "kind": "mine",
+          "time": 110.13333333332837
+        },
+        {
+          "kind": "caltrop",
+          "time": 112.14999999999492
+        },
+        {
+          "kind": "repair-all",
+          "time": 117.1666666666613
+        }
+      ],
+      "rivalDuringService": 3128.6609701935067,
+      "issues": []
+    },
+    {
+      "city": "houston",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 257.5500000000944,
+      "laps": 3,
+      "progressLaps": 3.000116197043317,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 82.47156268043724,
+      "damage": {
+        "gun": 145.07588113495618,
+        "wheel": 12,
+        "collision": 0.6211428774359273,
+        "laser": 70,
+        "missile": 93.92411886504382,
+        "mine": 394,
+        "beam": 137.68942856128203,
+        "ram": 1.9942163620333377,
+        "rocket": 83.74109211812358
+      },
+      "events": {
+        "shot": 199,
+        "hit": 95,
+        "explosion": 24,
+        "wreck": 3,
+        "tyres": 10,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 57.98333333333132
+        },
+        {
+          "kind": "ammo",
+          "time": 59.999999999997875
+        },
+        {
+          "kind": "rocket",
+          "time": 62.01666666666443
+        },
+        {
+          "kind": "missile",
+          "time": 64.03333333333099
+        },
+        {
+          "kind": "mine",
+          "time": 66.04999999999754
+        },
+        {
+          "kind": "caltrop",
+          "time": 68.06666666666409
+        },
+        {
+          "kind": "repair-all",
+          "time": 73.08333333333047
+        }
+      ],
+      "rivalDuringService": 3030.8718746911836,
+      "issues": []
+    },
+    {
+      "city": "boston",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 281.60000000007255,
+      "laps": 3,
+      "progressLaps": 3.0002351892232437,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        1,
+        3,
+        3,
+        2
+      ],
+      "fuel": 72.89655197550985,
+      "damage": {
+        "gun": 184.5775120698313,
+        "wheel": 34,
+        "collision": 6.407188081194596,
+        "laser": 87.5042506269535,
+        "missile": 224.01956499530968,
+        "beam": 160,
+        "ram": 8.613839335071454,
+        "mine": 420,
+        "rocket": 35.29858195709485
+      },
+      "events": {
+        "shot": 243,
+        "hit": 146,
+        "explosion": 26,
+        "tyres": 17,
+        "service": 7,
+        "wreck": 2
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 47.91666666666523
+        },
+        {
+          "kind": "ammo",
+          "time": 49.93333333333178
+        },
+        {
+          "kind": "rocket",
+          "time": 51.94999999999833
+        },
+        {
+          "kind": "missile",
+          "time": 53.966666666664885
+        },
+        {
+          "kind": "mine",
+          "time": 55.98333333333144
+        },
+        {
+          "kind": "caltrop",
+          "time": 57.99999999999799
+        },
+        {
+          "kind": "repair-all",
+          "time": 63.01666666666437
+        }
+      ],
+      "rivalDuringService": 3614.988501029793,
+      "issues": []
+    },
+    {
+      "city": "chicago",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 330.3166666666949,
+      "laps": 3,
+      "progressLaps": 3.0002580680192543,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 69.88776164559151,
+      "damage": {
+        "gun": 150,
+        "wheel": 25,
+        "collision": 2.3431127821056625,
+        "missile": 144.1018631471921,
+        "ram": 3.622331820150208,
+        "rocket": 37.89801094790667,
+        "laser": 126,
+        "mine": 345.4965623424524,
+        "beam": 106
+      },
+      "events": {
+        "shot": 248,
+        "hit": 124,
+        "explosion": 22,
+        "tyres": 19,
+        "service": 7,
+        "wreck": 2
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 40.499999999998984
+        },
+        {
+          "kind": "ammo",
+          "time": 42.516666666665536
+        },
+        {
+          "kind": "rocket",
+          "time": 44.53333333333209
+        },
+        {
+          "kind": "missile",
+          "time": 46.54999999999864
+        },
+        {
+          "kind": "mine",
+          "time": 48.56666666666519
+        },
+        {
+          "kind": "caltrop",
+          "time": 50.583333333331744
+        },
+        {
+          "kind": "repair-all",
+          "time": 55.599999999998126
+        }
+      ],
+      "rivalDuringService": 2843.388840435746,
+      "issues": []
+    },
+    {
+      "city": "orlando",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 1,
+      "outcome": "finished",
+      "elapsed": 444.1166666665914,
+      "laps": 3,
+      "progressLaps": 3.000064907402997,
+      "position": 7,
+      "finished": 7,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "fuel": 62.868620281396076,
+      "damage": {
+        "gun": 327,
+        "wheel": 30,
+        "collision": 3.10339218683207,
+        "laser": 246.8313676551147,
+        "missile": 200.2572500039654,
+        "mine": 446.6813001743588,
+        "rocket": 74.43799358552246,
+        "beam": 100,
+        "ram": 10.906134541432078
+      },
+      "events": {
+        "shot": 331,
+        "hit": 203,
+        "explosion": 30,
+        "tyres": 13,
+        "wreck": 5,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 92.6166666666627
+        },
+        {
+          "kind": "ammo",
+          "time": 94.63333333332925
+        },
+        {
+          "kind": "rocket",
+          "time": 96.6499999999958
+        },
+        {
+          "kind": "missile",
+          "time": 98.66666666666235
+        },
+        {
+          "kind": "mine",
+          "time": 100.6833333333289
+        },
+        {
+          "kind": "caltrop",
+          "time": 102.69999999999546
+        },
+        {
+          "kind": "repair-all",
+          "time": 107.71666666666184
+        }
+      ],
+      "rivalDuringService": 4826.903641861589,
+      "issues": []
+    },
+    {
+      "city": "bay_area",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 1,
+      "outcome": "finished",
+      "elapsed": 419.2999999999473,
+      "laps": 3,
+      "progressLaps": 3.000051527246951,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "fuel": 66.01468281196757,
+      "damage": {
+        "gun": 183.94206446700244,
+        "wheel": 25,
+        "collision": 3.3143885476260655,
+        "missile": 224.30988889096486,
+        "ram": 9.429864436839312,
+        "mine": 460,
+        "laser": 234,
+        "beam": 133.89034826997275
+      },
+      "events": {
+        "shot": 291,
+        "hit": 161,
+        "explosion": 29,
+        "tyres": 16,
+        "wreck": 5,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 83.48333333332988
+        },
+        {
+          "kind": "ammo",
+          "time": 85.49999999999643
+        },
+        {
+          "kind": "rocket",
+          "time": 87.51666666666299
+        },
+        {
+          "kind": "missile",
+          "time": 89.53333333332954
+        },
+        {
+          "kind": "mine",
+          "time": 91.54999999999609
+        },
+        {
+          "kind": "caltrop",
+          "time": 93.56666666666264
+        },
+        {
+          "kind": "repair-all",
+          "time": 98.58333333332902
+        }
+      ],
+      "rivalDuringService": 3179.1544377815553,
+      "issues": []
+    },
+    {
+      "city": "phoenix",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 1,
+      "outcome": "finished",
+      "elapsed": 347.5333333333459,
+      "laps": 3,
+      "progressLaps": 3.0000346316110362,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        1,
+        0,
+        3,
+        2,
+        4,
+        5,
+        0,
+        6,
+        6
+      ],
+      "fuel": 71.28851571017196,
+      "damage": {
+        "gun": 189,
+        "wheel": 23,
+        "collision": 5.340892077636895,
+        "laser": 153,
+        "beam": 200,
+        "missile": 80.51496508828816,
+        "mine": 400,
+        "ram": 2.1326380834158725,
+        "rocket": 77.17207714617238
+      },
+      "events": {
+        "shot": 277,
+        "hit": 142,
+        "explosion": 23,
+        "tyres": 15,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 66.76666666666416
+        },
+        {
+          "kind": "ammo",
+          "time": 68.78333333333072
+        },
+        {
+          "kind": "rocket",
+          "time": 70.79999999999727
+        },
+        {
+          "kind": "missile",
+          "time": 72.81666666666382
+        },
+        {
+          "kind": "mine",
+          "time": 74.83333333333037
+        },
+        {
+          "kind": "caltrop",
+          "time": 76.84999999999692
+        },
+        {
+          "kind": "repair-all",
+          "time": 81.8666666666633
+        }
+      ],
+      "rivalDuringService": 3496.049238883157,
+      "issues": []
+    },
+    {
+      "city": "nyc",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 1,
+      "outcome": "finished",
+      "elapsed": 334.80000000002417,
+      "laps": 3,
+      "progressLaps": 3.000142691443654,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 73.56030332140044,
+      "damage": {
+        "gun": 357.12158573955435,
+        "wheel": 33,
+        "collision": 2.8331892920657378,
+        "ram": 9.12222627126156,
+        "laser": 70,
+        "missile": 286.9986609860379,
+        "mine": 420,
+        "rocket": 71.74367770320319,
+        "beam": 80
+      },
+      "events": {
+        "shot": 292,
+        "hit": 206,
+        "explosion": 30,
+        "tyres": 13,
+        "wreck": 2,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 80.93333333333003
+        },
+        {
+          "kind": "ammo",
+          "time": 82.94999999999658
+        },
+        {
+          "kind": "rocket",
+          "time": 84.96666666666313
+        },
+        {
+          "kind": "missile",
+          "time": 86.98333333332968
+        },
+        {
+          "kind": "mine",
+          "time": 88.99999999999623
+        },
+        {
+          "kind": "caltrop",
+          "time": 91.01666666666279
+        },
+        {
+          "kind": "repair-all",
+          "time": 96.03333333332917
+        }
+      ],
+      "rivalDuringService": 4085.184807526226,
+      "issues": []
+    },
+    {
+      "city": "st_louis",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 1,
+      "outcome": "finished",
+      "elapsed": 296.500000000059,
+      "laps": 3,
+      "progressLaps": 3.000143240325177,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 78.27666042890854,
+      "damage": {
+        "gun": 129,
+        "wheel": 30,
+        "collision": 10.463051347239936,
+        "laser": 146,
+        "missile": 106.23548045843887,
+        "beam": 40,
+        "mine": 360,
+        "rocket": 74.67724299208933,
+        "ram": 8.940875403257918
+      },
+      "events": {
+        "shot": 239,
+        "hit": 121,
+        "explosion": 23,
+        "tyres": 21,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 69.86666666666399
+        },
+        {
+          "kind": "ammo",
+          "time": 71.88333333333054
+        },
+        {
+          "kind": "rocket",
+          "time": 73.89999999999709
+        },
+        {
+          "kind": "missile",
+          "time": 75.91666666666364
+        },
+        {
+          "kind": "mine",
+          "time": 77.9333333333302
+        },
+        {
+          "kind": "caltrop",
+          "time": 79.94999999999675
+        },
+        {
+          "kind": "repair-all",
+          "time": 84.96666666666313
+        }
+      ],
+      "rivalDuringService": 3257.7910603659,
+      "issues": []
+    },
+    {
+      "city": "la",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 1,
+      "outcome": "finished",
+      "elapsed": 391.6999999999724,
+      "laps": 3,
+      "progressLaps": 3.0000862417555654,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        2,
+        0,
+        2,
+        2,
+        2,
+        1,
+        3,
+        1,
+        2
+      ],
+      "fuel": 61.23227953677805,
+      "damage": {
+        "gun": 231.57722877997918,
+        "wheel": 28,
+        "collision": 4.97315447562207,
+        "laser": 171,
+        "missile": 121.8772128738702,
+        "beam": 196.66128696164827,
+        "rocket": 76.74128184845483,
+        "mine": 360,
+        "ram": 4.053648144986134
+      },
+      "events": {
+        "shot": 309,
+        "hit": 172,
+        "explosion": 23,
+        "service": 7,
+        "tyres": 18,
+        "wreck": 3
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 28.766666666666314
+        },
+        {
+          "kind": "ammo",
+          "time": 30.783333333332866
+        },
+        {
+          "kind": "rocket",
+          "time": 32.79999999999942
+        },
+        {
+          "kind": "missile",
+          "time": 34.816666666665974
+        },
+        {
+          "kind": "mine",
+          "time": 36.833333333332526
+        },
+        {
+          "kind": "caltrop",
+          "time": 38.84999999999908
+        },
+        {
+          "kind": "repair-all",
+          "time": 43.86666666666546
+        }
+      ],
+      "rivalDuringService": 3541.9861289768814,
+      "issues": []
+    },
+    {
+      "city": "seattle",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 1,
+      "outcome": "finished",
+      "elapsed": 426.13333333327444,
+      "laps": 3,
+      "progressLaps": 3.0001358540108987,
+      "position": 7,
+      "finished": 7,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "fuel": 66.91780594669216,
+      "damage": {
+        "gun": 138,
+        "wheel": 34,
+        "collision": 4.1146637468668175,
+        "missile": 181.85944616766596,
+        "beam": 168.91152570623385,
+        "ram": 3.261428008581367,
+        "rocket": 86.63251690823414,
+        "laser": 87,
+        "mine": 419.0531196116206
+      },
+      "events": {
+        "shot": 251,
+        "hit": 133,
+        "explosion": 28,
+        "tyres": 24,
+        "wreck": 2,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 96.71666666666246
+        },
+        {
+          "kind": "ammo",
+          "time": 98.73333333332901
+        },
+        {
+          "kind": "rocket",
+          "time": 100.74999999999557
+        },
+        {
+          "kind": "missile",
+          "time": 102.76666666666212
+        },
+        {
+          "kind": "mine",
+          "time": 104.78333333332867
+        },
+        {
+          "kind": "caltrop",
+          "time": 106.79999999999522
+        },
+        {
+          "kind": "repair-all",
+          "time": 111.8166666666616
+        }
+      ],
+      "rivalDuringService": 3123.1809751348646,
+      "issues": []
+    },
+    {
+      "city": "houston",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 1,
+      "outcome": "finished",
+      "elapsed": 261.9666666667571,
+      "laps": 3,
+      "progressLaps": 3.00002187418365,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 82.37464257080862,
+      "damage": {
+        "gun": 257.530423725597,
+        "wheel": 20,
+        "collision": 0.6211428774359273,
+        "laser": 111,
+        "missile": 237.75374448189717,
+        "mine": 440,
+        "ram": 6.458116750324015,
+        "beam": 60,
+        "rocket": 145.92214896152458
+      },
+      "events": {
+        "shot": 250,
+        "hit": 140,
+        "explosion": 30,
+        "tyres": 20,
+        "wreck": 2,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 59.74999999999789
+        },
+        {
+          "kind": "ammo",
+          "time": 61.76666666666444
+        },
+        {
+          "kind": "rocket",
+          "time": 63.783333333330994
+        },
+        {
+          "kind": "missile",
+          "time": 65.79999999999755
+        },
+        {
+          "kind": "mine",
+          "time": 67.8166666666641
+        },
+        {
+          "kind": "caltrop",
+          "time": 69.83333333333066
+        },
+        {
+          "kind": "repair-all",
+          "time": 74.84999999999704
+        }
+      ],
+      "rivalDuringService": 3011.8021409923003,
+      "issues": []
+    },
+    {
+      "city": "boston",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 1,
+      "outcome": "finished",
+      "elapsed": 292.5166666667293,
+      "laps": 3,
+      "progressLaps": 3.0002169435256074,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        2,
+        2,
+        3,
+        0,
+        1,
+        1,
+        3,
+        3,
+        3,
+        3
+      ],
+      "fuel": 72.68079693686974,
+      "damage": {
+        "gun": 178.05546394173183,
+        "wheel": 33,
+        "collision": 8.887450373409923,
+        "laser": 104,
+        "missile": 239.3092855495651,
+        "beam": 120,
+        "ram": 3.595691434101774,
+        "mine": 390.4792592395436,
+        "rocket": 36.11491067994535
+      },
+      "events": {
+        "shot": 257,
+        "hit": 143,
+        "explosion": 27,
+        "tyres": 14,
+        "service": 7,
+        "wreck": 2
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 50.59999999999841
+        },
+        {
+          "kind": "ammo",
+          "time": 52.61666666666496
+        },
+        {
+          "kind": "rocket",
+          "time": 54.633333333331514
+        },
+        {
+          "kind": "missile",
+          "time": 56.649999999998066
+        },
+        {
+          "kind": "mine",
+          "time": 58.66666666666462
+        },
+        {
+          "kind": "caltrop",
+          "time": 60.68333333333117
+        },
+        {
+          "kind": "repair-all",
+          "time": 65.69999999999756
+        }
+      ],
+      "rivalDuringService": 3458.3557989085275,
+      "issues": []
+    },
+    {
+      "city": "chicago",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 1,
+      "outcome": "finished",
+      "elapsed": 330.13333333336175,
+      "laps": 3,
+      "progressLaps": 3.00001835094136,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 70.02600265559163,
+      "damage": {
+        "gun": 138,
+        "wheel": 26,
+        "collision": 10.198152626968902,
+        "missile": 193.67292419521306,
+        "ram": 10.372696069568079,
+        "rocket": 37.90429448497994,
+        "laser": 106.82844360894717,
+        "mine": 379.9926274192718,
+        "beam": 80
+      },
+      "events": {
+        "shot": 247,
+        "hit": 120,
+        "explosion": 24,
+        "tyres": 16,
+        "service": 7,
+        "wreck": 2
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 44.699999999998745
+        },
+        {
+          "kind": "ammo",
+          "time": 46.7166666666653
+        },
+        {
+          "kind": "rocket",
+          "time": 48.73333333333185
+        },
+        {
+          "kind": "missile",
+          "time": 50.7499999999984
+        },
+        {
+          "kind": "mine",
+          "time": 52.76666666666495
+        },
+        {
+          "kind": "caltrop",
+          "time": 54.783333333331505
+        },
+        {
+          "kind": "repair-all",
+          "time": 59.79999999999789
+        }
+      ],
+      "rivalDuringService": 3235.477323483221,
+      "issues": []
+    },
+    {
+      "city": "orlando",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 2,
+      "outcome": "finished",
+      "elapsed": 460.11666666657686,
+      "laps": 3,
+      "progressLaps": 3.000024276053786,
+      "position": 8,
+      "finished": 8,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        1,
+        0,
+        3,
+        0,
+        0
+      ],
+      "fuel": 62.343891554398716,
+      "damage": {
+        "gun": 398,
+        "wheel": 43,
+        "collision": 21.0952594262463,
+        "ram": 26.0406301332646,
+        "laser": 77,
+        "missile": 191.01626905361437,
+        "beam": 263.681760842229,
+        "mine": 405.31937535722363,
+        "rocket": 121.13392553228498
+      },
+      "events": {
+        "shot": 301,
+        "hit": 201,
+        "explosion": 28,
+        "wreck": 5,
+        "tyres": 20,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 91.78333333332941
+        },
+        {
+          "kind": "ammo",
+          "time": 93.79999999999596
+        },
+        {
+          "kind": "rocket",
+          "time": 95.81666666666251
+        },
+        {
+          "kind": "missile",
+          "time": 97.83333333332907
+        },
+        {
+          "kind": "mine",
+          "time": 99.84999999999562
+        },
+        {
+          "kind": "caltrop",
+          "time": 101.86666666666217
+        },
+        {
+          "kind": "repair-all",
+          "time": 106.88333333332855
+        }
+      ],
+      "rivalDuringService": 4591.878231775761,
+      "issues": []
+    },
+    {
+      "city": "bay_area",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 2,
+      "outcome": "finished",
+      "elapsed": 414.61666666661824,
+      "laps": 3,
+      "progressLaps": 3.000056042215157,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 66.15854902919382,
+      "damage": {
+        "gun": 163,
+        "wheel": 26,
+        "collision": 2.6295952753867224,
+        "missile": 238.01352015857717,
+        "ram": 7.137779808840224,
+        "mine": 444.2532208156774,
+        "laser": 91,
+        "beam": 101.68520236230665,
+        "rocket": 40.74767618313936
+      },
+      "events": {
+        "shot": 243,
+        "hit": 116,
+        "explosion": 29,
+        "wreck": 2,
+        "tyres": 16,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 83.41666666666322
+        },
+        {
+          "kind": "ammo",
+          "time": 85.43333333332977
+        },
+        {
+          "kind": "rocket",
+          "time": 87.44999999999632
+        },
+        {
+          "kind": "missile",
+          "time": 89.46666666666287
+        },
+        {
+          "kind": "mine",
+          "time": 91.48333333332943
+        },
+        {
+          "kind": "caltrop",
+          "time": 93.49999999999598
+        },
+        {
+          "kind": "repair-all",
+          "time": 98.51666666666236
+        }
+      ],
+      "rivalDuringService": 3174.6994455685817,
+      "issues": []
+    },
+    {
+      "city": "phoenix",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 2,
+      "outcome": "finished",
+      "elapsed": 345.5500000000144,
+      "laps": 3,
+      "progressLaps": 3.0000990054524515,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        1,
+        1,
+        0,
+        3,
+        3,
+        3,
+        6,
+        0,
+        6,
+        6
+      ],
+      "fuel": 71.38642210788,
+      "damage": {
+        "gun": 363,
+        "wheel": 19,
+        "collision": 15.37974288173237,
+        "laser": 120.24649640632485,
+        "missile": 106.05539362181129,
+        "mine": 441.324754730931,
+        "ram": 3.4957109790261445,
+        "rocket": 76.954183212674,
+        "beam": 80
+      },
+      "events": {
+        "shot": 293,
+        "hit": 170,
+        "explosion": 27,
+        "wreck": 4,
+        "tyres": 11,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 69.64999999999733
+        },
+        {
+          "kind": "ammo",
+          "time": 71.66666666666389
+        },
+        {
+          "kind": "rocket",
+          "time": 73.68333333333044
+        },
+        {
+          "kind": "missile",
+          "time": 75.69999999999699
+        },
+        {
+          "kind": "mine",
+          "time": 77.71666666666354
+        },
+        {
+          "kind": "caltrop",
+          "time": 79.7333333333301
+        },
+        {
+          "kind": "repair-all",
+          "time": 84.74999999999648
+        }
+      ],
+      "rivalDuringService": 3736.003858399534,
+      "issues": []
+    },
+    {
+      "city": "nyc",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 2,
+      "outcome": "finished",
+      "elapsed": 335.0333333333573,
+      "laps": 3,
+      "progressLaps": 3.0001410159521003,
+      "position": 8,
+      "finished": 8,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 73.57351168716937,
+      "damage": {
+        "gun": 160,
+        "wheel": 26,
+        "collision": 2.6380523198944124,
+        "ram": 4.00191356068075,
+        "laser": 58,
+        "missile": 192.20026250190674,
+        "mine": 440,
+        "rocket": 33.78765919018013,
+        "beam": 113.9454336879713
+      },
+      "events": {
+        "shot": 211,
+        "hit": 113,
+        "explosion": 28,
+        "tyres": 16,
+        "service": 7,
+        "wreck": 2
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 82.18333333332995
+        },
+        {
+          "kind": "ammo",
+          "time": 84.1999999999965
+        },
+        {
+          "kind": "rocket",
+          "time": 86.21666666666306
+        },
+        {
+          "kind": "missile",
+          "time": 88.23333333332961
+        },
+        {
+          "kind": "mine",
+          "time": 90.24999999999616
+        },
+        {
+          "kind": "caltrop",
+          "time": 92.26666666666272
+        },
+        {
+          "kind": "repair-all",
+          "time": 97.2833333333291
+        }
+      ],
+      "rivalDuringService": 4120.520245017278,
+      "issues": []
+    },
+    {
+      "city": "st_louis",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 2,
+      "outcome": "finished",
+      "elapsed": 300.6666666667219,
+      "laps": 3,
+      "progressLaps": 3.000114165697559,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 78.28774411494169,
+      "damage": {
+        "gun": 214.01357171766665,
+        "wheel": 27,
+        "collision": 6.79906027716097,
+        "laser": 63,
+        "missile": 106.23548045843887,
+        "beam": 95.54611998008238,
+        "rocket": 156.17126469862978,
+        "mine": 380,
+        "ram": 7.4787272002529095
+      },
+      "events": {
+        "shot": 244,
+        "hit": 137,
+        "explosion": 25,
+        "tyres": 22,
+        "wreck": 3,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 74.64999999999705
+        },
+        {
+          "kind": "ammo",
+          "time": 76.6666666666636
+        },
+        {
+          "kind": "rocket",
+          "time": 78.68333333333015
+        },
+        {
+          "kind": "missile",
+          "time": 80.6999999999967
+        },
+        {
+          "kind": "mine",
+          "time": 82.71666666666326
+        },
+        {
+          "kind": "caltrop",
+          "time": 84.73333333332981
+        },
+        {
+          "kind": "repair-all",
+          "time": 89.74999999999619
+        }
+      ],
+      "rivalDuringService": 3348.438630668641,
+      "issues": []
+    },
+    {
+      "city": "la",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 2,
+      "outcome": "finished",
+      "elapsed": 390.333333333307,
+      "laps": 3,
+      "progressLaps": 3.000020891180855,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        1,
+        3,
+        1,
+        0,
+        3,
+        3,
+        1,
+        3,
+        0,
+        1
+      ],
+      "fuel": 61.28622491747335,
+      "damage": {
+        "gun": 410,
+        "wheel": 45,
+        "collision": 11.034572746790886,
+        "laser": 104.18983261749008,
+        "missile": 179.39141158714372,
+        "beam": 186,
+        "rocket": 41.81384930636425,
+        "mine": 350.0168761031065,
+        "ram": 5.219501809346665
+      },
+      "events": {
+        "shot": 344,
+        "hit": 219,
+        "explosion": 23,
+        "service": 7,
+        "tyres": 18,
+        "wreck": 4
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 29.533333333332937
+        },
+        {
+          "kind": "ammo",
+          "time": 31.54999999999949
+        },
+        {
+          "kind": "rocket",
+          "time": 33.566666666666045
+        },
+        {
+          "kind": "missile",
+          "time": 35.5833333333326
+        },
+        {
+          "kind": "mine",
+          "time": 37.59999999999915
+        },
+        {
+          "kind": "caltrop",
+          "time": 39.6166666666657
+        },
+        {
+          "kind": "repair-all",
+          "time": 44.63333333333208
+        }
+      ],
+      "rivalDuringService": 3380.1314105852407,
+      "issues": []
+    },
+    {
+      "city": "seattle",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 2,
+      "outcome": "finished",
+      "elapsed": 430.93333333327007,
+      "laps": 3,
+      "progressLaps": 3.000153552766775,
+      "position": 5,
+      "finished": 5,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        3,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "fuel": 66.91576507745202,
+      "damage": {
+        "gun": 306.58030873891096,
+        "wheel": 42,
+        "collision": 2.3431127821056457,
+        "missile": 231.14056317252715,
+        "ram": 11.620118226950073,
+        "rocket": 89.05081307989028,
+        "laser": 175,
+        "mine": 520,
+        "beam": 123
+      },
+      "events": {
+        "shot": 325,
+        "hit": 200,
+        "explosion": 34,
+        "tyres": 20,
+        "service": 7,
+        "wreck": 4
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 101.39999999999553
+        },
+        {
+          "kind": "ammo",
+          "time": 103.41666666666208
+        },
+        {
+          "kind": "rocket",
+          "time": 105.43333333332863
+        },
+        {
+          "kind": "missile",
+          "time": 107.44999999999519
+        },
+        {
+          "kind": "mine",
+          "time": 109.46666666666174
+        },
+        {
+          "kind": "caltrop",
+          "time": 111.48333333332829
+        },
+        {
+          "kind": "repair-all",
+          "time": 116.49999999999467
+        }
+      ],
+      "rivalDuringService": 3028.4551770221387,
+      "issues": []
+    },
+    {
+      "city": "houston",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 2,
+      "outcome": "finished",
+      "elapsed": 256.6666666667619,
+      "laps": 3,
+      "progressLaps": 3.000031827228392,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 82.52344052506999,
+      "damage": {
+        "gun": 236,
+        "wheel": 17,
+        "collision": 0.6211428774359273,
+        "laser": 84,
+        "missile": 148.49545081172474,
+        "mine": 420.530423725597,
+        "ram": 1.2215927713163743,
+        "beam": 120,
+        "rocket": 94.14881596598316
+      },
+      "events": {
+        "shot": 228,
+        "hit": 121,
+        "explosion": 29,
+        "wreck": 3,
+        "tyres": 19,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 59.149999999997924
+        },
+        {
+          "kind": "ammo",
+          "time": 61.166666666664476
+        },
+        {
+          "kind": "rocket",
+          "time": 63.18333333333103
+        },
+        {
+          "kind": "missile",
+          "time": 65.19999999999759
+        },
+        {
+          "kind": "mine",
+          "time": 67.21666666666414
+        },
+        {
+          "kind": "caltrop",
+          "time": 69.23333333333069
+        },
+        {
+          "kind": "repair-all",
+          "time": 74.24999999999707
+        }
+      ],
+      "rivalDuringService": 3147.7878999200493,
+      "issues": []
+    },
+    {
+      "city": "boston",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 2,
+      "outcome": "finished",
+      "elapsed": 300.0666666667224,
+      "laps": 3,
+      "progressLaps": 3.0002044593995483,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "fuel": 72.52478907424988,
+      "damage": {
+        "gun": 274,
+        "wheel": 29,
+        "collision": 3.564002183554268,
+        "laser": 105,
+        "missile": 248.40251570948536,
+        "beam": 140,
+        "ram": 2.264253427370089,
+        "mine": 400,
+        "rocket": 39.52422804479085
+      },
+      "events": {
+        "shot": 255,
+        "hit": 141,
+        "explosion": 26,
+        "tyres": 23,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 52.099999999998325
+        },
+        {
+          "kind": "ammo",
+          "time": 54.11666666666488
+        },
+        {
+          "kind": "rocket",
+          "time": 56.13333333333143
+        },
+        {
+          "kind": "missile",
+          "time": 58.14999999999798
+        },
+        {
+          "kind": "mine",
+          "time": 60.16666666666453
+        },
+        {
+          "kind": "caltrop",
+          "time": 62.183333333331085
+        },
+        {
+          "kind": "repair-all",
+          "time": 67.19999999999747
+        }
+      ],
+      "rivalDuringService": 3615.917378701588,
+      "issues": []
+    },
+    {
+      "city": "chicago",
+      "mode": "pits",
+      "difficulty": 0,
+      "carIndex": 2,
+      "outcome": "finished",
+      "elapsed": 341.75000000001785,
+      "laps": 3,
+      "progressLaps": 3.000142996180743,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 69.86905779145702,
+      "damage": {
+        "gun": 208.38940252679265,
+        "wheel": 24,
+        "collision": 7.300832857333663,
+        "missile": 143.39190391469452,
+        "ram": 4.796945719067159,
+        "rocket": 37.90429448497994,
+        "laser": 53.72334064281773,
+        "mine": 373,
+        "beam": 60
+      },
+      "events": {
+        "shot": 261,
+        "hit": 123,
+        "explosion": 23,
+        "tyres": 19,
+        "service": 7,
+        "wreck": 3
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 49.51666666666514
+        },
+        {
+          "kind": "ammo",
+          "time": 51.53333333333169
+        },
+        {
+          "kind": "rocket",
+          "time": 53.54999999999824
+        },
+        {
+          "kind": "missile",
+          "time": 55.566666666664794
+        },
+        {
+          "kind": "mine",
+          "time": 57.583333333331346
+        },
+        {
+          "kind": "caltrop",
+          "time": 59.5999999999979
+        },
+        {
+          "kind": "repair-all",
+          "time": 64.61666666666429
+        }
+      ],
+      "rivalDuringService": 3683.278223340839,
+      "issues": []
+    },
+    {
+      "city": "orlando",
+      "mode": "pits",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 420.6166666666128,
+      "laps": 3,
+      "progressLaps": 3.000040537527494,
+      "position": 8,
+      "finished": 8,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        0,
+        2,
+        2,
+        0,
+        1,
+        1,
+        1,
+        0,
+        2
+      ],
+      "autoRestarts": 3,
+      "landings": [
+        3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        1,
+        3,
+        0
+      ],
+      "fuel": 63.42258014047759,
+      "damage": {
+        "gun": 456.86572096781305,
+        "wheel": 27,
+        "collision": 2.2779593804610236,
+        "laser": 380.62684802823395,
+        "beam": 300,
+        "missile": 312.5807343133557,
+        "rocket": 124.11721903240813,
+        "mine": 422.11360516576525,
+        "ram": 8.904990326124121
+      },
+      "events": {
+        "shot": 390,
+        "hit": 274,
+        "explosion": 32,
+        "tyres": 18,
+        "wreck": 10,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 92.26666666666272
+        },
+        {
+          "kind": "ammo",
+          "time": 94.28333333332927
+        },
+        {
+          "kind": "rocket",
+          "time": 96.29999999999582
+        },
+        {
+          "kind": "missile",
+          "time": 98.31666666666237
+        },
+        {
+          "kind": "mine",
+          "time": 100.33333333332892
+        },
+        {
+          "kind": "caltrop",
+          "time": 102.34999999999548
+        },
+        {
+          "kind": "repair-all",
+          "time": 107.36666666666186
+        }
+      ],
+      "rivalDuringService": 4292.474261718136,
+      "issues": []
+    },
+    {
+      "city": "bay_area",
+      "mode": "pits",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 390.3666666666403,
+      "laps": 3,
+      "progressLaps": 3.0000847768557195,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      "autoRestarts": 3,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "fuel": 66.88139976749811,
+      "damage": {
+        "gun": 433.205510249688,
+        "wheel": 26,
+        "collision": 5.601604576263451,
+        "laser": 161,
+        "missile": 189.5107902700318,
+        "ram": 16.172165869415846,
+        "beam": 337.4165329983856,
+        "mine": 460,
+        "rocket": 80.81942021430089
+      },
+      "events": {
+        "shot": 345,
+        "hit": 257,
+        "explosion": 29,
+        "wreck": 6,
+        "tyres": 12,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 85.53333333332976
+        },
+        {
+          "kind": "ammo",
+          "time": 87.54999999999632
+        },
+        {
+          "kind": "rocket",
+          "time": 89.56666666666287
+        },
+        {
+          "kind": "missile",
+          "time": 91.58333333332942
+        },
+        {
+          "kind": "mine",
+          "time": 93.59999999999597
+        },
+        {
+          "kind": "caltrop",
+          "time": 95.61666666666252
+        },
+        {
+          "kind": "repair-all",
+          "time": 100.6333333333289
+        }
+      ],
+      "rivalDuringService": 3675.2104209481695,
+      "issues": []
+    },
+    {
+      "city": "phoenix",
+      "mode": "pits",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 326.0500000000321,
+      "laps": 3,
+      "progressLaps": 3.000014275378389,
+      "position": 8,
+      "finished": 8,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        6,
+        4,
+        0,
+        0,
+        4,
+        5,
+        4,
+        6,
+        6,
+        6
+      ],
+      "fuel": 71.84969333974814,
+      "damage": {
+        "gun": 332,
+        "wheel": 26,
+        "collision": 3.2731446608259125,
+        "laser": 147,
+        "missile": 141.3407305554603,
+        "mine": 400,
+        "beam": 119.58117568777507,
+        "ram": 4.08387511143899
+      },
+      "events": {
+        "shot": 286,
+        "hit": 187,
+        "explosion": 23,
+        "tyres": 14,
+        "wreck": 2,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 67.06666666666415
+        },
+        {
+          "kind": "ammo",
+          "time": 69.0833333333307
+        },
+        {
+          "kind": "rocket",
+          "time": 71.09999999999725
+        },
+        {
+          "kind": "missile",
+          "time": 73.1166666666638
+        },
+        {
+          "kind": "mine",
+          "time": 75.13333333333036
+        },
+        {
+          "kind": "caltrop",
+          "time": 77.14999999999691
+        },
+        {
+          "kind": "repair-all",
+          "time": 82.16666666666329
+        }
+      ],
+      "rivalDuringService": 3865.0948109214023,
+      "issues": []
+    },
+    {
+      "city": "nyc",
+      "mode": "pits",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 314.2333333333762,
+      "laps": 3,
+      "progressLaps": 3.0000965974646747,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "autoRestarts": 3,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 74.1096965511312,
+      "damage": {
+        "gun": 340.316091093277,
+        "wheel": 34,
+        "collision": 9.780284578578199,
+        "ram": 15.509917509233357,
+        "laser": 148.7777763750923,
+        "beam": 140,
+        "missile": 194.14858688986033,
+        "rocket": 84.26855132069176,
+        "mine": 436.76019042980704
+      },
+      "events": {
+        "shot": 280,
+        "hit": 208,
+        "explosion": 29,
+        "wreck": 4,
+        "tyres": 14,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 82.16666666666329
+        },
+        {
+          "kind": "ammo",
+          "time": 84.18333333332984
+        },
+        {
+          "kind": "rocket",
+          "time": 86.1999999999964
+        },
+        {
+          "kind": "missile",
+          "time": 88.21666666666295
+        },
+        {
+          "kind": "mine",
+          "time": 90.2333333333295
+        },
+        {
+          "kind": "caltrop",
+          "time": 92.24999999999605
+        },
+        {
+          "kind": "repair-all",
+          "time": 97.26666666666243
+        }
+      ],
+      "rivalDuringService": 4234.447366139904,
+      "issues": []
+    },
+    {
+      "city": "st_louis",
+      "mode": "pits",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 277.5666666667429,
+      "laps": 3,
+      "progressLaps": 3.000012175480255,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 3,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 78.85417724527963,
+      "damage": {
+        "gun": 255,
+        "wheel": 17,
+        "collision": 2.758984902076409,
+        "laser": 210,
+        "rocket": 77.11388121999582,
+        "missile": 108.3703758202023,
+        "beam": 115.6205075489618,
+        "mine": 393,
+        "ram": 2.8587536783299408
+      },
+      "events": {
+        "shot": 266,
+        "hit": 167,
+        "explosion": 25,
+        "tyres": 13,
+        "wreck": 4,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 73.86666666666376
+        },
+        {
+          "kind": "ammo",
+          "time": 75.88333333333031
+        },
+        {
+          "kind": "rocket",
+          "time": 77.89999999999687
+        },
+        {
+          "kind": "missile",
+          "time": 79.91666666666342
+        },
+        {
+          "kind": "mine",
+          "time": 81.93333333332997
+        },
+        {
+          "kind": "caltrop",
+          "time": 83.94999999999652
+        },
+        {
+          "kind": "repair-all",
+          "time": 88.9666666666629
+        }
+      ],
+      "rivalDuringService": 3780.2593218814927,
+      "issues": []
+    },
+    {
+      "city": "la",
+      "mode": "pits",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 357.5833333333368,
+      "laps": 3,
+      "progressLaps": 3.000028962036489,
+      "position": 7,
+      "finished": 7,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        1,
+        2,
+        1,
+        0,
+        2,
+        0,
+        2,
+        3,
+        1,
+        0
+      ],
+      "fuel": 62.006850552760646,
+      "damage": {
+        "gun": 234.62202465610198,
+        "wheel": 41,
+        "collision": 4.560631197605207,
+        "laser": 115.71968440119738,
+        "missile": 189.8477189083921,
+        "beam": 140,
+        "rocket": 77.41209821289016,
+        "mine": 380,
+        "ram": 14.101699334576837
+      },
+      "events": {
+        "shot": 293,
+        "hit": 177,
+        "explosion": 25,
+        "service": 7,
+        "tyres": 14,
+        "wreck": 3
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 28.016666666666357
+        },
+        {
+          "kind": "ammo",
+          "time": 30.03333333333291
+        },
+        {
+          "kind": "rocket",
+          "time": 32.049999999999464
+        },
+        {
+          "kind": "missile",
+          "time": 34.066666666666016
+        },
+        {
+          "kind": "mine",
+          "time": 36.08333333333257
+        },
+        {
+          "kind": "caltrop",
+          "time": 38.09999999999912
+        },
+        {
+          "kind": "repair-all",
+          "time": 43.1166666666655
+        }
+      ],
+      "rivalDuringService": 3719.598462297552,
+      "issues": []
+    },
+    {
+      "city": "seattle",
+      "mode": "pits",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 396.43333333330145,
+      "laps": 3,
+      "progressLaps": 3.0000455162201454,
+      "position": 8,
+      "finished": 8,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "autoRestarts": 3,
+      "landings": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "fuel": 67.68704582157817,
+      "damage": {
+        "gun": 377.59515436781624,
+        "wheel": 23,
+        "collision": 2.3431127821056457,
+        "missile": 269.01919734930226,
+        "ram": 4.4519849784809775,
+        "beam": 180,
+        "laser": 119,
+        "mine": 399.32933065938755,
+        "rocket": 39.452542622628194
+      },
+      "events": {
+        "shot": 316,
+        "hit": 201,
+        "explosion": 27,
+        "tyres": 16,
+        "wreck": 5,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 97.31666666666243
+        },
+        {
+          "kind": "ammo",
+          "time": 99.33333333332898
+        },
+        {
+          "kind": "rocket",
+          "time": 101.34999999999553
+        },
+        {
+          "kind": "missile",
+          "time": 103.36666666666208
+        },
+        {
+          "kind": "mine",
+          "time": 105.38333333332864
+        },
+        {
+          "kind": "caltrop",
+          "time": 107.39999999999519
+        },
+        {
+          "kind": "repair-all",
+          "time": 112.41666666666157
+        }
+      ],
+      "rivalDuringService": 3306.524483733985,
+      "issues": []
+    },
+    {
+      "city": "houston",
+      "mode": "pits",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 247.93333333342278,
+      "laps": 3,
+      "progressLaps": 3.0000208050298585,
+      "position": 9,
+      "finished": 9,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 82.61232569204384,
+      "damage": {
+        "gun": 370.0555834196105,
+        "wheel": 19,
+        "collision": 0.6675945919240616,
+        "laser": 224,
+        "missile": 157.65706139627636,
+        "beam": 80,
+        "mine": 440,
+        "rocket": 101.050242792715,
+        "ram": 4.880089238192067
+      },
+      "events": {
+        "shot": 282,
+        "hit": 194,
+        "explosion": 29,
+        "tyres": 21,
+        "service": 7,
+        "wreck": 5
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 55.716666666664786
+        },
+        {
+          "kind": "ammo",
+          "time": 57.73333333333134
+        },
+        {
+          "kind": "rocket",
+          "time": 59.74999999999789
+        },
+        {
+          "kind": "missile",
+          "time": 61.76666666666444
+        },
+        {
+          "kind": "mine",
+          "time": 63.783333333330994
+        },
+        {
+          "kind": "caltrop",
+          "time": 65.79999999999755
+        },
+        {
+          "kind": "repair-all",
+          "time": 70.81666666666393
+        }
+      ],
+      "rivalDuringService": 3167.0200224188566,
+      "issues": []
+    },
+    {
+      "city": "boston",
+      "mode": "pits",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 275.600000000078,
+      "laps": 3,
+      "progressLaps": 3.0002624205649435,
+      "position": 10,
+      "finished": 10,
+      "wrecked": 0,
+      "recoveries": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "autoRestarts": 3,
+      "landings": [
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "fuel": 73.15744914802602,
+      "damage": {
+        "gun": 465.2683663427895,
+        "wheel": 18,
+        "collision": 8.541110326096648,
+        "laser": 210,
+        "beam": 80,
+        "missile": 159.0610527462701,
+        "ram": 7.942107342538884,
+        "mine": 399
+      },
+      "events": {
+        "shot": 332,
+        "hit": 215,
+        "explosion": 25,
+        "wreck": 4,
+        "tyres": 17,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 53.48333333333158
+        },
+        {
+          "kind": "ammo",
+          "time": 55.49999999999813
+        },
+        {
+          "kind": "rocket",
+          "time": 57.51666666666468
+        },
+        {
+          "kind": "missile",
+          "time": 59.533333333331235
+        },
+        {
+          "kind": "mine",
+          "time": 61.54999999999779
+        },
+        {
+          "kind": "caltrop",
+          "time": 63.56666666666434
+        },
+        {
+          "kind": "repair-all",
+          "time": 68.58333333333073
+        }
+      ],
+      "rivalDuringService": 3930.724541212474,
+      "issues": []
+    },
+    {
+      "city": "chicago",
+      "mode": "pits",
+      "difficulty": 3,
+      "carIndex": 0,
+      "outcome": "finished",
+      "elapsed": 316.300000000041,
+      "laps": 3,
+      "progressLaps": 3.000182098545038,
+      "position": 6,
+      "finished": 6,
+      "wrecked": 0,
+      "recoveries": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "autoRestarts": 2,
+      "landings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fuel": 70.28716910256163,
+      "damage": {
+        "gun": 812.9416899738253,
+        "wheel": 39,
+        "collision": 5.421691264633703,
+        "missile": 212.91189575338558,
+        "rocket": 62.829149469164605,
+        "laser": 244.65837474227624,
+        "mine": 340,
+        "beam": 220,
+        "ram": 12.862842873046656
+      },
+      "events": {
+        "shot": 461,
+        "hit": 365,
+        "explosion": 23,
+        "tyres": 20,
+        "wreck": 6,
+        "service": 7
+      },
+      "pitStage": "done",
+      "pitAttempts": 1,
+      "services": [
+        {
+          "kind": "fuel",
+          "time": 40.733333333332304
+        },
+        {
+          "kind": "ammo",
+          "time": 42.749999999998856
+        },
+        {
+          "kind": "rocket",
+          "time": 44.76666666666541
+        },
+        {
+          "kind": "missile",
+          "time": 46.78333333333196
+        },
+        {
+          "kind": "mine",
+          "time": 48.79999999999851
+        },
+        {
+          "kind": "caltrop",
+          "time": 50.816666666665064
+        },
+        {
+          "kind": "repair-all",
+          "time": 55.833333333331446
+        }
+      ],
+      "rivalDuringService": 2951.456641369089,
+      "issues": []
+    }
+  ]
+}
